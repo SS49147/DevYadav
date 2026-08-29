@@ -1,51 +1,59 @@
-# Validation Record
+# Execution Results
 
-The project was validated on Docker Desktop 4.68.0 with Docker Engine 29.3.1.
-
-## Automated tests
+## 1. Automated tests
 
 ```text
 .....                                                                    [100%]
 5 passed
 ```
 
-The tests cover the health endpoint, favicon response, full API CRUD flow, input validation, and invalid or unknown identifiers.
-
-## Container health
+## 2. Container status
 
 ```text
+Active project containers
+------------------------------------------------------------------------
 assignment1-flask-app        status=running    health=healthy
 assignment1-mongodb          status=running    health=healthy
 ```
 
-## Custom network
-
-The Docker SDK manager created `assignment1-network` with the bridge driver. Network inspection confirmed that both containers received addresses on the same `172.18.0.0/16` subnet and could communicate by container name.
-
-## CRUD verification
-
-The live API completed every required operation successfully:
+## 3. Network inspection
 
 ```text
-Create:  HTTP 201
-Read:    HTTP 200
-Update:  HTTP 200
-Delete:  HTTP 204
-Health:  healthy
+Network : assignment1-network
+Driver  : bridge
+Subnet  : 172.18.0.0/16
+
+assignment1-mongodb   172.18.0.2
+assignment1-flask-app 172.18.0.3
 ```
 
-The browser form was also used to create and delete an inventory item. The page produced no browser-console errors or warnings.
+Both containers were attached to the same custom network. The Flask application connected to MongoDB using the database container name.
 
-## Persistence verification
-
-An inventory record was created before removing both containers and the custom network. The named volume `assignment1-mongo-data` was preserved. After recreating the complete stack, the same record and MongoDB identifier were retrieved successfully.
-
-## Automatic recovery verification
-
-The health monitor was run at a three-second interval. The Flask container was deliberately stopped. The monitor detected `status=exited` and `health=unhealthy`, restarted the container, emitted an alert, and subsequently observed `health=healthy`.
+## 4. CRUD result
 
 ```text
+Create item : HTTP 201
+Read item   : HTTP 200
+Update item : HTTP 200
+Delete item : HTTP 204
+Health      : healthy
+```
+
+The CRUD operations were checked through the API and through the browser forms.
+
+## 5. Volume result
+
+An item was inserted before removing both containers and the bridge network. The containers were then recreated while keeping `assignment1-mongo-data`. The same item and MongoDB identifier were present after startup, confirming that the volume retained the database.
+
+## 6. Health-monitor result
+
+The Flask container was stopped manually while the monitor was running.
+
+```text
+Flask container status=exited health=unhealthy
 Flask container is unhealthy; restarting 'assignment1-flask-app'.
 ALERT: 'assignment1-flask-app' was restarted. Current health=starting
-Flask container is healthy; no action required.
+Flask container status=running health=healthy
 ```
+
+The monitor restarted the container and the application returned to a healthy state.

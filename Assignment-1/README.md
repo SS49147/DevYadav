@@ -1,35 +1,43 @@
-# Dockerized Multi-Container Inventory Application
+# Assignment 1: Dockerized Multi-Container Web Application
 
-This project implements a Flask CRUD web application backed by MongoDB. The services run in separate Docker containers, communicate through a custom bridge network, and retain database records in a named Docker volume. Python scripts manage the Docker resources and monitor application health.
+## Aim
+
+To develop a Python web application with CRUD operations, run the application and database in separate Docker containers, connect them using a custom bridge network, and manage the containers using the Docker SDK for Python.
+
+## Application selected
+
+The selected application is a small inventory system. Each item contains a name, description and quantity. The browser page and the REST API both support Create, Read, Update and Delete operations.
+
+MongoDB was used instead of SQLite because the assignment requires the database to run as a separate container. MongoDB also makes it straightforward to demonstrate container-to-container communication and volume persistence.
+
+## Tools used
+
+- Python and Flask
+- MongoDB
+- Docker and Docker volumes
+- Docker SDK for Python
+- HTML and CSS
+- Pytest and Mongomock
 
 ## Architecture
 
 ```text
 Browser
    |
-   | http://localhost:5000
+   | localhost:5000
    v
-Flask container  <---- custom bridge network ---->  MongoDB container
+Flask container -------- assignment1-network -------- MongoDB container
                                                         |
                                                         v
-                                              named persistent volume
+                                             assignment1-mongo-data
 ```
 
-## Requirements covered
+The browser communicates only with Flask. Flask connects to MongoDB using the database container name `assignment1-mongodb`. MongoDB stores its files in the named volume `assignment1-mongo-data`, so the records are not lost when the containers are removed.
 
-- Flask web application with Create, Read, Update, and Delete operations
-- Separate Flask and MongoDB containers
-- Dockerfile for the Flask application
-- Persistent MongoDB named volume
-- Custom bridge network created and inspected using the Docker SDK for Python
-- Python-based container listing and application health monitoring
-- Automatic Flask-container restart and console/file alert when unhealthy
-- Browser interface and JSON API
-
-## Project structure
+## Files
 
 ```text
-assignment-1/
+Assignment-1/
 |-- app/
 |   |-- app.py
 |   |-- Dockerfile
@@ -44,150 +52,142 @@ assignment-1/
 |   |-- test_app.py
 |   `-- requirements.txt
 |-- compose.yaml
+|-- RESULTS.md
 `-- README.md
 ```
 
-## Recommended setup: Docker SDK script
+## Running the project
 
-The commands below work in PowerShell, Command Prompt, Linux, and macOS terminals after activating the appropriate Python environment.
+The following commands are written for PowerShell. Docker Desktop must be running before executing them.
 
-1. Start Docker Desktop or the Docker daemon.
-2. Create a Python virtual environment and install the Docker SDK:
-
-```bash
-python -m venv .venv
-```
-
-PowerShell activation:
+Create and activate a virtual environment:
 
 ```powershell
+python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+pip install -r scripts\requirements.txt
 ```
 
-Linux/macOS activation:
+Build the Flask image and start both containers:
 
-```bash
-source .venv/bin/activate
+```powershell
+python scripts\docker_manager.py up
 ```
 
-Install the script dependency and start the stack:
+The script performs these operations using the Docker SDK:
 
-```bash
-pip install -r scripts/requirements.txt
-python scripts/docker_manager.py up
-```
+1. Creates the `assignment1-network` bridge network.
+2. Creates or reuses the `assignment1-mongo-data` volume.
+3. Starts the MongoDB container.
+4. Builds the Flask image from `app/Dockerfile`.
+5. Starts the Flask container on port 5000.
+6. Prints the container status and health.
 
-Open `http://localhost:5000` and add, edit, and delete inventory items.
+Open the application at <http://localhost:5000>.
 
-## Docker management commands
+## CRUD operations
 
-Inspect both containers and their health states:
+The web page provides forms for adding, viewing, editing and deleting inventory items. The same operations are available through the API.
 
-```bash
-python scripts/docker_manager.py status
-```
-
-Inspect the custom bridge network and connected container IP addresses:
-
-```bash
-python scripts/docker_manager.py inspect
-```
-
-Rebuild the Flask image after changing application code:
-
-```bash
-python scripts/docker_manager.py up --rebuild
-```
-
-Remove the two containers and custom network while keeping database data:
-
-```bash
-python scripts/docker_manager.py down
-```
-
-Permanently delete the database volume as well:
-
-```bash
-python scripts/docker_manager.py down --remove-volume
-```
-
-The last command deletes all stored application records.
-
-## Health monitoring
-
-Run one check:
-
-```bash
-python scripts/health_monitor.py --once
-```
-
-Continuously check every 15 seconds:
-
-```bash
-python scripts/health_monitor.py --interval 15
-```
-
-The monitor lists active project containers and reads the Flask container's Docker health state. If the container is stopped or unhealthy, it restarts it and writes an alert to both the terminal and `health-monitor.log`.
-
-Press `Ctrl+C` to stop continuous monitoring.
-
-## Alternative startup with Docker Compose
-
-The SDK-based manager is the primary implementation. Compose is included as a convenient alternative:
-
-```bash
-docker compose up --build -d
-docker compose ps
-docker compose down
-```
-
-`docker compose down` preserves the named volume. Add `-v` only when the database data should be deleted.
-
-## JSON API
-
-| Method | Endpoint | Operation |
+| Method | URL | Operation |
 |---|---|---|
-| `GET` | `/api/items` | List all items |
 | `POST` | `/api/items` | Create an item |
+| `GET` | `/api/items` | Read all items |
 | `GET` | `/api/items/<id>` | Read one item |
 | `PUT` | `/api/items/<id>` | Update an item |
 | `DELETE` | `/api/items/<id>` | Delete an item |
-| `GET` | `/health` | Verify Flask and MongoDB health |
+| `GET` | `/health` | Check Flask and MongoDB |
 
-Example API request:
+Example:
 
-```bash
-curl -X POST http://localhost:5000/api/items \
-  -H "Content-Type: application/json" \
-  -d '{"name":"USB-C hub","description":"Eight port hub","quantity":3}'
+```powershell
+$body = '{"name":"Keyboard","description":"Lab keyboard","quantity":2}'
+Invoke-RestMethod -Method Post -Uri http://localhost:5000/api/items -ContentType application/json -Body $body
 ```
 
-## Run automated tests
+## Inspecting the containers and network
 
-Install the application and test dependencies, then run pytest:
+```powershell
+python scripts\docker_manager.py status
+python scripts\docker_manager.py inspect
+```
 
-```bash
-pip install -r app/requirements.txt -r tests/requirements.txt
+The status command lists the Flask and MongoDB containers with their Docker health values. The inspect command prints the bridge driver, subnet and IP address assigned to each container.
+
+## Health monitoring
+
+Run the monitor in a separate terminal:
+
+```powershell
+python scripts\health_monitor.py --interval 5
+```
+
+The script lists active project containers and checks `assignment1-flask-app`. If the container is stopped or Docker reports it as unhealthy, the script restarts it and writes the event to the terminal and `health-monitor.log`.
+
+To demonstrate the recovery, stop the Flask container from another terminal:
+
+```powershell
+docker stop assignment1-flask-app
+```
+
+Within the selected interval, the monitor detects the stopped container and starts it again.
+
+## Data persistence demonstration
+
+1. Add an inventory item from the browser.
+2. Remove the containers and network without deleting the volume:
+
+```powershell
+python scripts\docker_manager.py down
+```
+
+3. Recreate the containers:
+
+```powershell
+python scripts\docker_manager.py up
+```
+
+4. Refresh the browser. The previously added item remains because the MongoDB volume was preserved.
+
+To remove the stored data as well, use:
+
+```powershell
+python scripts\docker_manager.py down --remove-volume
+```
+
+## Tests
+
+```powershell
+pip install -r app\requirements.txt -r tests\requirements.txt
 pytest -q
 ```
 
-The tests exercise the health and favicon endpoints, the complete API CRUD flow, input validation, and invalid identifiers using an isolated in-memory MongoDB substitute. See `VALIDATION.md` for the completed runtime checks.
+Five tests cover the health endpoint, browser favicon request, CRUD API, invalid data and invalid MongoDB identifiers. The completed execution results are recorded in [RESULTS.md](RESULTS.md).
 
-## Demonstration checklist
+## Problems encountered and fixes
 
-1. Run `python scripts/docker_manager.py up` and open the application.
-2. Create an item and refresh the page to show it was stored.
-3. Update its name or quantity, then delete another item.
-4. Run `python scripts/docker_manager.py inspect` to show both containers attached to the custom bridge network.
-5. Run `python scripts/docker_manager.py status` to show Docker health states.
-6. Restart the stack without deleting the volume and show that the saved item still exists.
-7. Run `python scripts/health_monitor.py --interval 5`.
-8. In a second terminal, simulate a failure with `docker stop assignment1-flask-app`. The monitor detects the stopped container, restarts it, and records an alert.
+### Flask could not reach MongoDB through localhost
 
-## Troubleshooting
+`localhost` inside the Flask container refers to the Flask container itself. The connection string was changed to `mongodb://assignment1-mongodb:27017/assignment1`, where `assignment1-mongodb` is resolved through the custom Docker network.
 
-- **Cannot connect to Docker:** Start Docker Desktop or the Docker daemon and retry.
-- **Port 5000 is already in use:** Stop the conflicting process or change `5000` on the host side of the port mapping.
-- **Web container remains unhealthy:** Run `docker logs assignment1-flask-app` and `docker logs assignment1-mongodb`.
-- **Database name resolution fails:** Run the network inspection command and confirm both named containers appear.
-- **PowerShell blocks virtual-environment activation:** Use the environment's Python directly, for example `.\.venv\Scripts\python.exe scripts\docker_manager.py up`.
+### Records disappeared after removing the database container
+
+The initial database files existed only inside the MongoDB container. A named volume was mounted at `/data/db`, which keeps the data independent of the container lifecycle.
+
+### Application health remained in the starting state
+
+The Flask health endpoint now sends a ping to MongoDB. Docker uses this endpoint as the container `HEALTHCHECK`, with a startup period to allow the database service to become ready.
+
+### Docker build output failed on some Windows terminals
+
+Some pip progress characters were not supported by the Windows console encoding. The Docker manager replaces unsupported build-output characters before printing them, without changing the build itself.
+
+## Stopping the project
+
+Use the following command to remove the two project containers and their network while retaining MongoDB data:
+
+```powershell
+python scripts\docker_manager.py down
+```
+
+`compose.yaml` is also included as an alternative way to run the same two services with `docker compose up --build -d`.
