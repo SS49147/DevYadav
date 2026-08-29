@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request error</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="error-page panel" role="alert">
+    <p class="eyebrow">Request could not be completed</p>
+    <h1>{{ message }}</h1>
+    <a class="button-link" href="{{ url_for('index') }}">Return to inventory</a>
+  </main>
+</body>
+</html>

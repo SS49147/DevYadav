@@ -1,0 +1,39 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: assignment1-mongodb
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - assignment1-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  web:
+    build: ./app
+    image: assignment1-flask:latest
+    container_name: assignment1-flask-app
+    restart: unless-stopped
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/assignment1
+    ports:
+      - "5000:5000"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - assignment1-network
+
+volumes:
+  mongo-data:
+    name: assignment1-mongo-data
+
+networks:
+  assignment1-network:
+    name: assignment1-network
+    driver: bridge
