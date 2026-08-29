@@ -164,23 +164,9 @@ pytest -q
 
 Five tests cover the health endpoint, browser favicon request, CRUD API, invalid data and invalid MongoDB identifiers. The completed execution results are recorded in [RESULTS.md](RESULTS.md).
 
-## Problems encountered and fixes
+## Observation
 
-### Flask could not reach MongoDB through localhost
-
-`localhost` inside the Flask container refers to the Flask container itself. The connection string was changed to `mongodb://assignment1-mongodb:27017/assignment1`, where `assignment1-mongodb` is resolved through the custom Docker network.
-
-### Records disappeared after removing the database container
-
-The initial database files existed only inside the MongoDB container. A named volume was mounted at `/data/db`, which keeps the data independent of the container lifecycle.
-
-### Application health remained in the starting state
-
-The Flask health endpoint now sends a ping to MongoDB. Docker uses this endpoint as the container `HEALTHCHECK`, with a startup period to allow the database service to become ready.
-
-### Docker build output failed on some Windows terminals
-
-Some pip progress characters were not supported by the Windows console encoding. The Docker manager replaces unsupported build-output characters before printing them, without changing the build itself.
+The Flask container connects to MongoDB using the container name `assignment1-mongodb` instead of `localhost`, because both services run in separate containers. The database files are stored in the named volume `assignment1-mongo-data`, which keeps the records available when the containers are recreated.
 
 ## Stopping the project
 
