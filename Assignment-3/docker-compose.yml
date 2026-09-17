@@ -1,0 +1,91 @@
+services:
+  ai-service:
+    image: urmsandeep/ai-artistic-style-service:latest
+    container_name: visualcraft-ai-service
+    restart: always
+    expose:
+      - "5001"
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - visualcraft
+
+  api:
+    build: ./proxy
+    container_name: visualcraft-api
+    restart: always
+    environment:
+      UPSTREAM_URL: http://ai-service:5001/styleTransfer
+      UPSTREAM_HOST: ai-service
+      UPSTREAM_PORT: "5001"
+    ports:
+      - "5001:5001"
+    depends_on:
+      - ai-service
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5001/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - visualcraft
+
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    container_name: visualcraft-prometheus
+    restart: always
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - visualcraft
+
+  grafana:
+    image: grafana/grafana:12.1.1
+    container_name: visualcraft-grafana
+    restart: always
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - visualcraft
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.52.1
+    container_name: visualcraft-cadvisor
+    restart: always
+    privileged: true
+    devices:
+      - /dev/kmsg:/dev/kmsg
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+    networks:
+      - visualcraft
+
+networks:
+  visualcraft:
+    name: visualcraft-network
+
+volumes:
+  prometheus-data:
+  grafana-data:

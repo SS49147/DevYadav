@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: treasurebook-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: treasurebook-api
+  template:
+    metadata:
+      labels:
+        app: treasurebook-api
+    spec:
+      containers:
+        - name: api
+          image: treasurebook-api:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGO_URI
+              value: mongodb://mongodb:27017/treasurebook
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 6
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 200m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: treasurebook-api
+spec:
+  type: NodePort
+  selector:
+    app: treasurebook-api
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 30500
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: treasurebook-api
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: treasurebook-api
+  minReplicas: 3
+  maxReplicas: 10
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 5

@@ -1,0 +1,26 @@
+name: Assignment 3 CI
+
+on:
+  push:
+    paths:
+      - "Assignment-3/**"
+      - ".github/workflows/assignment-3.yml"
+  pull_request:
+    paths:
+      - "Assignment-3/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Assignment-3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r proxy/requirements.txt -r tests/requirements.txt
+      - run: pytest -q
+      - run: docker compose config --quiet
+      - run: docker build -t visualcraft-metrics-proxy:test proxy
