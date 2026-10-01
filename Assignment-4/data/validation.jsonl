@@ -1,0 +1,42 @@
+{"text": "Applications are open for Artificial Intelligence.", "entities": [{"start": 26, "end": 49, "label": "COURSE"}]}
+{"text": "Available electives include Artificial Intelligence and Information Security.", "entities": [{"start": 28, "end": 51, "label": "COURSE"}, {"start": 56, "end": 76, "label": "COURSE"}]}
+{"text": "My department introduced Artificial Intelligence this year.", "entities": [{"start": 25, "end": 48, "label": "COURSE"}]}
+{"text": "I want to study Artificial Intelligence after finishing Information Security.", "entities": [{"start": 16, "end": 39, "label": "COURSE"}, {"start": 56, "end": 76, "label": "COURSE"}]}
+{"text": "Applications are open for Applied Statistics.", "entities": [{"start": 26, "end": 44, "label": "COURSE"}]}
+{"text": "Available electives include Applied Statistics and Embedded Systems.", "entities": [{"start": 28, "end": 46, "label": "COURSE"}, {"start": 51, "end": 67, "label": "COURSE"}]}
+{"text": "My department introduced Applied Statistics this year.", "entities": [{"start": 25, "end": 43, "label": "COURSE"}]}
+{"text": "I want to study Applied Statistics after finishing Embedded Systems.", "entities": [{"start": 16, "end": 34, "label": "COURSE"}, {"start": 51, "end": 67, "label": "COURSE"}]}
+{"text": "Applications are open for Robotics.", "entities": [{"start": 26, "end": 34, "label": "COURSE"}]}
+{"text": "Available electives include Robotics and Data Visualization.", "entities": [{"start": 28, "end": 36, "label": "COURSE"}, {"start": 41, "end": 59, "label": "COURSE"}]}
+{"text": "My department introduced Robotics this year.", "entities": [{"start": 25, "end": 33, "label": "COURSE"}]}
+{"text": "I want to study Robotics after finishing Data Visualization.", "entities": [{"start": 16, "end": 24, "label": "COURSE"}, {"start": 41, "end": 59, "label": "COURSE"}]}
+{"text": "Applications are open for Information Security.", "entities": [{"start": 26, "end": 46, "label": "COURSE"}]}
+{"text": "Available electives include Information Security and Marketing Management.", "entities": [{"start": 28, "end": 48, "label": "COURSE"}, {"start": 53, "end": 73, "label": "COURSE"}]}
+{"text": "My department introduced Information Security this year.", "entities": [{"start": 25, "end": 45, "label": "COURSE"}]}
+{"text": "I want to study Information Security after finishing Marketing Management.", "entities": [{"start": 16, "end": 36, "label": "COURSE"}, {"start": 53, "end": 73, "label": "COURSE"}]}
+{"text": "Applications are open for Embedded Systems.", "entities": [{"start": 26, "end": 42, "label": "COURSE"}]}
+{"text": "Available electives include Embedded Systems and Calculus.", "entities": [{"start": 28, "end": 44, "label": "COURSE"}, {"start": 49, "end": 57, "label": "COURSE"}]}
+{"text": "My department introduced Embedded Systems this year.", "entities": [{"start": 25, "end": 41, "label": "COURSE"}]}
+{"text": "I want to study Embedded Systems after finishing Calculus.", "entities": [{"start": 16, "end": 32, "label": "COURSE"}, {"start": 49, "end": 57, "label": "COURSE"}]}
+{"text": "Applications are open for Data Visualization.", "entities": [{"start": 26, "end": 44, "label": "COURSE"}]}
+{"text": "Available electives include Data Visualization and Artificial Intelligence.", "entities": [{"start": 28, "end": 46, "label": "COURSE"}, {"start": 51, "end": 74, "label": "COURSE"}]}
+{"text": "My department introduced Data Visualization this year.", "entities": [{"start": 25, "end": 43, "label": "COURSE"}]}
+{"text": "I want to study Data Visualization after finishing Artificial Intelligence.", "entities": [{"start": 16, "end": 34, "label": "COURSE"}, {"start": 51, "end": 74, "label": "COURSE"}]}
+{"text": "Applications are open for Marketing Management.", "entities": [{"start": 26, "end": 46, "label": "COURSE"}]}
+{"text": "Available electives include Marketing Management and Applied Statistics.", "entities": [{"start": 28, "end": 48, "label": "COURSE"}, {"start": 53, "end": 71, "label": "COURSE"}]}
+{"text": "My department introduced Marketing Management this year.", "entities": [{"start": 25, "end": 45, "label": "COURSE"}]}
+{"text": "I want to study Marketing Management after finishing Applied Statistics.", "entities": [{"start": 16, "end": 36, "label": "COURSE"}, {"start": 53, "end": 71, "label": "COURSE"}]}
+{"text": "Applications are open for Calculus.", "entities": [{"start": 26, "end": 34, "label": "COURSE"}]}
+{"text": "Available electives include Calculus and Robotics.", "entities": [{"start": 28, "end": 36, "label": "COURSE"}, {"start": 41, "end": 49, "label": "COURSE"}]}
+{"text": "My department introduced Calculus this year.", "entities": [{"start": 25, "end": 33, "label": "COURSE"}]}
+{"text": "I want to study Calculus after finishing Robotics.", "entities": [{"start": 16, "end": 24, "label": "COURSE"}, {"start": 41, "end": 49, "label": "COURSE"}]}
+{"text": "The principal welcomed the visitors.", "entities": []}
+{"text": "I borrowed two books from the library.", "entities": []}
+{"text": "The buses leave the campus at four.", "entities": []}
+{"text": "A new sports centre opened this year.", "entities": []}
+{"text": "The department office is closed on Sunday.", "entities": []}
+{"text": "We discussed the weather after lunch.", "entities": []}
+{"text": "She met her friends near the auditorium.", "entities": []}
+{"text": "The notice board has been replaced.", "entities": []}
+{"text": "Campus maintenance starts this weekend.", "entities": []}
+{"text": "The students arranged chairs for the event.", "entities": []}

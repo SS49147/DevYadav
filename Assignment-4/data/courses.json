@@ -1,0 +1,22 @@
+{
+  "description": "Synthetic course catalogue for a token-classification lab; not an official college catalogue.",
+  "train": [
+    "Introduction to Computer Science", "Advanced Mathematics", "Data Structures and Algorithms",
+    "Operating Systems", "Machine Learning", "Database Management Systems", "Computer Networks",
+    "Software Engineering", "Web Development", "Cloud Computing", "DevOps", "Cyber Security",
+    "Discrete Mathematics", "Linear Algebra", "Probability and Statistics", "Digital Electronics",
+    "Computer Architecture", "Theory of Computation", "Compiler Design", "Object Oriented Programming",
+    "Python Programming", "Java Programming", "Business Analytics", "Financial Accounting",
+    "Organic Chemistry", "Engineering Physics", "Environmental Science", "Technical Communication",
+    "Digital Marketing", "Human Resource Management", "Microeconomics", "Electrical Engineering",
+    "Engineering Mechanics", "English Literature", "Graphic Design", "Research Methodology"
+  ],
+  "validation": [
+    "Artificial Intelligence", "Applied Statistics", "Robotics", "Information Security",
+    "Embedded Systems", "Data Visualization", "Marketing Management", "Calculus"
+  ],
+  "test": [
+    "Introduction to Artificial Intelligence", "Deep Learning", "Natural Language Processing",
+    "Software Testing", "Wireless Communication", "Project Management", "Biotechnology", "Numerical Methods"
+  ]
+}

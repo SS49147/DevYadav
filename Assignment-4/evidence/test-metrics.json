@@ -1,0 +1,393 @@
+{
+  "examples": 42,
+  "expected_entities": 48,
+  "predicted_entities": 58,
+  "correct_entities": 44,
+  "precision": 0.7586206896551724,
+  "recall": 0.9166666666666666,
+  "f1": 0.830188679245283,
+  "exact_match_accuracy": 0.8333333333333334,
+  "predictions": [
+    {
+      "text": "The college now teaches Introduction to Artificial Intelligence.",
+      "expected": [
+        "Introduction to Artificial Intelligence"
+      ],
+      "predicted": [
+        "Introduction to",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "text": "Next term I plan to take Introduction to Artificial Intelligence and Software Testing.",
+      "expected": [
+        "Introduction to Artificial Intelligence",
+        "Software Testing"
+      ],
+      "predicted": [
+        "plan to",
+        "Introduction to Artificial Intelligence",
+        "Software Testing"
+      ]
+    },
+    {
+      "text": "Our new course list contains Introduction to Artificial Intelligence, followed by Software Testing.",
+      "expected": [
+        "Introduction to Artificial Intelligence",
+        "Software Testing"
+      ],
+      "predicted": [
+        "Introduction to Artificial Intelligence",
+        "Software Testing"
+      ]
+    },
+    {
+      "text": "Can I register for Introduction to Artificial Intelligence this semester?",
+      "expected": [
+        "Introduction to Artificial Intelligence"
+      ],
+      "predicted": [
+        "Introduction to",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "text": "The college now teaches Deep Learning.",
+      "expected": [
+        "Deep Learning"
+      ],
+      "predicted": [
+        "Deep Learning"
+      ]
+    },
+    {
+      "text": "Next term I plan to take Deep Learning and Wireless Communication.",
+      "expected": [
+        "Deep Learning",
+        "Wireless Communication"
+      ],
+      "predicted": [
+        "Deep Learning",
+        "Wireless Communication"
+      ]
+    },
+    {
+      "text": "Our new course list contains Deep Learning, followed by Wireless Communication.",
+      "expected": [
+        "Deep Learning",
+        "Wireless Communication"
+      ],
+      "predicted": [
+        "Deep Learning",
+        "Wireless Communication"
+      ]
+    },
+    {
+      "text": "Can I register for Deep Learning this semester?",
+      "expected": [
+        "Deep Learning"
+      ],
+      "predicted": [
+        "Deep Learning"
+      ]
+    },
+    {
+      "text": "The college now teaches Natural Language Processing.",
+      "expected": [
+        "Natural Language Processing"
+      ],
+      "predicted": [
+        "Natural Language Processing"
+      ]
+    },
+    {
+      "text": "Next term I plan to take Natural Language Processing and Project Management.",
+      "expected": [
+        "Natural Language Processing",
+        "Project Management"
+      ],
+      "predicted": [
+        "plan to",
+        "Natural Language Processing",
+        "Project Management"
+      ]
+    },
+    {
+      "text": "Our new course list contains Natural Language Processing, followed by Project Management.",
+      "expected": [
+        "Natural Language Processing",
+        "Project Management"
+      ],
+      "predicted": [
+        "Natural Language Processing",
+        "Project Management"
+      ]
+    },
+    {
+      "text": "Can I register for Natural Language Processing this semester?",
+      "expected": [
+        "Natural Language Processing"
+      ],
+      "predicted": [
+        "Natural Language Processing"
+      ]
+    },
+    {
+      "text": "The college now teaches Software Testing.",
+      "expected": [
+        "Software Testing"
+      ],
+      "predicted": [
+        "Software Testing"
+      ]
+    },
+    {
+      "text": "Next term I plan to take Software Testing and Biotechnology.",
+      "expected": [
+        "Software Testing",
+        "Biotechnology"
+      ],
+      "predicted": [
+        "Software Testing",
+        "Biotechnology"
+      ]
+    },
+    {
+      "text": "Our new course list contains Software Testing, followed by Biotechnology.",
+      "expected": [
+        "Software Testing",
+        "Biotechnology"
+      ],
+      "predicted": [
+        "Software Testing",
+        "Biotechnology"
+      ]
+    },
+    {
+      "text": "Can I register for Software Testing this semester?",
+      "expected": [
+        "Software Testing"
+      ],
+      "predicted": [
+        "Software Testing"
+      ]
+    },
+    {
+      "text": "The college now teaches Wireless Communication.",
+      "expected": [
+        "Wireless Communication"
+      ],
+      "predicted": [
+        "Wireless Communication"
+      ]
+    },
+    {
+      "text": "Next term I plan to take Wireless Communication and Numerical Methods.",
+      "expected": [
+        "Wireless Communication",
+        "Numerical Methods"
+      ],
+      "predicted": [
+        "Wireless Communication",
+        "Numerical Methods"
+      ]
+    },
+    {
+      "text": "Our new course list contains Wireless Communication, followed by Numerical Methods.",
+      "expected": [
+        "Wireless Communication",
+        "Numerical Methods"
+      ],
+      "predicted": [
+        "Wireless Communication",
+        "Numerical Methods"
+      ]
+    },
+    {
+      "text": "Can I register for Wireless Communication this semester?",
+      "expected": [
+        "Wireless Communication"
+      ],
+      "predicted": [
+        "Wireless Communication"
+      ]
+    },
+    {
+      "text": "The college now teaches Project Management.",
+      "expected": [
+        "Project Management"
+      ],
+      "predicted": [
+        "Project Management"
+      ]
+    },
+    {
+      "text": "Next term I plan to take Project Management and Introduction to Artificial Intelligence.",
+      "expected": [
+        "Project Management",
+        "Introduction to Artificial Intelligence"
+      ],
+      "predicted": [
+        "plan to",
+        "Project Management",
+        "Introduction to",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "text": "Our new course list contains Project Management, followed by Introduction to Artificial Intelligence.",
+      "expected": [
+        "Project Management",
+        "Introduction to Artificial Intelligence"
+      ],
+      "predicted": [
+        "new course",
+        "Project Management",
+        "Introduction to",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "text": "Can I register for Project Management this semester?",
+      "expected": [
+        "Project Management"
+      ],
+      "predicted": [
+        "Project Management"
+      ]
+    },
+    {
+      "text": "The college now teaches Biotechnology.",
+      "expected": [
+        "Biotechnology"
+      ],
+      "predicted": [
+        "Biotechnology"
+      ]
+    },
+    {
+      "text": "Next term I plan to take Biotechnology and Deep Learning.",
+      "expected": [
+        "Biotechnology",
+        "Deep Learning"
+      ],
+      "predicted": [
+        "Biotechnology",
+        "Deep Learning"
+      ]
+    },
+    {
+      "text": "Our new course list contains Biotechnology, followed by Deep Learning.",
+      "expected": [
+        "Biotechnology",
+        "Deep Learning"
+      ],
+      "predicted": [
+        "Biotechnology",
+        "Deep Learning"
+      ]
+    },
+    {
+      "text": "Can I register for Biotechnology this semester?",
+      "expected": [
+        "Biotechnology"
+      ],
+      "predicted": [
+        "Biotechnology"
+      ]
+    },
+    {
+      "text": "The college now teaches Numerical Methods.",
+      "expected": [
+        "Numerical Methods"
+      ],
+      "predicted": [
+        "Numerical Methods"
+      ]
+    },
+    {
+      "text": "Next term I plan to take Numerical Methods and Natural Language Processing.",
+      "expected": [
+        "Numerical Methods",
+        "Natural Language Processing"
+      ],
+      "predicted": [
+        "Numerical Methods",
+        "Natural Language Processing"
+      ]
+    },
+    {
+      "text": "Our new course list contains Numerical Methods, followed by Natural Language Processing.",
+      "expected": [
+        "Numerical Methods",
+        "Natural Language Processing"
+      ],
+      "predicted": [
+        "Numerical Methods",
+        "Natural Language Processing"
+      ]
+    },
+    {
+      "text": "Can I register for Numerical Methods this semester?",
+      "expected": [
+        "Numerical Methods"
+      ],
+      "predicted": [
+        "Numerical Methods"
+      ]
+    },
+    {
+      "text": "Please submit the application at the reception desk.",
+      "expected": [],
+      "predicted": []
+    },
+    {
+      "text": "The hostel gates close at nine.",
+      "expected": [],
+      "predicted": []
+    },
+    {
+      "text": "I walked to the station this morning.",
+      "expected": [],
+      "predicted": []
+    },
+    {
+      "text": "Staff members attended a planning meeting.",
+      "expected": [],
+      "predicted": []
+    },
+    {
+      "text": "Parking is available behind the main building.",
+      "expected": [],
+      "predicted": []
+    },
+    {
+      "text": "We visited the campus on Tuesday.",
+      "expected": [],
+      "predicted": []
+    },
+    {
+      "text": "The bookstore sells notebooks and pencils.",
+      "expected": [],
+      "predicted": [
+        "notebooks",
+        "pencils"
+      ]
+    },
+    {
+      "text": "The office will send a confirmation email.",
+      "expected": [],
+      "predicted": []
+    },
+    {
+      "text": "The auditorium has two hundred seats.",
+      "expected": [],
+      "predicted": []
+    },
+    {
+      "text": "A notice was posted about the holiday.",
+      "expected": [],
+      "predicted": []
+    }
+  ]
+}

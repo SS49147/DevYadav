@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    image: course-extraction-api:latest
+    container_name: assignment4-course-api
+    ports:
+      - "127.0.0.1:8004:80"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true

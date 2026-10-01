@@ -1,0 +1,442 @@
+{"text": "Introduction to Computer Science", "entities": [{"start": 0, "end": 32, "label": "COURSE"}]}
+{"text": "The college offers Introduction to Computer Science.", "entities": [{"start": 19, "end": 51, "label": "COURSE"}]}
+{"text": "I enrolled in Introduction to Computer Science this semester.", "entities": [{"start": 14, "end": 46, "label": "COURSE"}]}
+{"text": "Students can choose Introduction to Computer Science or Operating Systems.", "entities": [{"start": 20, "end": 52, "label": "COURSE"}, {"start": 56, "end": 73, "label": "COURSE"}]}
+{"text": "Courses available: Introduction to Computer Science, Operating Systems.", "entities": [{"start": 19, "end": 51, "label": "COURSE"}, {"start": 53, "end": 70, "label": "COURSE"}]}
+{"text": "The syllabus includes Introduction to Computer Science and Operating Systems.", "entities": [{"start": 22, "end": 54, "label": "COURSE"}, {"start": 59, "end": 76, "label": "COURSE"}]}
+{"text": "Registration for Introduction to Computer Science closes on Friday.", "entities": [{"start": 17, "end": 49, "label": "COURSE"}]}
+{"text": "She completed Introduction to Computer Science before taking Operating Systems.", "entities": [{"start": 14, "end": 46, "label": "COURSE"}, {"start": 61, "end": 78, "label": "COURSE"}]}
+{"text": "Is Introduction to Computer Science offered this year?", "entities": [{"start": 3, "end": 35, "label": "COURSE"}]}
+{"text": "The brochure lists Introduction to Computer Science; students also study Operating Systems.", "entities": [{"start": 19, "end": 51, "label": "COURSE"}, {"start": 73, "end": 90, "label": "COURSE"}]}
+{"text": "Please add Introduction to Computer Science to my timetable.", "entities": [{"start": 11, "end": 43, "label": "COURSE"}]}
+{"text": "We teach Introduction to Computer Science in the morning and Operating Systems in the afternoon.", "entities": [{"start": 9, "end": 41, "label": "COURSE"}, {"start": 61, "end": 78, "label": "COURSE"}]}
+{"text": "Advanced Mathematics", "entities": [{"start": 0, "end": 20, "label": "COURSE"}]}
+{"text": "The college offers Advanced Mathematics.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}]}
+{"text": "I enrolled in Advanced Mathematics this semester.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}]}
+{"text": "Students can choose Advanced Mathematics or Machine Learning.", "entities": [{"start": 20, "end": 40, "label": "COURSE"}, {"start": 44, "end": 60, "label": "COURSE"}]}
+{"text": "Courses available: Advanced Mathematics, Machine Learning.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 41, "end": 57, "label": "COURSE"}]}
+{"text": "The syllabus includes Advanced Mathematics and Machine Learning.", "entities": [{"start": 22, "end": 42, "label": "COURSE"}, {"start": 47, "end": 63, "label": "COURSE"}]}
+{"text": "Registration for Advanced Mathematics closes on Friday.", "entities": [{"start": 17, "end": 37, "label": "COURSE"}]}
+{"text": "She completed Advanced Mathematics before taking Machine Learning.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}, {"start": 49, "end": 65, "label": "COURSE"}]}
+{"text": "Is Advanced Mathematics offered this year?", "entities": [{"start": 3, "end": 23, "label": "COURSE"}]}
+{"text": "The brochure lists Advanced Mathematics; students also study Machine Learning.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 61, "end": 77, "label": "COURSE"}]}
+{"text": "Please add Advanced Mathematics to my timetable.", "entities": [{"start": 11, "end": 31, "label": "COURSE"}]}
+{"text": "We teach Advanced Mathematics in the morning and Machine Learning in the afternoon.", "entities": [{"start": 9, "end": 29, "label": "COURSE"}, {"start": 49, "end": 65, "label": "COURSE"}]}
+{"text": "Data Structures and Algorithms", "entities": [{"start": 0, "end": 30, "label": "COURSE"}]}
+{"text": "The college offers Data Structures and Algorithms.", "entities": [{"start": 19, "end": 49, "label": "COURSE"}]}
+{"text": "I enrolled in Data Structures and Algorithms this semester.", "entities": [{"start": 14, "end": 44, "label": "COURSE"}]}
+{"text": "Students can choose Data Structures and Algorithms or Database Management Systems.", "entities": [{"start": 20, "end": 50, "label": "COURSE"}, {"start": 54, "end": 81, "label": "COURSE"}]}
+{"text": "Courses available: Data Structures and Algorithms, Database Management Systems.", "entities": [{"start": 19, "end": 49, "label": "COURSE"}, {"start": 51, "end": 78, "label": "COURSE"}]}
+{"text": "The syllabus includes Data Structures and Algorithms and Database Management Systems.", "entities": [{"start": 22, "end": 52, "label": "COURSE"}, {"start": 57, "end": 84, "label": "COURSE"}]}
+{"text": "Registration for Data Structures and Algorithms closes on Friday.", "entities": [{"start": 17, "end": 47, "label": "COURSE"}]}
+{"text": "She completed Data Structures and Algorithms before taking Database Management Systems.", "entities": [{"start": 14, "end": 44, "label": "COURSE"}, {"start": 59, "end": 86, "label": "COURSE"}]}
+{"text": "Is Data Structures and Algorithms offered this year?", "entities": [{"start": 3, "end": 33, "label": "COURSE"}]}
+{"text": "The brochure lists Data Structures and Algorithms; students also study Database Management Systems.", "entities": [{"start": 19, "end": 49, "label": "COURSE"}, {"start": 71, "end": 98, "label": "COURSE"}]}
+{"text": "Please add Data Structures and Algorithms to my timetable.", "entities": [{"start": 11, "end": 41, "label": "COURSE"}]}
+{"text": "We teach Data Structures and Algorithms in the morning and Database Management Systems in the afternoon.", "entities": [{"start": 9, "end": 39, "label": "COURSE"}, {"start": 59, "end": 86, "label": "COURSE"}]}
+{"text": "Operating Systems", "entities": [{"start": 0, "end": 17, "label": "COURSE"}]}
+{"text": "The college offers Operating Systems.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}]}
+{"text": "I enrolled in Operating Systems this semester.", "entities": [{"start": 14, "end": 31, "label": "COURSE"}]}
+{"text": "Students can choose Operating Systems or Computer Networks.", "entities": [{"start": 20, "end": 37, "label": "COURSE"}, {"start": 41, "end": 58, "label": "COURSE"}]}
+{"text": "Courses available: Operating Systems, Computer Networks.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}, {"start": 38, "end": 55, "label": "COURSE"}]}
+{"text": "The syllabus includes Operating Systems and Computer Networks.", "entities": [{"start": 22, "end": 39, "label": "COURSE"}, {"start": 44, "end": 61, "label": "COURSE"}]}
+{"text": "Registration for Operating Systems closes on Friday.", "entities": [{"start": 17, "end": 34, "label": "COURSE"}]}
+{"text": "She completed Operating Systems before taking Computer Networks.", "entities": [{"start": 14, "end": 31, "label": "COURSE"}, {"start": 46, "end": 63, "label": "COURSE"}]}
+{"text": "Is Operating Systems offered this year?", "entities": [{"start": 3, "end": 20, "label": "COURSE"}]}
+{"text": "The brochure lists Operating Systems; students also study Computer Networks.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}, {"start": 58, "end": 75, "label": "COURSE"}]}
+{"text": "Please add Operating Systems to my timetable.", "entities": [{"start": 11, "end": 28, "label": "COURSE"}]}
+{"text": "We teach Operating Systems in the morning and Computer Networks in the afternoon.", "entities": [{"start": 9, "end": 26, "label": "COURSE"}, {"start": 46, "end": 63, "label": "COURSE"}]}
+{"text": "Machine Learning", "entities": [{"start": 0, "end": 16, "label": "COURSE"}]}
+{"text": "The college offers Machine Learning.", "entities": [{"start": 19, "end": 35, "label": "COURSE"}]}
+{"text": "I enrolled in Machine Learning this semester.", "entities": [{"start": 14, "end": 30, "label": "COURSE"}]}
+{"text": "Students can choose Machine Learning or Software Engineering.", "entities": [{"start": 20, "end": 36, "label": "COURSE"}, {"start": 40, "end": 60, "label": "COURSE"}]}
+{"text": "Courses available: Machine Learning, Software Engineering.", "entities": [{"start": 19, "end": 35, "label": "COURSE"}, {"start": 37, "end": 57, "label": "COURSE"}]}
+{"text": "The syllabus includes Machine Learning and Software Engineering.", "entities": [{"start": 22, "end": 38, "label": "COURSE"}, {"start": 43, "end": 63, "label": "COURSE"}]}
+{"text": "Registration for Machine Learning closes on Friday.", "entities": [{"start": 17, "end": 33, "label": "COURSE"}]}
+{"text": "She completed Machine Learning before taking Software Engineering.", "entities": [{"start": 14, "end": 30, "label": "COURSE"}, {"start": 45, "end": 65, "label": "COURSE"}]}
+{"text": "Is Machine Learning offered this year?", "entities": [{"start": 3, "end": 19, "label": "COURSE"}]}
+{"text": "The brochure lists Machine Learning; students also study Software Engineering.", "entities": [{"start": 19, "end": 35, "label": "COURSE"}, {"start": 57, "end": 77, "label": "COURSE"}]}
+{"text": "Please add Machine Learning to my timetable.", "entities": [{"start": 11, "end": 27, "label": "COURSE"}]}
+{"text": "We teach Machine Learning in the morning and Software Engineering in the afternoon.", "entities": [{"start": 9, "end": 25, "label": "COURSE"}, {"start": 45, "end": 65, "label": "COURSE"}]}
+{"text": "Database Management Systems", "entities": [{"start": 0, "end": 27, "label": "COURSE"}]}
+{"text": "The college offers Database Management Systems.", "entities": [{"start": 19, "end": 46, "label": "COURSE"}]}
+{"text": "I enrolled in Database Management Systems this semester.", "entities": [{"start": 14, "end": 41, "label": "COURSE"}]}
+{"text": "Students can choose Database Management Systems or Web Development.", "entities": [{"start": 20, "end": 47, "label": "COURSE"}, {"start": 51, "end": 66, "label": "COURSE"}]}
+{"text": "Courses available: Database Management Systems, Web Development.", "entities": [{"start": 19, "end": 46, "label": "COURSE"}, {"start": 48, "end": 63, "label": "COURSE"}]}
+{"text": "The syllabus includes Database Management Systems and Web Development.", "entities": [{"start": 22, "end": 49, "label": "COURSE"}, {"start": 54, "end": 69, "label": "COURSE"}]}
+{"text": "Registration for Database Management Systems closes on Friday.", "entities": [{"start": 17, "end": 44, "label": "COURSE"}]}
+{"text": "She completed Database Management Systems before taking Web Development.", "entities": [{"start": 14, "end": 41, "label": "COURSE"}, {"start": 56, "end": 71, "label": "COURSE"}]}
+{"text": "Is Database Management Systems offered this year?", "entities": [{"start": 3, "end": 30, "label": "COURSE"}]}
+{"text": "The brochure lists Database Management Systems; students also study Web Development.", "entities": [{"start": 19, "end": 46, "label": "COURSE"}, {"start": 68, "end": 83, "label": "COURSE"}]}
+{"text": "Please add Database Management Systems to my timetable.", "entities": [{"start": 11, "end": 38, "label": "COURSE"}]}
+{"text": "We teach Database Management Systems in the morning and Web Development in the afternoon.", "entities": [{"start": 9, "end": 36, "label": "COURSE"}, {"start": 56, "end": 71, "label": "COURSE"}]}
+{"text": "Computer Networks", "entities": [{"start": 0, "end": 17, "label": "COURSE"}]}
+{"text": "The college offers Computer Networks.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}]}
+{"text": "I enrolled in Computer Networks this semester.", "entities": [{"start": 14, "end": 31, "label": "COURSE"}]}
+{"text": "Students can choose Computer Networks or Cloud Computing.", "entities": [{"start": 20, "end": 37, "label": "COURSE"}, {"start": 41, "end": 56, "label": "COURSE"}]}
+{"text": "Courses available: Computer Networks, Cloud Computing.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}, {"start": 38, "end": 53, "label": "COURSE"}]}
+{"text": "The syllabus includes Computer Networks and Cloud Computing.", "entities": [{"start": 22, "end": 39, "label": "COURSE"}, {"start": 44, "end": 59, "label": "COURSE"}]}
+{"text": "Registration for Computer Networks closes on Friday.", "entities": [{"start": 17, "end": 34, "label": "COURSE"}]}
+{"text": "She completed Computer Networks before taking Cloud Computing.", "entities": [{"start": 14, "end": 31, "label": "COURSE"}, {"start": 46, "end": 61, "label": "COURSE"}]}
+{"text": "Is Computer Networks offered this year?", "entities": [{"start": 3, "end": 20, "label": "COURSE"}]}
+{"text": "The brochure lists Computer Networks; students also study Cloud Computing.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}, {"start": 58, "end": 73, "label": "COURSE"}]}
+{"text": "Please add Computer Networks to my timetable.", "entities": [{"start": 11, "end": 28, "label": "COURSE"}]}
+{"text": "We teach Computer Networks in the morning and Cloud Computing in the afternoon.", "entities": [{"start": 9, "end": 26, "label": "COURSE"}, {"start": 46, "end": 61, "label": "COURSE"}]}
+{"text": "Software Engineering", "entities": [{"start": 0, "end": 20, "label": "COURSE"}]}
+{"text": "The college offers Software Engineering.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}]}
+{"text": "I enrolled in Software Engineering this semester.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}]}
+{"text": "Students can choose Software Engineering or DevOps.", "entities": [{"start": 20, "end": 40, "label": "COURSE"}, {"start": 44, "end": 50, "label": "COURSE"}]}
+{"text": "Courses available: Software Engineering, DevOps.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 41, "end": 47, "label": "COURSE"}]}
+{"text": "The syllabus includes Software Engineering and DevOps.", "entities": [{"start": 22, "end": 42, "label": "COURSE"}, {"start": 47, "end": 53, "label": "COURSE"}]}
+{"text": "Registration for Software Engineering closes on Friday.", "entities": [{"start": 17, "end": 37, "label": "COURSE"}]}
+{"text": "She completed Software Engineering before taking DevOps.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}, {"start": 49, "end": 55, "label": "COURSE"}]}
+{"text": "Is Software Engineering offered this year?", "entities": [{"start": 3, "end": 23, "label": "COURSE"}]}
+{"text": "The brochure lists Software Engineering; students also study DevOps.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 61, "end": 67, "label": "COURSE"}]}
+{"text": "Please add Software Engineering to my timetable.", "entities": [{"start": 11, "end": 31, "label": "COURSE"}]}
+{"text": "We teach Software Engineering in the morning and DevOps in the afternoon.", "entities": [{"start": 9, "end": 29, "label": "COURSE"}, {"start": 49, "end": 55, "label": "COURSE"}]}
+{"text": "Web Development", "entities": [{"start": 0, "end": 15, "label": "COURSE"}]}
+{"text": "The college offers Web Development.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}]}
+{"text": "I enrolled in Web Development this semester.", "entities": [{"start": 14, "end": 29, "label": "COURSE"}]}
+{"text": "Students can choose Web Development or Cyber Security.", "entities": [{"start": 20, "end": 35, "label": "COURSE"}, {"start": 39, "end": 53, "label": "COURSE"}]}
+{"text": "Courses available: Web Development, Cyber Security.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}, {"start": 36, "end": 50, "label": "COURSE"}]}
+{"text": "The syllabus includes Web Development and Cyber Security.", "entities": [{"start": 22, "end": 37, "label": "COURSE"}, {"start": 42, "end": 56, "label": "COURSE"}]}
+{"text": "Registration for Web Development closes on Friday.", "entities": [{"start": 17, "end": 32, "label": "COURSE"}]}
+{"text": "She completed Web Development before taking Cyber Security.", "entities": [{"start": 14, "end": 29, "label": "COURSE"}, {"start": 44, "end": 58, "label": "COURSE"}]}
+{"text": "Is Web Development offered this year?", "entities": [{"start": 3, "end": 18, "label": "COURSE"}]}
+{"text": "The brochure lists Web Development; students also study Cyber Security.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}, {"start": 56, "end": 70, "label": "COURSE"}]}
+{"text": "Please add Web Development to my timetable.", "entities": [{"start": 11, "end": 26, "label": "COURSE"}]}
+{"text": "We teach Web Development in the morning and Cyber Security in the afternoon.", "entities": [{"start": 9, "end": 24, "label": "COURSE"}, {"start": 44, "end": 58, "label": "COURSE"}]}
+{"text": "Cloud Computing", "entities": [{"start": 0, "end": 15, "label": "COURSE"}]}
+{"text": "The college offers Cloud Computing.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}]}
+{"text": "I enrolled in Cloud Computing this semester.", "entities": [{"start": 14, "end": 29, "label": "COURSE"}]}
+{"text": "Students can choose Cloud Computing or Discrete Mathematics.", "entities": [{"start": 20, "end": 35, "label": "COURSE"}, {"start": 39, "end": 59, "label": "COURSE"}]}
+{"text": "Courses available: Cloud Computing, Discrete Mathematics.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}, {"start": 36, "end": 56, "label": "COURSE"}]}
+{"text": "The syllabus includes Cloud Computing and Discrete Mathematics.", "entities": [{"start": 22, "end": 37, "label": "COURSE"}, {"start": 42, "end": 62, "label": "COURSE"}]}
+{"text": "Registration for Cloud Computing closes on Friday.", "entities": [{"start": 17, "end": 32, "label": "COURSE"}]}
+{"text": "She completed Cloud Computing before taking Discrete Mathematics.", "entities": [{"start": 14, "end": 29, "label": "COURSE"}, {"start": 44, "end": 64, "label": "COURSE"}]}
+{"text": "Is Cloud Computing offered this year?", "entities": [{"start": 3, "end": 18, "label": "COURSE"}]}
+{"text": "The brochure lists Cloud Computing; students also study Discrete Mathematics.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}, {"start": 56, "end": 76, "label": "COURSE"}]}
+{"text": "Please add Cloud Computing to my timetable.", "entities": [{"start": 11, "end": 26, "label": "COURSE"}]}
+{"text": "We teach Cloud Computing in the morning and Discrete Mathematics in the afternoon.", "entities": [{"start": 9, "end": 24, "label": "COURSE"}, {"start": 44, "end": 64, "label": "COURSE"}]}
+{"text": "DevOps", "entities": [{"start": 0, "end": 6, "label": "COURSE"}]}
+{"text": "The college offers DevOps.", "entities": [{"start": 19, "end": 25, "label": "COURSE"}]}
+{"text": "I enrolled in DevOps this semester.", "entities": [{"start": 14, "end": 20, "label": "COURSE"}]}
+{"text": "Students can choose DevOps or Linear Algebra.", "entities": [{"start": 20, "end": 26, "label": "COURSE"}, {"start": 30, "end": 44, "label": "COURSE"}]}
+{"text": "Courses available: DevOps, Linear Algebra.", "entities": [{"start": 19, "end": 25, "label": "COURSE"}, {"start": 27, "end": 41, "label": "COURSE"}]}
+{"text": "The syllabus includes DevOps and Linear Algebra.", "entities": [{"start": 22, "end": 28, "label": "COURSE"}, {"start": 33, "end": 47, "label": "COURSE"}]}
+{"text": "Registration for DevOps closes on Friday.", "entities": [{"start": 17, "end": 23, "label": "COURSE"}]}
+{"text": "She completed DevOps before taking Linear Algebra.", "entities": [{"start": 14, "end": 20, "label": "COURSE"}, {"start": 35, "end": 49, "label": "COURSE"}]}
+{"text": "Is DevOps offered this year?", "entities": [{"start": 3, "end": 9, "label": "COURSE"}]}
+{"text": "The brochure lists DevOps; students also study Linear Algebra.", "entities": [{"start": 19, "end": 25, "label": "COURSE"}, {"start": 47, "end": 61, "label": "COURSE"}]}
+{"text": "Please add DevOps to my timetable.", "entities": [{"start": 11, "end": 17, "label": "COURSE"}]}
+{"text": "We teach DevOps in the morning and Linear Algebra in the afternoon.", "entities": [{"start": 9, "end": 15, "label": "COURSE"}, {"start": 35, "end": 49, "label": "COURSE"}]}
+{"text": "Cyber Security", "entities": [{"start": 0, "end": 14, "label": "COURSE"}]}
+{"text": "The college offers Cyber Security.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}]}
+{"text": "I enrolled in Cyber Security this semester.", "entities": [{"start": 14, "end": 28, "label": "COURSE"}]}
+{"text": "Students can choose Cyber Security or Probability and Statistics.", "entities": [{"start": 20, "end": 34, "label": "COURSE"}, {"start": 38, "end": 64, "label": "COURSE"}]}
+{"text": "Courses available: Cyber Security, Probability and Statistics.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}, {"start": 35, "end": 61, "label": "COURSE"}]}
+{"text": "The syllabus includes Cyber Security and Probability and Statistics.", "entities": [{"start": 22, "end": 36, "label": "COURSE"}, {"start": 41, "end": 67, "label": "COURSE"}]}
+{"text": "Registration for Cyber Security closes on Friday.", "entities": [{"start": 17, "end": 31, "label": "COURSE"}]}
+{"text": "She completed Cyber Security before taking Probability and Statistics.", "entities": [{"start": 14, "end": 28, "label": "COURSE"}, {"start": 43, "end": 69, "label": "COURSE"}]}
+{"text": "Is Cyber Security offered this year?", "entities": [{"start": 3, "end": 17, "label": "COURSE"}]}
+{"text": "The brochure lists Cyber Security; students also study Probability and Statistics.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}, {"start": 55, "end": 81, "label": "COURSE"}]}
+{"text": "Please add Cyber Security to my timetable.", "entities": [{"start": 11, "end": 25, "label": "COURSE"}]}
+{"text": "We teach Cyber Security in the morning and Probability and Statistics in the afternoon.", "entities": [{"start": 9, "end": 23, "label": "COURSE"}, {"start": 43, "end": 69, "label": "COURSE"}]}
+{"text": "Discrete Mathematics", "entities": [{"start": 0, "end": 20, "label": "COURSE"}]}
+{"text": "The college offers Discrete Mathematics.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}]}
+{"text": "I enrolled in Discrete Mathematics this semester.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}]}
+{"text": "Students can choose Discrete Mathematics or Digital Electronics.", "entities": [{"start": 20, "end": 40, "label": "COURSE"}, {"start": 44, "end": 63, "label": "COURSE"}]}
+{"text": "Courses available: Discrete Mathematics, Digital Electronics.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 41, "end": 60, "label": "COURSE"}]}
+{"text": "The syllabus includes Discrete Mathematics and Digital Electronics.", "entities": [{"start": 22, "end": 42, "label": "COURSE"}, {"start": 47, "end": 66, "label": "COURSE"}]}
+{"text": "Registration for Discrete Mathematics closes on Friday.", "entities": [{"start": 17, "end": 37, "label": "COURSE"}]}
+{"text": "She completed Discrete Mathematics before taking Digital Electronics.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}, {"start": 49, "end": 68, "label": "COURSE"}]}
+{"text": "Is Discrete Mathematics offered this year?", "entities": [{"start": 3, "end": 23, "label": "COURSE"}]}
+{"text": "The brochure lists Discrete Mathematics; students also study Digital Electronics.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 61, "end": 80, "label": "COURSE"}]}
+{"text": "Please add Discrete Mathematics to my timetable.", "entities": [{"start": 11, "end": 31, "label": "COURSE"}]}
+{"text": "We teach Discrete Mathematics in the morning and Digital Electronics in the afternoon.", "entities": [{"start": 9, "end": 29, "label": "COURSE"}, {"start": 49, "end": 68, "label": "COURSE"}]}
+{"text": "Linear Algebra", "entities": [{"start": 0, "end": 14, "label": "COURSE"}]}
+{"text": "The college offers Linear Algebra.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}]}
+{"text": "I enrolled in Linear Algebra this semester.", "entities": [{"start": 14, "end": 28, "label": "COURSE"}]}
+{"text": "Students can choose Linear Algebra or Computer Architecture.", "entities": [{"start": 20, "end": 34, "label": "COURSE"}, {"start": 38, "end": 59, "label": "COURSE"}]}
+{"text": "Courses available: Linear Algebra, Computer Architecture.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}, {"start": 35, "end": 56, "label": "COURSE"}]}
+{"text": "The syllabus includes Linear Algebra and Computer Architecture.", "entities": [{"start": 22, "end": 36, "label": "COURSE"}, {"start": 41, "end": 62, "label": "COURSE"}]}
+{"text": "Registration for Linear Algebra closes on Friday.", "entities": [{"start": 17, "end": 31, "label": "COURSE"}]}
+{"text": "She completed Linear Algebra before taking Computer Architecture.", "entities": [{"start": 14, "end": 28, "label": "COURSE"}, {"start": 43, "end": 64, "label": "COURSE"}]}
+{"text": "Is Linear Algebra offered this year?", "entities": [{"start": 3, "end": 17, "label": "COURSE"}]}
+{"text": "The brochure lists Linear Algebra; students also study Computer Architecture.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}, {"start": 55, "end": 76, "label": "COURSE"}]}
+{"text": "Please add Linear Algebra to my timetable.", "entities": [{"start": 11, "end": 25, "label": "COURSE"}]}
+{"text": "We teach Linear Algebra in the morning and Computer Architecture in the afternoon.", "entities": [{"start": 9, "end": 23, "label": "COURSE"}, {"start": 43, "end": 64, "label": "COURSE"}]}
+{"text": "Probability and Statistics", "entities": [{"start": 0, "end": 26, "label": "COURSE"}]}
+{"text": "The college offers Probability and Statistics.", "entities": [{"start": 19, "end": 45, "label": "COURSE"}]}
+{"text": "I enrolled in Probability and Statistics this semester.", "entities": [{"start": 14, "end": 40, "label": "COURSE"}]}
+{"text": "Students can choose Probability and Statistics or Theory of Computation.", "entities": [{"start": 20, "end": 46, "label": "COURSE"}, {"start": 50, "end": 71, "label": "COURSE"}]}
+{"text": "Courses available: Probability and Statistics, Theory of Computation.", "entities": [{"start": 19, "end": 45, "label": "COURSE"}, {"start": 47, "end": 68, "label": "COURSE"}]}
+{"text": "The syllabus includes Probability and Statistics and Theory of Computation.", "entities": [{"start": 22, "end": 48, "label": "COURSE"}, {"start": 53, "end": 74, "label": "COURSE"}]}
+{"text": "Registration for Probability and Statistics closes on Friday.", "entities": [{"start": 17, "end": 43, "label": "COURSE"}]}
+{"text": "She completed Probability and Statistics before taking Theory of Computation.", "entities": [{"start": 14, "end": 40, "label": "COURSE"}, {"start": 55, "end": 76, "label": "COURSE"}]}
+{"text": "Is Probability and Statistics offered this year?", "entities": [{"start": 3, "end": 29, "label": "COURSE"}]}
+{"text": "The brochure lists Probability and Statistics; students also study Theory of Computation.", "entities": [{"start": 19, "end": 45, "label": "COURSE"}, {"start": 67, "end": 88, "label": "COURSE"}]}
+{"text": "Please add Probability and Statistics to my timetable.", "entities": [{"start": 11, "end": 37, "label": "COURSE"}]}
+{"text": "We teach Probability and Statistics in the morning and Theory of Computation in the afternoon.", "entities": [{"start": 9, "end": 35, "label": "COURSE"}, {"start": 55, "end": 76, "label": "COURSE"}]}
+{"text": "Digital Electronics", "entities": [{"start": 0, "end": 19, "label": "COURSE"}]}
+{"text": "The college offers Digital Electronics.", "entities": [{"start": 19, "end": 38, "label": "COURSE"}]}
+{"text": "I enrolled in Digital Electronics this semester.", "entities": [{"start": 14, "end": 33, "label": "COURSE"}]}
+{"text": "Students can choose Digital Electronics or Compiler Design.", "entities": [{"start": 20, "end": 39, "label": "COURSE"}, {"start": 43, "end": 58, "label": "COURSE"}]}
+{"text": "Courses available: Digital Electronics, Compiler Design.", "entities": [{"start": 19, "end": 38, "label": "COURSE"}, {"start": 40, "end": 55, "label": "COURSE"}]}
+{"text": "The syllabus includes Digital Electronics and Compiler Design.", "entities": [{"start": 22, "end": 41, "label": "COURSE"}, {"start": 46, "end": 61, "label": "COURSE"}]}
+{"text": "Registration for Digital Electronics closes on Friday.", "entities": [{"start": 17, "end": 36, "label": "COURSE"}]}
+{"text": "She completed Digital Electronics before taking Compiler Design.", "entities": [{"start": 14, "end": 33, "label": "COURSE"}, {"start": 48, "end": 63, "label": "COURSE"}]}
+{"text": "Is Digital Electronics offered this year?", "entities": [{"start": 3, "end": 22, "label": "COURSE"}]}
+{"text": "The brochure lists Digital Electronics; students also study Compiler Design.", "entities": [{"start": 19, "end": 38, "label": "COURSE"}, {"start": 60, "end": 75, "label": "COURSE"}]}
+{"text": "Please add Digital Electronics to my timetable.", "entities": [{"start": 11, "end": 30, "label": "COURSE"}]}
+{"text": "We teach Digital Electronics in the morning and Compiler Design in the afternoon.", "entities": [{"start": 9, "end": 28, "label": "COURSE"}, {"start": 48, "end": 63, "label": "COURSE"}]}
+{"text": "Computer Architecture", "entities": [{"start": 0, "end": 21, "label": "COURSE"}]}
+{"text": "The college offers Computer Architecture.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}]}
+{"text": "I enrolled in Computer Architecture this semester.", "entities": [{"start": 14, "end": 35, "label": "COURSE"}]}
+{"text": "Students can choose Computer Architecture or Object Oriented Programming.", "entities": [{"start": 20, "end": 41, "label": "COURSE"}, {"start": 45, "end": 72, "label": "COURSE"}]}
+{"text": "Courses available: Computer Architecture, Object Oriented Programming.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}, {"start": 42, "end": 69, "label": "COURSE"}]}
+{"text": "The syllabus includes Computer Architecture and Object Oriented Programming.", "entities": [{"start": 22, "end": 43, "label": "COURSE"}, {"start": 48, "end": 75, "label": "COURSE"}]}
+{"text": "Registration for Computer Architecture closes on Friday.", "entities": [{"start": 17, "end": 38, "label": "COURSE"}]}
+{"text": "She completed Computer Architecture before taking Object Oriented Programming.", "entities": [{"start": 14, "end": 35, "label": "COURSE"}, {"start": 50, "end": 77, "label": "COURSE"}]}
+{"text": "Is Computer Architecture offered this year?", "entities": [{"start": 3, "end": 24, "label": "COURSE"}]}
+{"text": "The brochure lists Computer Architecture; students also study Object Oriented Programming.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}, {"start": 62, "end": 89, "label": "COURSE"}]}
+{"text": "Please add Computer Architecture to my timetable.", "entities": [{"start": 11, "end": 32, "label": "COURSE"}]}
+{"text": "We teach Computer Architecture in the morning and Object Oriented Programming in the afternoon.", "entities": [{"start": 9, "end": 30, "label": "COURSE"}, {"start": 50, "end": 77, "label": "COURSE"}]}
+{"text": "Theory of Computation", "entities": [{"start": 0, "end": 21, "label": "COURSE"}]}
+{"text": "The college offers Theory of Computation.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}]}
+{"text": "I enrolled in Theory of Computation this semester.", "entities": [{"start": 14, "end": 35, "label": "COURSE"}]}
+{"text": "Students can choose Theory of Computation or Python Programming.", "entities": [{"start": 20, "end": 41, "label": "COURSE"}, {"start": 45, "end": 63, "label": "COURSE"}]}
+{"text": "Courses available: Theory of Computation, Python Programming.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}, {"start": 42, "end": 60, "label": "COURSE"}]}
+{"text": "The syllabus includes Theory of Computation and Python Programming.", "entities": [{"start": 22, "end": 43, "label": "COURSE"}, {"start": 48, "end": 66, "label": "COURSE"}]}
+{"text": "Registration for Theory of Computation closes on Friday.", "entities": [{"start": 17, "end": 38, "label": "COURSE"}]}
+{"text": "She completed Theory of Computation before taking Python Programming.", "entities": [{"start": 14, "end": 35, "label": "COURSE"}, {"start": 50, "end": 68, "label": "COURSE"}]}
+{"text": "Is Theory of Computation offered this year?", "entities": [{"start": 3, "end": 24, "label": "COURSE"}]}
+{"text": "The brochure lists Theory of Computation; students also study Python Programming.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}, {"start": 62, "end": 80, "label": "COURSE"}]}
+{"text": "Please add Theory of Computation to my timetable.", "entities": [{"start": 11, "end": 32, "label": "COURSE"}]}
+{"text": "We teach Theory of Computation in the morning and Python Programming in the afternoon.", "entities": [{"start": 9, "end": 30, "label": "COURSE"}, {"start": 50, "end": 68, "label": "COURSE"}]}
+{"text": "Compiler Design", "entities": [{"start": 0, "end": 15, "label": "COURSE"}]}
+{"text": "The college offers Compiler Design.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}]}
+{"text": "I enrolled in Compiler Design this semester.", "entities": [{"start": 14, "end": 29, "label": "COURSE"}]}
+{"text": "Students can choose Compiler Design or Java Programming.", "entities": [{"start": 20, "end": 35, "label": "COURSE"}, {"start": 39, "end": 55, "label": "COURSE"}]}
+{"text": "Courses available: Compiler Design, Java Programming.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}, {"start": 36, "end": 52, "label": "COURSE"}]}
+{"text": "The syllabus includes Compiler Design and Java Programming.", "entities": [{"start": 22, "end": 37, "label": "COURSE"}, {"start": 42, "end": 58, "label": "COURSE"}]}
+{"text": "Registration for Compiler Design closes on Friday.", "entities": [{"start": 17, "end": 32, "label": "COURSE"}]}
+{"text": "She completed Compiler Design before taking Java Programming.", "entities": [{"start": 14, "end": 29, "label": "COURSE"}, {"start": 44, "end": 60, "label": "COURSE"}]}
+{"text": "Is Compiler Design offered this year?", "entities": [{"start": 3, "end": 18, "label": "COURSE"}]}
+{"text": "The brochure lists Compiler Design; students also study Java Programming.", "entities": [{"start": 19, "end": 34, "label": "COURSE"}, {"start": 56, "end": 72, "label": "COURSE"}]}
+{"text": "Please add Compiler Design to my timetable.", "entities": [{"start": 11, "end": 26, "label": "COURSE"}]}
+{"text": "We teach Compiler Design in the morning and Java Programming in the afternoon.", "entities": [{"start": 9, "end": 24, "label": "COURSE"}, {"start": 44, "end": 60, "label": "COURSE"}]}
+{"text": "Object Oriented Programming", "entities": [{"start": 0, "end": 27, "label": "COURSE"}]}
+{"text": "The college offers Object Oriented Programming.", "entities": [{"start": 19, "end": 46, "label": "COURSE"}]}
+{"text": "I enrolled in Object Oriented Programming this semester.", "entities": [{"start": 14, "end": 41, "label": "COURSE"}]}
+{"text": "Students can choose Object Oriented Programming or Business Analytics.", "entities": [{"start": 20, "end": 47, "label": "COURSE"}, {"start": 51, "end": 69, "label": "COURSE"}]}
+{"text": "Courses available: Object Oriented Programming, Business Analytics.", "entities": [{"start": 19, "end": 46, "label": "COURSE"}, {"start": 48, "end": 66, "label": "COURSE"}]}
+{"text": "The syllabus includes Object Oriented Programming and Business Analytics.", "entities": [{"start": 22, "end": 49, "label": "COURSE"}, {"start": 54, "end": 72, "label": "COURSE"}]}
+{"text": "Registration for Object Oriented Programming closes on Friday.", "entities": [{"start": 17, "end": 44, "label": "COURSE"}]}
+{"text": "She completed Object Oriented Programming before taking Business Analytics.", "entities": [{"start": 14, "end": 41, "label": "COURSE"}, {"start": 56, "end": 74, "label": "COURSE"}]}
+{"text": "Is Object Oriented Programming offered this year?", "entities": [{"start": 3, "end": 30, "label": "COURSE"}]}
+{"text": "The brochure lists Object Oriented Programming; students also study Business Analytics.", "entities": [{"start": 19, "end": 46, "label": "COURSE"}, {"start": 68, "end": 86, "label": "COURSE"}]}
+{"text": "Please add Object Oriented Programming to my timetable.", "entities": [{"start": 11, "end": 38, "label": "COURSE"}]}
+{"text": "We teach Object Oriented Programming in the morning and Business Analytics in the afternoon.", "entities": [{"start": 9, "end": 36, "label": "COURSE"}, {"start": 56, "end": 74, "label": "COURSE"}]}
+{"text": "Python Programming", "entities": [{"start": 0, "end": 18, "label": "COURSE"}]}
+{"text": "The college offers Python Programming.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}]}
+{"text": "I enrolled in Python Programming this semester.", "entities": [{"start": 14, "end": 32, "label": "COURSE"}]}
+{"text": "Students can choose Python Programming or Financial Accounting.", "entities": [{"start": 20, "end": 38, "label": "COURSE"}, {"start": 42, "end": 62, "label": "COURSE"}]}
+{"text": "Courses available: Python Programming, Financial Accounting.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}, {"start": 39, "end": 59, "label": "COURSE"}]}
+{"text": "The syllabus includes Python Programming and Financial Accounting.", "entities": [{"start": 22, "end": 40, "label": "COURSE"}, {"start": 45, "end": 65, "label": "COURSE"}]}
+{"text": "Registration for Python Programming closes on Friday.", "entities": [{"start": 17, "end": 35, "label": "COURSE"}]}
+{"text": "She completed Python Programming before taking Financial Accounting.", "entities": [{"start": 14, "end": 32, "label": "COURSE"}, {"start": 47, "end": 67, "label": "COURSE"}]}
+{"text": "Is Python Programming offered this year?", "entities": [{"start": 3, "end": 21, "label": "COURSE"}]}
+{"text": "The brochure lists Python Programming; students also study Financial Accounting.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}, {"start": 59, "end": 79, "label": "COURSE"}]}
+{"text": "Please add Python Programming to my timetable.", "entities": [{"start": 11, "end": 29, "label": "COURSE"}]}
+{"text": "We teach Python Programming in the morning and Financial Accounting in the afternoon.", "entities": [{"start": 9, "end": 27, "label": "COURSE"}, {"start": 47, "end": 67, "label": "COURSE"}]}
+{"text": "Java Programming", "entities": [{"start": 0, "end": 16, "label": "COURSE"}]}
+{"text": "The college offers Java Programming.", "entities": [{"start": 19, "end": 35, "label": "COURSE"}]}
+{"text": "I enrolled in Java Programming this semester.", "entities": [{"start": 14, "end": 30, "label": "COURSE"}]}
+{"text": "Students can choose Java Programming or Organic Chemistry.", "entities": [{"start": 20, "end": 36, "label": "COURSE"}, {"start": 40, "end": 57, "label": "COURSE"}]}
+{"text": "Courses available: Java Programming, Organic Chemistry.", "entities": [{"start": 19, "end": 35, "label": "COURSE"}, {"start": 37, "end": 54, "label": "COURSE"}]}
+{"text": "The syllabus includes Java Programming and Organic Chemistry.", "entities": [{"start": 22, "end": 38, "label": "COURSE"}, {"start": 43, "end": 60, "label": "COURSE"}]}
+{"text": "Registration for Java Programming closes on Friday.", "entities": [{"start": 17, "end": 33, "label": "COURSE"}]}
+{"text": "She completed Java Programming before taking Organic Chemistry.", "entities": [{"start": 14, "end": 30, "label": "COURSE"}, {"start": 45, "end": 62, "label": "COURSE"}]}
+{"text": "Is Java Programming offered this year?", "entities": [{"start": 3, "end": 19, "label": "COURSE"}]}
+{"text": "The brochure lists Java Programming; students also study Organic Chemistry.", "entities": [{"start": 19, "end": 35, "label": "COURSE"}, {"start": 57, "end": 74, "label": "COURSE"}]}
+{"text": "Please add Java Programming to my timetable.", "entities": [{"start": 11, "end": 27, "label": "COURSE"}]}
+{"text": "We teach Java Programming in the morning and Organic Chemistry in the afternoon.", "entities": [{"start": 9, "end": 25, "label": "COURSE"}, {"start": 45, "end": 62, "label": "COURSE"}]}
+{"text": "Business Analytics", "entities": [{"start": 0, "end": 18, "label": "COURSE"}]}
+{"text": "The college offers Business Analytics.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}]}
+{"text": "I enrolled in Business Analytics this semester.", "entities": [{"start": 14, "end": 32, "label": "COURSE"}]}
+{"text": "Students can choose Business Analytics or Engineering Physics.", "entities": [{"start": 20, "end": 38, "label": "COURSE"}, {"start": 42, "end": 61, "label": "COURSE"}]}
+{"text": "Courses available: Business Analytics, Engineering Physics.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}, {"start": 39, "end": 58, "label": "COURSE"}]}
+{"text": "The syllabus includes Business Analytics and Engineering Physics.", "entities": [{"start": 22, "end": 40, "label": "COURSE"}, {"start": 45, "end": 64, "label": "COURSE"}]}
+{"text": "Registration for Business Analytics closes on Friday.", "entities": [{"start": 17, "end": 35, "label": "COURSE"}]}
+{"text": "She completed Business Analytics before taking Engineering Physics.", "entities": [{"start": 14, "end": 32, "label": "COURSE"}, {"start": 47, "end": 66, "label": "COURSE"}]}
+{"text": "Is Business Analytics offered this year?", "entities": [{"start": 3, "end": 21, "label": "COURSE"}]}
+{"text": "The brochure lists Business Analytics; students also study Engineering Physics.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}, {"start": 59, "end": 78, "label": "COURSE"}]}
+{"text": "Please add Business Analytics to my timetable.", "entities": [{"start": 11, "end": 29, "label": "COURSE"}]}
+{"text": "We teach Business Analytics in the morning and Engineering Physics in the afternoon.", "entities": [{"start": 9, "end": 27, "label": "COURSE"}, {"start": 47, "end": 66, "label": "COURSE"}]}
+{"text": "Financial Accounting", "entities": [{"start": 0, "end": 20, "label": "COURSE"}]}
+{"text": "The college offers Financial Accounting.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}]}
+{"text": "I enrolled in Financial Accounting this semester.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}]}
+{"text": "Students can choose Financial Accounting or Environmental Science.", "entities": [{"start": 20, "end": 40, "label": "COURSE"}, {"start": 44, "end": 65, "label": "COURSE"}]}
+{"text": "Courses available: Financial Accounting, Environmental Science.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 41, "end": 62, "label": "COURSE"}]}
+{"text": "The syllabus includes Financial Accounting and Environmental Science.", "entities": [{"start": 22, "end": 42, "label": "COURSE"}, {"start": 47, "end": 68, "label": "COURSE"}]}
+{"text": "Registration for Financial Accounting closes on Friday.", "entities": [{"start": 17, "end": 37, "label": "COURSE"}]}
+{"text": "She completed Financial Accounting before taking Environmental Science.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}, {"start": 49, "end": 70, "label": "COURSE"}]}
+{"text": "Is Financial Accounting offered this year?", "entities": [{"start": 3, "end": 23, "label": "COURSE"}]}
+{"text": "The brochure lists Financial Accounting; students also study Environmental Science.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 61, "end": 82, "label": "COURSE"}]}
+{"text": "Please add Financial Accounting to my timetable.", "entities": [{"start": 11, "end": 31, "label": "COURSE"}]}
+{"text": "We teach Financial Accounting in the morning and Environmental Science in the afternoon.", "entities": [{"start": 9, "end": 29, "label": "COURSE"}, {"start": 49, "end": 70, "label": "COURSE"}]}
+{"text": "Organic Chemistry", "entities": [{"start": 0, "end": 17, "label": "COURSE"}]}
+{"text": "The college offers Organic Chemistry.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}]}
+{"text": "I enrolled in Organic Chemistry this semester.", "entities": [{"start": 14, "end": 31, "label": "COURSE"}]}
+{"text": "Students can choose Organic Chemistry or Technical Communication.", "entities": [{"start": 20, "end": 37, "label": "COURSE"}, {"start": 41, "end": 64, "label": "COURSE"}]}
+{"text": "Courses available: Organic Chemistry, Technical Communication.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}, {"start": 38, "end": 61, "label": "COURSE"}]}
+{"text": "The syllabus includes Organic Chemistry and Technical Communication.", "entities": [{"start": 22, "end": 39, "label": "COURSE"}, {"start": 44, "end": 67, "label": "COURSE"}]}
+{"text": "Registration for Organic Chemistry closes on Friday.", "entities": [{"start": 17, "end": 34, "label": "COURSE"}]}
+{"text": "She completed Organic Chemistry before taking Technical Communication.", "entities": [{"start": 14, "end": 31, "label": "COURSE"}, {"start": 46, "end": 69, "label": "COURSE"}]}
+{"text": "Is Organic Chemistry offered this year?", "entities": [{"start": 3, "end": 20, "label": "COURSE"}]}
+{"text": "The brochure lists Organic Chemistry; students also study Technical Communication.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}, {"start": 58, "end": 81, "label": "COURSE"}]}
+{"text": "Please add Organic Chemistry to my timetable.", "entities": [{"start": 11, "end": 28, "label": "COURSE"}]}
+{"text": "We teach Organic Chemistry in the morning and Technical Communication in the afternoon.", "entities": [{"start": 9, "end": 26, "label": "COURSE"}, {"start": 46, "end": 69, "label": "COURSE"}]}
+{"text": "Engineering Physics", "entities": [{"start": 0, "end": 19, "label": "COURSE"}]}
+{"text": "The college offers Engineering Physics.", "entities": [{"start": 19, "end": 38, "label": "COURSE"}]}
+{"text": "I enrolled in Engineering Physics this semester.", "entities": [{"start": 14, "end": 33, "label": "COURSE"}]}
+{"text": "Students can choose Engineering Physics or Digital Marketing.", "entities": [{"start": 20, "end": 39, "label": "COURSE"}, {"start": 43, "end": 60, "label": "COURSE"}]}
+{"text": "Courses available: Engineering Physics, Digital Marketing.", "entities": [{"start": 19, "end": 38, "label": "COURSE"}, {"start": 40, "end": 57, "label": "COURSE"}]}
+{"text": "The syllabus includes Engineering Physics and Digital Marketing.", "entities": [{"start": 22, "end": 41, "label": "COURSE"}, {"start": 46, "end": 63, "label": "COURSE"}]}
+{"text": "Registration for Engineering Physics closes on Friday.", "entities": [{"start": 17, "end": 36, "label": "COURSE"}]}
+{"text": "She completed Engineering Physics before taking Digital Marketing.", "entities": [{"start": 14, "end": 33, "label": "COURSE"}, {"start": 48, "end": 65, "label": "COURSE"}]}
+{"text": "Is Engineering Physics offered this year?", "entities": [{"start": 3, "end": 22, "label": "COURSE"}]}
+{"text": "The brochure lists Engineering Physics; students also study Digital Marketing.", "entities": [{"start": 19, "end": 38, "label": "COURSE"}, {"start": 60, "end": 77, "label": "COURSE"}]}
+{"text": "Please add Engineering Physics to my timetable.", "entities": [{"start": 11, "end": 30, "label": "COURSE"}]}
+{"text": "We teach Engineering Physics in the morning and Digital Marketing in the afternoon.", "entities": [{"start": 9, "end": 28, "label": "COURSE"}, {"start": 48, "end": 65, "label": "COURSE"}]}
+{"text": "Environmental Science", "entities": [{"start": 0, "end": 21, "label": "COURSE"}]}
+{"text": "The college offers Environmental Science.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}]}
+{"text": "I enrolled in Environmental Science this semester.", "entities": [{"start": 14, "end": 35, "label": "COURSE"}]}
+{"text": "Students can choose Environmental Science or Human Resource Management.", "entities": [{"start": 20, "end": 41, "label": "COURSE"}, {"start": 45, "end": 70, "label": "COURSE"}]}
+{"text": "Courses available: Environmental Science, Human Resource Management.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}, {"start": 42, "end": 67, "label": "COURSE"}]}
+{"text": "The syllabus includes Environmental Science and Human Resource Management.", "entities": [{"start": 22, "end": 43, "label": "COURSE"}, {"start": 48, "end": 73, "label": "COURSE"}]}
+{"text": "Registration for Environmental Science closes on Friday.", "entities": [{"start": 17, "end": 38, "label": "COURSE"}]}
+{"text": "She completed Environmental Science before taking Human Resource Management.", "entities": [{"start": 14, "end": 35, "label": "COURSE"}, {"start": 50, "end": 75, "label": "COURSE"}]}
+{"text": "Is Environmental Science offered this year?", "entities": [{"start": 3, "end": 24, "label": "COURSE"}]}
+{"text": "The brochure lists Environmental Science; students also study Human Resource Management.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}, {"start": 62, "end": 87, "label": "COURSE"}]}
+{"text": "Please add Environmental Science to my timetable.", "entities": [{"start": 11, "end": 32, "label": "COURSE"}]}
+{"text": "We teach Environmental Science in the morning and Human Resource Management in the afternoon.", "entities": [{"start": 9, "end": 30, "label": "COURSE"}, {"start": 50, "end": 75, "label": "COURSE"}]}
+{"text": "Technical Communication", "entities": [{"start": 0, "end": 23, "label": "COURSE"}]}
+{"text": "The college offers Technical Communication.", "entities": [{"start": 19, "end": 42, "label": "COURSE"}]}
+{"text": "I enrolled in Technical Communication this semester.", "entities": [{"start": 14, "end": 37, "label": "COURSE"}]}
+{"text": "Students can choose Technical Communication or Microeconomics.", "entities": [{"start": 20, "end": 43, "label": "COURSE"}, {"start": 47, "end": 61, "label": "COURSE"}]}
+{"text": "Courses available: Technical Communication, Microeconomics.", "entities": [{"start": 19, "end": 42, "label": "COURSE"}, {"start": 44, "end": 58, "label": "COURSE"}]}
+{"text": "The syllabus includes Technical Communication and Microeconomics.", "entities": [{"start": 22, "end": 45, "label": "COURSE"}, {"start": 50, "end": 64, "label": "COURSE"}]}
+{"text": "Registration for Technical Communication closes on Friday.", "entities": [{"start": 17, "end": 40, "label": "COURSE"}]}
+{"text": "She completed Technical Communication before taking Microeconomics.", "entities": [{"start": 14, "end": 37, "label": "COURSE"}, {"start": 52, "end": 66, "label": "COURSE"}]}
+{"text": "Is Technical Communication offered this year?", "entities": [{"start": 3, "end": 26, "label": "COURSE"}]}
+{"text": "The brochure lists Technical Communication; students also study Microeconomics.", "entities": [{"start": 19, "end": 42, "label": "COURSE"}, {"start": 64, "end": 78, "label": "COURSE"}]}
+{"text": "Please add Technical Communication to my timetable.", "entities": [{"start": 11, "end": 34, "label": "COURSE"}]}
+{"text": "We teach Technical Communication in the morning and Microeconomics in the afternoon.", "entities": [{"start": 9, "end": 32, "label": "COURSE"}, {"start": 52, "end": 66, "label": "COURSE"}]}
+{"text": "Digital Marketing", "entities": [{"start": 0, "end": 17, "label": "COURSE"}]}
+{"text": "The college offers Digital Marketing.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}]}
+{"text": "I enrolled in Digital Marketing this semester.", "entities": [{"start": 14, "end": 31, "label": "COURSE"}]}
+{"text": "Students can choose Digital Marketing or Electrical Engineering.", "entities": [{"start": 20, "end": 37, "label": "COURSE"}, {"start": 41, "end": 63, "label": "COURSE"}]}
+{"text": "Courses available: Digital Marketing, Electrical Engineering.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}, {"start": 38, "end": 60, "label": "COURSE"}]}
+{"text": "The syllabus includes Digital Marketing and Electrical Engineering.", "entities": [{"start": 22, "end": 39, "label": "COURSE"}, {"start": 44, "end": 66, "label": "COURSE"}]}
+{"text": "Registration for Digital Marketing closes on Friday.", "entities": [{"start": 17, "end": 34, "label": "COURSE"}]}
+{"text": "She completed Digital Marketing before taking Electrical Engineering.", "entities": [{"start": 14, "end": 31, "label": "COURSE"}, {"start": 46, "end": 68, "label": "COURSE"}]}
+{"text": "Is Digital Marketing offered this year?", "entities": [{"start": 3, "end": 20, "label": "COURSE"}]}
+{"text": "The brochure lists Digital Marketing; students also study Electrical Engineering.", "entities": [{"start": 19, "end": 36, "label": "COURSE"}, {"start": 58, "end": 80, "label": "COURSE"}]}
+{"text": "Please add Digital Marketing to my timetable.", "entities": [{"start": 11, "end": 28, "label": "COURSE"}]}
+{"text": "We teach Digital Marketing in the morning and Electrical Engineering in the afternoon.", "entities": [{"start": 9, "end": 26, "label": "COURSE"}, {"start": 46, "end": 68, "label": "COURSE"}]}
+{"text": "Human Resource Management", "entities": [{"start": 0, "end": 25, "label": "COURSE"}]}
+{"text": "The college offers Human Resource Management.", "entities": [{"start": 19, "end": 44, "label": "COURSE"}]}
+{"text": "I enrolled in Human Resource Management this semester.", "entities": [{"start": 14, "end": 39, "label": "COURSE"}]}
+{"text": "Students can choose Human Resource Management or Engineering Mechanics.", "entities": [{"start": 20, "end": 45, "label": "COURSE"}, {"start": 49, "end": 70, "label": "COURSE"}]}
+{"text": "Courses available: Human Resource Management, Engineering Mechanics.", "entities": [{"start": 19, "end": 44, "label": "COURSE"}, {"start": 46, "end": 67, "label": "COURSE"}]}
+{"text": "The syllabus includes Human Resource Management and Engineering Mechanics.", "entities": [{"start": 22, "end": 47, "label": "COURSE"}, {"start": 52, "end": 73, "label": "COURSE"}]}
+{"text": "Registration for Human Resource Management closes on Friday.", "entities": [{"start": 17, "end": 42, "label": "COURSE"}]}
+{"text": "She completed Human Resource Management before taking Engineering Mechanics.", "entities": [{"start": 14, "end": 39, "label": "COURSE"}, {"start": 54, "end": 75, "label": "COURSE"}]}
+{"text": "Is Human Resource Management offered this year?", "entities": [{"start": 3, "end": 28, "label": "COURSE"}]}
+{"text": "The brochure lists Human Resource Management; students also study Engineering Mechanics.", "entities": [{"start": 19, "end": 44, "label": "COURSE"}, {"start": 66, "end": 87, "label": "COURSE"}]}
+{"text": "Please add Human Resource Management to my timetable.", "entities": [{"start": 11, "end": 36, "label": "COURSE"}]}
+{"text": "We teach Human Resource Management in the morning and Engineering Mechanics in the afternoon.", "entities": [{"start": 9, "end": 34, "label": "COURSE"}, {"start": 54, "end": 75, "label": "COURSE"}]}
+{"text": "Microeconomics", "entities": [{"start": 0, "end": 14, "label": "COURSE"}]}
+{"text": "The college offers Microeconomics.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}]}
+{"text": "I enrolled in Microeconomics this semester.", "entities": [{"start": 14, "end": 28, "label": "COURSE"}]}
+{"text": "Students can choose Microeconomics or English Literature.", "entities": [{"start": 20, "end": 34, "label": "COURSE"}, {"start": 38, "end": 56, "label": "COURSE"}]}
+{"text": "Courses available: Microeconomics, English Literature.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}, {"start": 35, "end": 53, "label": "COURSE"}]}
+{"text": "The syllabus includes Microeconomics and English Literature.", "entities": [{"start": 22, "end": 36, "label": "COURSE"}, {"start": 41, "end": 59, "label": "COURSE"}]}
+{"text": "Registration for Microeconomics closes on Friday.", "entities": [{"start": 17, "end": 31, "label": "COURSE"}]}
+{"text": "She completed Microeconomics before taking English Literature.", "entities": [{"start": 14, "end": 28, "label": "COURSE"}, {"start": 43, "end": 61, "label": "COURSE"}]}
+{"text": "Is Microeconomics offered this year?", "entities": [{"start": 3, "end": 17, "label": "COURSE"}]}
+{"text": "The brochure lists Microeconomics; students also study English Literature.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}, {"start": 55, "end": 73, "label": "COURSE"}]}
+{"text": "Please add Microeconomics to my timetable.", "entities": [{"start": 11, "end": 25, "label": "COURSE"}]}
+{"text": "We teach Microeconomics in the morning and English Literature in the afternoon.", "entities": [{"start": 9, "end": 23, "label": "COURSE"}, {"start": 43, "end": 61, "label": "COURSE"}]}
+{"text": "Electrical Engineering", "entities": [{"start": 0, "end": 22, "label": "COURSE"}]}
+{"text": "The college offers Electrical Engineering.", "entities": [{"start": 19, "end": 41, "label": "COURSE"}]}
+{"text": "I enrolled in Electrical Engineering this semester.", "entities": [{"start": 14, "end": 36, "label": "COURSE"}]}
+{"text": "Students can choose Electrical Engineering or Graphic Design.", "entities": [{"start": 20, "end": 42, "label": "COURSE"}, {"start": 46, "end": 60, "label": "COURSE"}]}
+{"text": "Courses available: Electrical Engineering, Graphic Design.", "entities": [{"start": 19, "end": 41, "label": "COURSE"}, {"start": 43, "end": 57, "label": "COURSE"}]}
+{"text": "The syllabus includes Electrical Engineering and Graphic Design.", "entities": [{"start": 22, "end": 44, "label": "COURSE"}, {"start": 49, "end": 63, "label": "COURSE"}]}
+{"text": "Registration for Electrical Engineering closes on Friday.", "entities": [{"start": 17, "end": 39, "label": "COURSE"}]}
+{"text": "She completed Electrical Engineering before taking Graphic Design.", "entities": [{"start": 14, "end": 36, "label": "COURSE"}, {"start": 51, "end": 65, "label": "COURSE"}]}
+{"text": "Is Electrical Engineering offered this year?", "entities": [{"start": 3, "end": 25, "label": "COURSE"}]}
+{"text": "The brochure lists Electrical Engineering; students also study Graphic Design.", "entities": [{"start": 19, "end": 41, "label": "COURSE"}, {"start": 63, "end": 77, "label": "COURSE"}]}
+{"text": "Please add Electrical Engineering to my timetable.", "entities": [{"start": 11, "end": 33, "label": "COURSE"}]}
+{"text": "We teach Electrical Engineering in the morning and Graphic Design in the afternoon.", "entities": [{"start": 9, "end": 31, "label": "COURSE"}, {"start": 51, "end": 65, "label": "COURSE"}]}
+{"text": "Engineering Mechanics", "entities": [{"start": 0, "end": 21, "label": "COURSE"}]}
+{"text": "The college offers Engineering Mechanics.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}]}
+{"text": "I enrolled in Engineering Mechanics this semester.", "entities": [{"start": 14, "end": 35, "label": "COURSE"}]}
+{"text": "Students can choose Engineering Mechanics or Research Methodology.", "entities": [{"start": 20, "end": 41, "label": "COURSE"}, {"start": 45, "end": 65, "label": "COURSE"}]}
+{"text": "Courses available: Engineering Mechanics, Research Methodology.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}, {"start": 42, "end": 62, "label": "COURSE"}]}
+{"text": "The syllabus includes Engineering Mechanics and Research Methodology.", "entities": [{"start": 22, "end": 43, "label": "COURSE"}, {"start": 48, "end": 68, "label": "COURSE"}]}
+{"text": "Registration for Engineering Mechanics closes on Friday.", "entities": [{"start": 17, "end": 38, "label": "COURSE"}]}
+{"text": "She completed Engineering Mechanics before taking Research Methodology.", "entities": [{"start": 14, "end": 35, "label": "COURSE"}, {"start": 50, "end": 70, "label": "COURSE"}]}
+{"text": "Is Engineering Mechanics offered this year?", "entities": [{"start": 3, "end": 24, "label": "COURSE"}]}
+{"text": "The brochure lists Engineering Mechanics; students also study Research Methodology.", "entities": [{"start": 19, "end": 40, "label": "COURSE"}, {"start": 62, "end": 82, "label": "COURSE"}]}
+{"text": "Please add Engineering Mechanics to my timetable.", "entities": [{"start": 11, "end": 32, "label": "COURSE"}]}
+{"text": "We teach Engineering Mechanics in the morning and Research Methodology in the afternoon.", "entities": [{"start": 9, "end": 30, "label": "COURSE"}, {"start": 50, "end": 70, "label": "COURSE"}]}
+{"text": "English Literature", "entities": [{"start": 0, "end": 18, "label": "COURSE"}]}
+{"text": "The college offers English Literature.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}]}
+{"text": "I enrolled in English Literature this semester.", "entities": [{"start": 14, "end": 32, "label": "COURSE"}]}
+{"text": "Students can choose English Literature or Introduction to Computer Science.", "entities": [{"start": 20, "end": 38, "label": "COURSE"}, {"start": 42, "end": 74, "label": "COURSE"}]}
+{"text": "Courses available: English Literature, Introduction to Computer Science.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}, {"start": 39, "end": 71, "label": "COURSE"}]}
+{"text": "The syllabus includes English Literature and Introduction to Computer Science.", "entities": [{"start": 22, "end": 40, "label": "COURSE"}, {"start": 45, "end": 77, "label": "COURSE"}]}
+{"text": "Registration for English Literature closes on Friday.", "entities": [{"start": 17, "end": 35, "label": "COURSE"}]}
+{"text": "She completed English Literature before taking Introduction to Computer Science.", "entities": [{"start": 14, "end": 32, "label": "COURSE"}, {"start": 47, "end": 79, "label": "COURSE"}]}
+{"text": "Is English Literature offered this year?", "entities": [{"start": 3, "end": 21, "label": "COURSE"}]}
+{"text": "The brochure lists English Literature; students also study Introduction to Computer Science.", "entities": [{"start": 19, "end": 37, "label": "COURSE"}, {"start": 59, "end": 91, "label": "COURSE"}]}
+{"text": "Please add English Literature to my timetable.", "entities": [{"start": 11, "end": 29, "label": "COURSE"}]}
+{"text": "We teach English Literature in the morning and Introduction to Computer Science in the afternoon.", "entities": [{"start": 9, "end": 27, "label": "COURSE"}, {"start": 47, "end": 79, "label": "COURSE"}]}
+{"text": "Graphic Design", "entities": [{"start": 0, "end": 14, "label": "COURSE"}]}
+{"text": "The college offers Graphic Design.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}]}
+{"text": "I enrolled in Graphic Design this semester.", "entities": [{"start": 14, "end": 28, "label": "COURSE"}]}
+{"text": "Students can choose Graphic Design or Advanced Mathematics.", "entities": [{"start": 20, "end": 34, "label": "COURSE"}, {"start": 38, "end": 58, "label": "COURSE"}]}
+{"text": "Courses available: Graphic Design, Advanced Mathematics.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}, {"start": 35, "end": 55, "label": "COURSE"}]}
+{"text": "The syllabus includes Graphic Design and Advanced Mathematics.", "entities": [{"start": 22, "end": 36, "label": "COURSE"}, {"start": 41, "end": 61, "label": "COURSE"}]}
+{"text": "Registration for Graphic Design closes on Friday.", "entities": [{"start": 17, "end": 31, "label": "COURSE"}]}
+{"text": "She completed Graphic Design before taking Advanced Mathematics.", "entities": [{"start": 14, "end": 28, "label": "COURSE"}, {"start": 43, "end": 63, "label": "COURSE"}]}
+{"text": "Is Graphic Design offered this year?", "entities": [{"start": 3, "end": 17, "label": "COURSE"}]}
+{"text": "The brochure lists Graphic Design; students also study Advanced Mathematics.", "entities": [{"start": 19, "end": 33, "label": "COURSE"}, {"start": 55, "end": 75, "label": "COURSE"}]}
+{"text": "Please add Graphic Design to my timetable.", "entities": [{"start": 11, "end": 25, "label": "COURSE"}]}
+{"text": "We teach Graphic Design in the morning and Advanced Mathematics in the afternoon.", "entities": [{"start": 9, "end": 23, "label": "COURSE"}, {"start": 43, "end": 63, "label": "COURSE"}]}
+{"text": "Research Methodology", "entities": [{"start": 0, "end": 20, "label": "COURSE"}]}
+{"text": "The college offers Research Methodology.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}]}
+{"text": "I enrolled in Research Methodology this semester.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}]}
+{"text": "Students can choose Research Methodology or Data Structures and Algorithms.", "entities": [{"start": 20, "end": 40, "label": "COURSE"}, {"start": 44, "end": 74, "label": "COURSE"}]}
+{"text": "Courses available: Research Methodology, Data Structures and Algorithms.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 41, "end": 71, "label": "COURSE"}]}
+{"text": "The syllabus includes Research Methodology and Data Structures and Algorithms.", "entities": [{"start": 22, "end": 42, "label": "COURSE"}, {"start": 47, "end": 77, "label": "COURSE"}]}
+{"text": "Registration for Research Methodology closes on Friday.", "entities": [{"start": 17, "end": 37, "label": "COURSE"}]}
+{"text": "She completed Research Methodology before taking Data Structures and Algorithms.", "entities": [{"start": 14, "end": 34, "label": "COURSE"}, {"start": 49, "end": 79, "label": "COURSE"}]}
+{"text": "Is Research Methodology offered this year?", "entities": [{"start": 3, "end": 23, "label": "COURSE"}]}
+{"text": "The brochure lists Research Methodology; students also study Data Structures and Algorithms.", "entities": [{"start": 19, "end": 39, "label": "COURSE"}, {"start": 61, "end": 91, "label": "COURSE"}]}
+{"text": "Please add Research Methodology to my timetable.", "entities": [{"start": 11, "end": 31, "label": "COURSE"}]}
+{"text": "We teach Research Methodology in the morning and Data Structures and Algorithms in the afternoon.", "entities": [{"start": 9, "end": 29, "label": "COURSE"}, {"start": 49, "end": 79, "label": "COURSE"}]}
+{"text": "The library closes at five in the evening.", "entities": []}
+{"text": "Admissions open next Monday.", "entities": []}
+{"text": "The college offers hostel accommodation.", "entities": []}
+{"text": "Bring your student ID to the office.", "entities": []}
+{"text": "The cafeteria serves lunch at noon.", "entities": []}
+{"text": "The annual festival takes place in October.", "entities": []}
+{"text": "Students attended the orientation meeting.", "entities": []}
+{"text": "The examination hall is on the second floor.", "entities": []}
+{"text": "Please pay the semester fees before Friday.", "entities": []}
+{"text": "There are no classes tomorrow.", "entities": []}

@@ -30,12 +30,15 @@ flowchart LR
 - [Assignment 1: Dockerized Multi-Container Web Application](./Assignment-1/README.md)
 - [Assignment 2: TreasureBook Kubernetes Deployment](./Assignment-2/README.md)
 - [Assignment 3: VisualCraft AI Service](./Assignment-3/README.md)
+- [Assignment 4: Course Name Extraction](./Assignment-4/README.md)
 
 Assignment 1 demonstrates a Flask CRUD application and MongoDB running in separate Docker containers, persistent storage with Docker volumes, custom bridge networking through the Docker SDK for Python, and automatic container health monitoring and recovery.
 
 Assignment 2 implements a MongoDB-backed graph API with Kubernetes deployment, resource limits, NodePort access, traffic generation and horizontal pod autoscaling.
 
 Assignment 3 deploys the supplied style-transfer image with Docker Compose, Prometheus, Grafana, container metrics, restart recovery and test-before-deploy pipelines.
+
+Assignment 4 fine-tunes a pretrained BERT token classifier for course-name extraction and serves the saved model through FastAPI in Docker.
 
 ## Features
 

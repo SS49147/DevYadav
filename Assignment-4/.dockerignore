@@ -1,0 +1,11 @@
+.venv/
+.git/
+__pycache__/
+.pytest_cache/
+.playwright-cli/
+model/
+training-output/
+evidence/
+tests/
+*.log
+*.md

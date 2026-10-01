@@ -1,0 +1,42 @@
+{"text": "The college now teaches Introduction to Artificial Intelligence.", "entities": [{"start": 24, "end": 63, "label": "COURSE"}]}
+{"text": "Next term I plan to take Introduction to Artificial Intelligence and Software Testing.", "entities": [{"start": 25, "end": 64, "label": "COURSE"}, {"start": 69, "end": 85, "label": "COURSE"}]}
+{"text": "Our new course list contains Introduction to Artificial Intelligence, followed by Software Testing.", "entities": [{"start": 29, "end": 68, "label": "COURSE"}, {"start": 82, "end": 98, "label": "COURSE"}]}
+{"text": "Can I register for Introduction to Artificial Intelligence this semester?", "entities": [{"start": 19, "end": 58, "label": "COURSE"}]}
+{"text": "The college now teaches Deep Learning.", "entities": [{"start": 24, "end": 37, "label": "COURSE"}]}
+{"text": "Next term I plan to take Deep Learning and Wireless Communication.", "entities": [{"start": 25, "end": 38, "label": "COURSE"}, {"start": 43, "end": 65, "label": "COURSE"}]}
+{"text": "Our new course list contains Deep Learning, followed by Wireless Communication.", "entities": [{"start": 29, "end": 42, "label": "COURSE"}, {"start": 56, "end": 78, "label": "COURSE"}]}
+{"text": "Can I register for Deep Learning this semester?", "entities": [{"start": 19, "end": 32, "label": "COURSE"}]}
+{"text": "The college now teaches Natural Language Processing.", "entities": [{"start": 24, "end": 51, "label": "COURSE"}]}
+{"text": "Next term I plan to take Natural Language Processing and Project Management.", "entities": [{"start": 25, "end": 52, "label": "COURSE"}, {"start": 57, "end": 75, "label": "COURSE"}]}
+{"text": "Our new course list contains Natural Language Processing, followed by Project Management.", "entities": [{"start": 29, "end": 56, "label": "COURSE"}, {"start": 70, "end": 88, "label": "COURSE"}]}
+{"text": "Can I register for Natural Language Processing this semester?", "entities": [{"start": 19, "end": 46, "label": "COURSE"}]}
+{"text": "The college now teaches Software Testing.", "entities": [{"start": 24, "end": 40, "label": "COURSE"}]}
+{"text": "Next term I plan to take Software Testing and Biotechnology.", "entities": [{"start": 25, "end": 41, "label": "COURSE"}, {"start": 46, "end": 59, "label": "COURSE"}]}
+{"text": "Our new course list contains Software Testing, followed by Biotechnology.", "entities": [{"start": 29, "end": 45, "label": "COURSE"}, {"start": 59, "end": 72, "label": "COURSE"}]}
+{"text": "Can I register for Software Testing this semester?", "entities": [{"start": 19, "end": 35, "label": "COURSE"}]}
+{"text": "The college now teaches Wireless Communication.", "entities": [{"start": 24, "end": 46, "label": "COURSE"}]}
+{"text": "Next term I plan to take Wireless Communication and Numerical Methods.", "entities": [{"start": 25, "end": 47, "label": "COURSE"}, {"start": 52, "end": 69, "label": "COURSE"}]}
+{"text": "Our new course list contains Wireless Communication, followed by Numerical Methods.", "entities": [{"start": 29, "end": 51, "label": "COURSE"}, {"start": 65, "end": 82, "label": "COURSE"}]}
+{"text": "Can I register for Wireless Communication this semester?", "entities": [{"start": 19, "end": 41, "label": "COURSE"}]}
+{"text": "The college now teaches Project Management.", "entities": [{"start": 24, "end": 42, "label": "COURSE"}]}
+{"text": "Next term I plan to take Project Management and Introduction to Artificial Intelligence.", "entities": [{"start": 25, "end": 43, "label": "COURSE"}, {"start": 48, "end": 87, "label": "COURSE"}]}
+{"text": "Our new course list contains Project Management, followed by Introduction to Artificial Intelligence.", "entities": [{"start": 29, "end": 47, "label": "COURSE"}, {"start": 61, "end": 100, "label": "COURSE"}]}
+{"text": "Can I register for Project Management this semester?", "entities": [{"start": 19, "end": 37, "label": "COURSE"}]}
+{"text": "The college now teaches Biotechnology.", "entities": [{"start": 24, "end": 37, "label": "COURSE"}]}
+{"text": "Next term I plan to take Biotechnology and Deep Learning.", "entities": [{"start": 25, "end": 38, "label": "COURSE"}, {"start": 43, "end": 56, "label": "COURSE"}]}
+{"text": "Our new course list contains Biotechnology, followed by Deep Learning.", "entities": [{"start": 29, "end": 42, "label": "COURSE"}, {"start": 56, "end": 69, "label": "COURSE"}]}
+{"text": "Can I register for Biotechnology this semester?", "entities": [{"start": 19, "end": 32, "label": "COURSE"}]}
+{"text": "The college now teaches Numerical Methods.", "entities": [{"start": 24, "end": 41, "label": "COURSE"}]}
+{"text": "Next term I plan to take Numerical Methods and Natural Language Processing.", "entities": [{"start": 25, "end": 42, "label": "COURSE"}, {"start": 47, "end": 74, "label": "COURSE"}]}
+{"text": "Our new course list contains Numerical Methods, followed by Natural Language Processing.", "entities": [{"start": 29, "end": 46, "label": "COURSE"}, {"start": 60, "end": 87, "label": "COURSE"}]}
+{"text": "Can I register for Numerical Methods this semester?", "entities": [{"start": 19, "end": 36, "label": "COURSE"}]}
+{"text": "Please submit the application at the reception desk.", "entities": []}
+{"text": "The hostel gates close at nine.", "entities": []}
+{"text": "I walked to the station this morning.", "entities": []}
+{"text": "Staff members attended a planning meeting.", "entities": []}
+{"text": "Parking is available behind the main building.", "entities": []}
+{"text": "We visited the campus on Tuesday.", "entities": []}
+{"text": "The bookstore sells notebooks and pencils.", "entities": []}
+{"text": "The office will send a confirmation email.", "entities": []}
+{"text": "The auditorium has two hundred seats.", "entities": []}
+{"text": "A notice was posted about the holiday.", "entities": []}

@@ -1,0 +1,73 @@
+{
+  "base_url": "http://localhost:8004",
+  "health": {
+    "status": "healthy",
+    "model_loaded": true
+  },
+  "checks_passed": 7,
+  "requests": [
+    {
+      "text": "Introduction to Artificial Intelligence",
+      "http_status": 200,
+      "response": {
+        "extracted_course_names": [
+          "Introduction to Artificial Intelligence"
+        ]
+      }
+    },
+    {
+      "text": "The college offers Machine Learning and Operating Systems.",
+      "http_status": 200,
+      "response": {
+        "extracted_course_names": [
+          "Machine Learning",
+          "Operating Systems"
+        ]
+      }
+    },
+    {
+      "text": "Next term I plan to take Deep Learning and Software Testing.",
+      "http_status": 200,
+      "response": {
+        "extracted_course_names": [
+          "Deep Learning",
+          "Software Testing"
+        ]
+      }
+    },
+    {
+      "text": "The library closes at five.",
+      "http_status": 200,
+      "response": {
+        "extracted_course_names": []
+      }
+    },
+    {
+      "text": "  ",
+      "http_status": 422,
+      "response": {
+        "detail": [
+          {
+            "type": "value_error",
+            "loc": [
+              "body",
+              "text"
+            ],
+            "msg": "Value error, text must contain non-whitespace characters",
+            "input": "  ",
+            "ctx": {
+              "error": {}
+            }
+          }
+        ]
+      }
+    },
+    {
+      "text": "course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course course ",
+      "http_status": 422,
+      "response": {
+        "detail": "Text exceeds the 256-token limit."
+      }
+    }
+  ]
+}
