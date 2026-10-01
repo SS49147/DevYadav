@@ -47,6 +47,9 @@ def test_missing_checkpoint_fails_explicitly(tmp_path):
 @pytest.mark.skipif(not (ROOT / "model" / "course-ner" / "config.json").exists(), reason="Train the checkpoint first")
 def test_trained_checkpoint_extracts_real_course_spans():
     extractor = CourseExtractor(ROOT / "model" / "course-ner")
+    assert extractor.model.config.course_base_model == "dbmdz/bert-large-cased-finetuned-conll03-english"
+    assert extractor.model.config.num_hidden_layers == 24
+    assert extractor.model.config.hidden_size == 1024
     assert extractor.extract("The college offers Machine Learning and Operating Systems.") == [
         "Machine Learning", "Operating Systems",
     ]

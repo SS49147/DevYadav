@@ -18,7 +18,7 @@ The dataset is a synthetic lab catalogue, not an official college course list. I
 
 Each course name is recorded as a character span. Tokenization converts these spans into `B-COURSE`, `I-COURSE` and `O` labels. Special tokens receive `-100` so they are excluded from the training loss. Predictions are joined using tokenizer offsets to preserve the spelling in the original text.
 
-The default run uses `prajjwal1/bert-mini`, a smaller pretrained BERT model that can be fine-tuned on CPU. SunagP's example uses `dbmdz/bert-large-cased-finetuned-conll03-english`; the training script accepts that model through `--base-model` as well. The smaller model and the completed BIO labeling are implementation choices, not copies of the unfinished example.
+The model is `dbmdz/bert-large-cased-finetuned-conll03-english`, the BERT-large checkpoint named in SunagP's exercise. Its original entity-classification head is replaced with the three course labels before fine-tuning. The base checkpoint revision is pinned in `train.py`.
 
 ## Train locally
 
@@ -34,17 +34,11 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Training uses Hugging Face `Dataset.from_pandas()`, `AutoTokenizer`, `AutoModelForTokenClassification` and `Trainer`. The default run uses three epochs, batch size 8, learning rate `3e-4` and seed 42. It selects the checkpoint using validation F1, then evaluates the separate test split.
+Training uses Hugging Face `Dataset.from_pandas()`, `AutoTokenizer`, `AutoModelForTokenClassification` and `Trainer`. It uses three epochs, batch size 4 and learning rate `2e-5`, matching the reference's sample training settings. Seed 42 keeps the run reproducible. Validation F1 selects the checkpoint; evaluation then uses the separate test split.
 
 The trained model and tokenizer are saved under `model/course-ner`. Generated weights and training checkpoints are excluded from Git; source data, scripts and recorded results are included. An internet connection is needed for the initial pretrained model and package downloads.
 
-To use the model named in the reference instead:
-
-```powershell
-.\.venv\Scripts\python.exe train.py --base-model dbmdz/bert-large-cased-finetuned-conll03-english --learning-rate 2e-5
-```
-
-That command needs substantially more memory and training time than the default run.
+BERT-large training needs several gigabytes of available RAM and takes longer on CPU. Sentence batches use dynamic padding. Checkpoints save model weights without optimizer state to reduce disk use; those checkpoints are for evaluation, not resuming interrupted training.
 
 ## FastAPI
 

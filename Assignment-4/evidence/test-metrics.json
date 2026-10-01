@@ -1,12 +1,15 @@
 {
+  "base_model": "dbmdz/bert-large-cased-finetuned-conll03-english",
+  "hidden_layers": 24,
+  "hidden_size": 1024,
   "examples": 42,
   "expected_entities": 48,
-  "predicted_entities": 58,
-  "correct_entities": 44,
-  "precision": 0.7586206896551724,
-  "recall": 0.9166666666666666,
-  "f1": 0.830188679245283,
-  "exact_match_accuracy": 0.8333333333333334,
+  "predicted_entities": 48,
+  "correct_entities": 48,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "exact_match_accuracy": 1.0,
   "predictions": [
     {
       "text": "The college now teaches Introduction to Artificial Intelligence.",
@@ -14,8 +17,7 @@
         "Introduction to Artificial Intelligence"
       ],
       "predicted": [
-        "Introduction to",
-        "Artificial Intelligence"
+        "Introduction to Artificial Intelligence"
       ]
     },
     {
@@ -25,7 +27,6 @@
         "Software Testing"
       ],
       "predicted": [
-        "plan to",
         "Introduction to Artificial Intelligence",
         "Software Testing"
       ]
@@ -47,8 +48,7 @@
         "Introduction to Artificial Intelligence"
       ],
       "predicted": [
-        "Introduction to",
-        "Artificial Intelligence"
+        "Introduction to Artificial Intelligence"
       ]
     },
     {
@@ -107,7 +107,6 @@
         "Project Management"
       ],
       "predicted": [
-        "plan to",
         "Natural Language Processing",
         "Project Management"
       ]
@@ -228,10 +227,8 @@
         "Introduction to Artificial Intelligence"
       ],
       "predicted": [
-        "plan to",
         "Project Management",
-        "Introduction to",
-        "Artificial Intelligence"
+        "Introduction to Artificial Intelligence"
       ]
     },
     {
@@ -241,10 +238,8 @@
         "Introduction to Artificial Intelligence"
       ],
       "predicted": [
-        "new course",
         "Project Management",
-        "Introduction to",
-        "Artificial Intelligence"
+        "Introduction to Artificial Intelligence"
       ]
     },
     {
@@ -369,10 +364,7 @@
     {
       "text": "The bookstore sells notebooks and pencils.",
       "expected": [],
-      "predicted": [
-        "notebooks",
-        "pencils"
-      ]
+      "predicted": []
     },
     {
       "text": "The office will send a confirmation email.",

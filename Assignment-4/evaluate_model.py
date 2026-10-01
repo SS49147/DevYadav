@@ -25,6 +25,9 @@ def main():
     precision = true_positive / predicted_count if predicted_count else 0
     recall = true_positive / expected_count if expected_count else 0
     report = {
+        "base_model": extractor.model.config.course_base_model,
+        "hidden_layers": extractor.model.config.num_hidden_layers,
+        "hidden_size": extractor.model.config.hidden_size,
         "examples": len(records), "expected_entities": expected_count, "predicted_entities": predicted_count,
         "correct_entities": true_positive, "precision": precision, "recall": recall,
         "f1": 2 * precision * recall / (precision + recall) if precision + recall else 0,

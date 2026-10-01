@@ -4,18 +4,20 @@ Run date: 1 October 2026.
 
 ## Fine-tuning
 
-The Docker training stage fine-tuned `prajjwal1/bert-mini` on 442 synthetic examples for three epochs. It used CPU, batch size 8, learning rate `3e-4` and seed 42. The selected checkpoint was `checkpoint-168` from epoch 3. The test split was not used to select the checkpoint.
+The Docker training stage fine-tuned `dbmdz/bert-large-cased-finetuned-conll03-english`, the model named in the reference exercise, on 442 synthetic examples. Training completed three epochs on CPU with batch size 4, learning rate `2e-5` and seed 42. The model has 24 hidden layers, hidden size 1024 and 332,532,739 parameters after replacing the classification head with three course labels.
+
+Training took 1,313.92 seconds, about 22 minutes, excluding downloads and image packaging. Validation entity F1 was 100% after each epoch. The trainer retained `checkpoint-111` from epoch 1 because the later epochs tied its F1. The test split was not used to select the checkpoint.
 
 | Measurement | Result |
 |---|---:|
-| Validation entity F1 before fine-tuning | 4.47% |
-| Validation entity F1 after fine-tuning | 97.96% |
-| Test exact-course precision | 75.86% |
-| Test exact-course recall | 91.67% |
-| Test exact-course F1 | 83.02% |
-| Test sentences with all names correct | 35 / 42 |
+| Validation entity F1 before fine-tuning | 0% |
+| Validation entity F1 after fine-tuning | 100% |
+| Test exact-course precision | 100% |
+| Test exact-course recall | 100% |
+| Test exact-course F1 | 100% |
+| Test sentences with all names correct | 42 / 42 |
 
-The test contained 48 course entities. The model returned 58 names, of which 44 were exact matches. Evaluation used the checkpoint copied from the built Docker image; the running API produced the same predictions for all 42 test sentences.
+The test contained 48 course entities. The model returned 48 names, all exact matches. Evaluation used the checkpoint copied from the built Docker image; the running API produced the same predictions for all 42 test sentences.
 
 Raw records: [training metrics](evidence/training-metrics.json) and [all test predictions](evidence/test-metrics.json).
 
@@ -52,8 +54,6 @@ The following screenshot shows an executed Swagger request, not the example resp
 
 ## Observations
 
-The model still makes mistakes. Some test sentences split `Introduction to Artificial Intelligence` into two names, and the bookstore sentence incorrectly produced `notebooks` and `pencils`. These errors are retained in the test report. The dataset is small and synthetic, so the results should not be treated as accuracy on real college brochures.
+There were no extraction errors in the 42-example test split. This is a small synthetic dataset with separate course titles and templates in each split. A perfect score here does not establish accuracy on real college brochures or arbitrary text. All test predictions are retained in the report.
 
-The first container startup could not read the saved weights because the training stage created them with owner-only permissions. Giving the copied model files to `appuser` fixed the startup; the rebuilt container passed the health and extraction checks.
-
-The implementation follows the exercise's dataset, Hugging Face training, FastAPI endpoint, Docker build/run and POST testing steps. It uses a smaller pretrained BERT and Python 3.12 instead of the example's BERT-large and Python 3.8. The container still serves on port 80; host port 8004 keeps this assignment separate from the earlier services.
+The implementation uses the reference's BERT-large model, three epochs, batch size 4 and learning rate `2e-5`. It implements course-span labels and decoding rather than returning the whole input. Python 3.12 is used instead of the example's Python 3.8. The container serves on port 80; host port 8004 keeps this assignment separate from the earlier services.

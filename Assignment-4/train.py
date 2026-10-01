@@ -17,6 +17,10 @@ from course_ner import LABELS, align_labels
 from prepare_data import ROOT, build_splits
 
 
+BASE_MODEL = "dbmdz/bert-large-cased-finetuned-conll03-english"
+BASE_REVISION = "4c534963167c08d4b8ff1f88733cf2930f86add0"
+
+
 def tokenize_dataset(examples, tokenizer):
     dataset = Dataset.from_pandas(pd.DataFrame(examples), preserve_index=False)
 
@@ -44,38 +48,43 @@ def compute_metrics(prediction):
 
 def main():
     parser = argparse.ArgumentParser(description="Fine-tune a course-name token classifier")
-    parser.add_argument("--base-model", default="prajjwal1/bert-mini")
+    parser.add_argument("--base-model", default=BASE_MODEL)
     parser.add_argument("--base-revision", default=None)
     parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--learning-rate", type=float, default=3e-4)
+    parser.add_argument("--learning-rate", type=float, default=2e-5)
+    parser.add_argument("--batch-size", type=int, default=4)
     parser.add_argument("--model-dir", type=Path, default=ROOT / "model" / "course-ner")
     parser.add_argument("--report", type=Path, default=ROOT / "evidence" / "training-metrics.json")
     args = parser.parse_args()
     set_seed(42)
-    torch.set_num_threads(int(os.getenv("TORCH_NUM_THREADS", "4")))
+    torch.set_num_threads(int(os.getenv("TORCH_NUM_THREADS", "6")))
     splits = build_splits()
     revision = args.base_revision
-    if revision is None and args.base_model == "prajjwal1/bert-mini":
-        revision = "5e123abc2480f0c4b4cac186d3b3f09299c258fc"
+    if revision is None and args.base_model == BASE_MODEL:
+        revision = BASE_REVISION
     tokenizer = AutoTokenizer.from_pretrained(args.base_model, revision=revision, use_fast=True)
     model = AutoModelForTokenClassification.from_pretrained(
         args.base_model, num_labels=len(LABELS), id2label=dict(enumerate(LABELS)),
         label2id={label: i for i, label in enumerate(LABELS)}, ignore_mismatched_sizes=True,
         revision=revision,
     )
+    model.config.course_base_model = args.base_model
     training = tokenize_dataset(splits["train"], tokenizer)
     validation = tokenize_dataset(splits["validation"], tokenizer)
     arguments = TrainingArguments(
-        output_dir=str(ROOT / "training-output"), eval_strategy="epoch", save_strategy="epoch",
-        learning_rate=args.learning_rate, per_device_train_batch_size=8,
-        per_device_eval_batch_size=16, num_train_epochs=args.epochs, weight_decay=0.01,
-        warmup_ratio=0.1, load_best_model_at_end=True, metric_for_best_model="f1",
-        save_total_limit=1, report_to="none", logging_steps=25, seed=42, use_cpu=True,
+        output_dir=str(ROOT / "training-output" / "bert-large"), eval_strategy="epoch", save_strategy="epoch",
+        learning_rate=args.learning_rate, per_device_train_batch_size=args.batch_size,
+        per_device_eval_batch_size=4, num_train_epochs=args.epochs,
+        load_best_model_at_end=True, metric_for_best_model="f1",
+        save_total_limit=1, save_only_model=True, report_to="none", logging_steps=10, seed=42, use_cpu=True,
     )
     trainer = Trainer(
         model=model, args=arguments, train_dataset=training, eval_dataset=validation,
         processing_class=tokenizer, data_collator=DataCollatorForTokenClassification(tokenizer),
         compute_metrics=compute_metrics,
+        optimizer_cls_and_kwargs=(torch.optim.AdamW, {
+            "lr": args.learning_rate, "betas": (0.9, 0.999), "eps": 1e-8, "foreach": False,
+        }),
     )
     baseline_metrics = trainer.evaluate()
     result = trainer.train()
@@ -85,7 +94,10 @@ def main():
     report = {
         "base_model": args.base_model, "base_revision": model.config._commit_hash,
         "seed": 42, "epochs": args.epochs, "learning_rate": args.learning_rate,
-        "batch_size": 8, "device": "cpu", "parameters": sum(p.numel() for p in model.parameters()),
+        "batch_size": args.batch_size, "device": "cpu", "threads": torch.get_num_threads(),
+        "parameters": sum(p.numel() for p in model.parameters()),
+        "hidden_layers": model.config.num_hidden_layers, "hidden_size": model.config.hidden_size,
+        "epoch_history": [entry for entry in trainer.state.log_history if "eval_f1" in entry],
         "split_sizes": {key: len(value) for key, value in splits.items()},
         "train": result.metrics, "baseline_validation": baseline_metrics, "validation": validation_metrics,
         "best_checkpoint": Path(trainer.state.best_model_checkpoint).name,

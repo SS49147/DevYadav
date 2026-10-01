@@ -13,9 +13,9 @@ COPY requirements-training.txt .
 RUN pip install --no-cache-dir -r requirements-training.txt
 COPY data/courses.json data/courses.json
 COPY course_ner.py prepare_data.py train.py ./
-ARG BASE_MODEL=prajjwal1/bert-mini
+ARG BASE_MODEL=dbmdz/bert-large-cased-finetuned-conll03-english
 ARG EPOCHS=3
-RUN python train.py --base-model "$BASE_MODEL" --epochs "$EPOCHS"
+RUN HF_HUB_DOWNLOAD_TIMEOUT=60 TORCH_NUM_THREADS=6 python train.py --base-model "$BASE_MODEL" --epochs "$EPOCHS"
 
 FROM dependencies AS runtime
 COPY --from=training --chown=10001:10001 /app/model/course-ner /app/model/course-ner
