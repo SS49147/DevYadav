@@ -5,7 +5,7 @@ profile my-apparmor-profile flags=(attach_disconnected,mediate_deleted) {
 
     network inet stream,
     network inet6 stream,
-    /usr/local/bin/python{,3,3.8} rix,
+    /usr/local/bin/python{,3,3.8} mrix,
     /usr/local/lib/** mr,
     /usr/lib/** mr,
     /lib/** mr,
@@ -18,8 +18,8 @@ profile my-apparmor-profile flags=(attach_disconnected,mediate_deleted) {
 
     deny /etc/** r,
     deny /var/** rw,
-    deny /bin/** rmix,
-    deny /usr/bin/** rmix,
+    deny /bin/** rmx,
+    deny /usr/bin/** rmx,
     capability net_bind_service,
     deny capability sys_admin,
 

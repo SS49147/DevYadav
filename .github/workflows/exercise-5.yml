@@ -20,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Install host dependencies and load the named profile
+        id: profile
         run: |
           sudo apt-get update
           sudo apt-get install -y apparmor-utils
@@ -42,5 +43,5 @@ jobs:
           path: Exercises/Exercise-5/evidence/*.json
           if-no-files-found: error
       - name: Unload only this lab profile
-        if: always()
+        if: always() && steps.profile.outcome == 'success'
         run: sudo apparmor_parser -R my-apparmor-profile
