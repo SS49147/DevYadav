@@ -1,0 +1,15 @@
+{
+  "image_id": "sha256:0fcd464646951dc59fef1b2138112d89a3cfe6d3a53c306120d37f93bb0ea44a",
+  "security_options": [
+    "apparmor=my-apparmor-profile"
+  ],
+  "apparmor_profile": "my-apparmor-profile",
+  "process_profile": "my-apparmor-profile (enforce)",
+  "http": {
+    "url": "http://127.0.0.1:15005/",
+    "status": 200,
+    "body": "Hello, this is a secure Flask application running inside a Docker container!"
+  },
+  "container_removed": true,
+  "checked_at_utc": "2026-10-09T18:01:31.359670+00:00"
+}

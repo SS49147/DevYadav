@@ -46,6 +46,7 @@ Assignment 4 fine-tunes a pretrained BERT token classifier for course-name extra
 - [Exercise 2: Flask on Minikube](./Exercises/Exercise-2/README.md)
 - [Exercise 3: Scaling Flask with a ReplicaSet](./Exercises/Exercise-3/README.md)
 - [Exercise 4: Docker Networking](./Exercises/Exercise-4/README.md)
+- [Exercise 5: Docker Security with AppArmor](./Exercises/Exercise-5/README.md)
 
 ## Features
 

@@ -1,0 +1,60 @@
+{
+  "control": {
+    "read_etc_passwd": {
+      "exit_code": 0,
+      "output": "839\n"
+    },
+    "write_var": {
+      "exit_code": 0,
+      "output": ""
+    },
+    "execute_bash": {
+      "exit_code": 0,
+      "output": ""
+    },
+    "execute_cat": {
+      "exit_code": 0,
+      "output": "from flask import Flask\n\napp = Flask(__name__)\n\n\n@app.route('/')\ndef home():\n    return \"Hello, this is a secure Flask application running inside a Docker container!\"\n\n\nif __name__ == '__main__':\n    app.run(host='0.0.0.0', port=5000)\n"
+    }
+  },
+  "restricted": {
+    "read_etc_passwd": {
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nPermissionError: [Errno 13] Permission denied: '/etc/passwd'\n"
+    },
+    "write_var": {
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nPermissionError: [Errno 13] Permission denied: '/var/lab-test'\n"
+    },
+    "execute_bash": {
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.8/subprocess.py\", line 493, in run\n    with Popen(*popenargs, **kwargs) as process:\n  File \"/usr/local/lib/python3.8/subprocess.py\", line 858, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/usr/local/lib/python3.8/subprocess.py\", line 1720, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nPermissionError: [Errno 13] Permission denied: '/bin/bash'\n"
+    },
+    "execute_cat": {
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/usr/local/lib/python3.8/subprocess.py\", line 493, in run\n    with Popen(*popenargs, **kwargs) as process:\n  File \"/usr/local/lib/python3.8/subprocess.py\", line 858, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/usr/local/lib/python3.8/subprocess.py\", line 1720, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nPermissionError: [Errno 13] Permission denied: '/usr/bin/cat'\n"
+    }
+  },
+  "direct_docker_exec": {
+    "bash": {
+      "exit_code": 0,
+      "output": ""
+    },
+    "cat_passwd": {
+      "exit_code": 1,
+      "output": "/usr/bin/cat: /etc/passwd: Permission denied\n"
+    }
+  },
+  "process_profile": "my-apparmor-profile (enforce)",
+  "allowed_app_write": {
+    "exit_code": 0,
+    "output": "allowed\n"
+  },
+  "http": {
+    "url": "http://127.0.0.1:15005/",
+    "status": 200,
+    "body": "Hello, this is a secure Flask application running inside a Docker container!"
+  },
+  "containers_removed": true,
+  "checked_at_utc": "2026-10-09T18:01:54.631052+00:00"
+}

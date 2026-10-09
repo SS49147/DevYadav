@@ -40,7 +40,9 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: exercise-5-evidence
-          path: Exercises/Exercise-5/evidence/*.json
+          path: |
+            Exercises/Exercise-5/evidence/profile-application.json
+            Exercises/Exercise-5/evidence/restricted-actions.json
           if-no-files-found: error
       - name: Unload only this lab profile
         if: always() && steps.profile.outcome == 'success'
