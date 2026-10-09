@@ -43,6 +43,7 @@ Assignment 4 fine-tunes a pretrained BERT token classifier for course-name extra
 ## Exercises
 
 - [Exercise 1: Kubernetes Getting Started](./Exercises/Exercise-1/README.md)
+- [Exercise 2: Flask on Minikube](./Exercises/Exercise-2/README.md)
 
 ## Features
 

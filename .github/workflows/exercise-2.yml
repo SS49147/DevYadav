@@ -1,0 +1,56 @@
+name: Exercise 2 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-2/**", ".github/workflows/exercise-2.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-2/**", ".github/workflows/exercise-2.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  flask:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build image and test Flask
+        run: |
+          docker build -t flask-app:latest Exercises/Exercise-2
+          docker run --rm flask-app:latest python -m unittest -v
+      - name: Install Minikube
+        run: |
+          release=https://github.com/kubernetes/minikube/releases/download/v1.39.0
+          curl --fail --location --retry 3 "$release/minikube-linux-amd64" --output "$RUNNER_TEMP/minikube"
+          expected_hash=$(curl --fail --location --retry 3 "$release/minikube-linux-amd64.sha256")
+          printf '%s  %s\n' "$expected_hash" "$RUNNER_TEMP/minikube" | sha256sum --check --status
+          chmod +x "$RUNNER_TEMP/minikube"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Deploy without a service
+        run: |
+          minikube start --profile exercise-2-ci --driver docker --cpus 2 --memory 2048 --keep-context --preload=false
+          minikube --profile exercise-2-ci image load flask-app:latest
+          minikube --profile exercise-2-ci kubectl -- --context exercise-2-ci create namespace exercise2
+          minikube --profile exercise-2-ci kubectl -- --context exercise-2-ci apply -f Exercises/Exercise-2/flask-deployment.yaml
+          minikube --profile exercise-2-ci kubectl -- --context exercise-2-ci -n exercise2 rollout status deployment/flask-app --timeout=180s
+          test "$(minikube --profile exercise-2-ci kubectl -- --context exercise-2-ci -n exercise2 get services -o jsonpath='{.items}')" = '[]'
+          if curl --fail --max-time 3 http://127.0.0.1:15000/; then
+            echo 'The deployment unexpectedly published host port 15000.'
+            exit 1
+          fi
+      - name: Create the service
+        run: minikube --profile exercise-2-ci kubectl -- --context exercise-2-ci apply -f Exercises/Exercise-2/flask-service.yaml
+      - name: Verify deployment and HTTP response
+        shell: pwsh
+        run: |
+          $serviceUrl = minikube --profile exercise-2-ci service flask-app-service --namespace exercise2 --url |
+            Where-Object { $_ -match '^http://' } | Select-Object -First 1
+          if (-not $serviceUrl) { throw 'No service URL returned.' }
+          & ./Exercises/Exercise-2/verify.ps1 -ClusterProfile exercise-2-ci -ServiceUrl $serviceUrl
+      - name: Show diagnostics on failure
+        if: failure()
+        run: |
+          minikube --profile exercise-2-ci kubectl -- --context exercise-2-ci -n exercise2 get pods,services,endpointslices -o wide
+          minikube --profile exercise-2-ci kubectl -- --context exercise-2-ci -n exercise2 describe deployment flask-app
+          minikube --profile exercise-2-ci kubectl -- --context exercise-2-ci -n exercise2 logs deployment/flask-app

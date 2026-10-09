@@ -1,0 +1,33 @@
+Name:                   flask-app
+Namespace:              exercise2
+CreationTimestamp:      Fri, 09 Oct 2026 22:25:16 +0530
+Labels:                 <none>
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=flask-app
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=flask-app
+  Containers:
+   flask-app:
+    Image:         flask-app:latest
+    Port:          15000/TCP
+    Host Port:     0/TCP
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   flask-app-59f7cdccb4 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  29s   deployment-controller  Scaled up replica set flask-app-59f7cdccb4 from 0 to 1

@@ -1,0 +1,7 @@
+{
+  "checked_at_utc": "2026-10-09T16:55:47.9466312Z",
+  "service_count": 0,
+  "host_url": "http://127.0.0.1:15000/",
+  "curl_exit_code": 7,
+  "response": "curl: (7) Failed to connect to 127.0.0.1:15000 after 2048 ms: Could not connect to server"
+}

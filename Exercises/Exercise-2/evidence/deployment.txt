@@ -1,0 +1,5 @@
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES             SELECTOR
+deployment.apps/flask-app   1/1     1            1           28s   flask-app    flask-app:latest   app=flask-app
+
+NAME                             READY   STATUS    RESTARTS   AGE   IP           NODE               NOMINATED NODE   READINESS GATES
+pod/flask-app-59f7cdccb4-j6fch   1/1     Running   0          28s   10.244.0.4   devops-exercises   <none>           <none>

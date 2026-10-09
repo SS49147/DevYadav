@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-service
+  namespace: exercise2
+spec:
+  selector:
+    app: flask-app
+  ports:
+    - port: 15000
+      targetPort: 15000
+  type: NodePort

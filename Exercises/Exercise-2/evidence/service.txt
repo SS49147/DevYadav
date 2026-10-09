@@ -1,0 +1,5 @@
+NAME                        TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)           AGE   SELECTOR
+service/flask-app-service   NodePort   10.109.59.252   <none>        15000:31393/TCP   26s   app=flask-app
+
+NAME                                                     ADDRESSTYPE   PORTS   ENDPOINTS    AGE
+endpointslice.discovery.k8s.io/flask-app-service-ljr7t   IPv4          15000   10.244.0.4   26s

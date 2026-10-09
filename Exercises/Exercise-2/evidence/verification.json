@@ -1,0 +1,26 @@
+{
+  "checked_at_utc": "2026-10-09T16:56:07.7973942Z",
+  "profile": "devops-exercises",
+  "namespace": "exercise2",
+  "deployment": "flask-app",
+  "replicas": 1,
+  "ready_replicas": 1,
+  "pod": "flask-app-59f7cdccb4-j6fch",
+  "pod_ip": "10.244.0.4",
+  "node": "devops-exercises",
+  "image": "flask-app:latest",
+  "image_id": "sha256:1cf39e0c67caf0faa56624322148f80ede1551e58389027f18db52cbca72cf9f",
+  "image_pull_policy": "Never",
+  "container_port": 15000,
+  "service_type": "NodePort",
+  "service_port": 15000,
+  "target_port": 15000,
+  "node_port": 31393,
+  "ready_endpoints": [
+    "10.244.0.4"
+  ],
+  "request_url": "http://127.0.0.1:63020/",
+  "http_status": 200,
+  "response": "Hello from Flask on Kubernetes!",
+  "checks_passed": 6
+}
