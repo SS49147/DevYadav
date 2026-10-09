@@ -1,0 +1,51 @@
+{
+  "checked_at_utc": "2026-10-09T18:40:44.8053099Z",
+  "phase": "installed",
+  "jenkins_version": "2.580.1",
+  "checks": [
+    {
+      "name": "Administrator authentication",
+      "passed": true,
+      "details": "admin"
+    },
+    {
+      "name": "Jenkins ready in NORMAL mode",
+      "passed": true,
+      "details": "NORMAL"
+    },
+    {
+      "name": "Setup completed and dashboard served",
+      "passed": true,
+      "details": {
+        "setup_marker_exists": true,
+        "http_status": 200
+      }
+    },
+    {
+      "name": "Git and Pipeline plugins active",
+      "passed": true,
+      "details": [
+        {
+          "shortName": "git",
+          "version": "5.10.1",
+          "active": true
+        },
+        {
+          "shortName": "workflow-aggregator",
+          "version": "608.v67378e9d3db_1",
+          "active": true
+        },
+        {
+          "shortName": "pipeline-stage-view",
+          "version": "2.41",
+          "active": true
+        }
+      ]
+    },
+    {
+      "name": "Anonymous API access is denied",
+      "passed": true,
+      "details": 403
+    }
+  ]
+}

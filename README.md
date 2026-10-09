@@ -48,6 +48,7 @@ Assignment 4 fine-tunes a pretrained BERT token classifier for course-name extra
 - [Exercise 4: Docker Networking](./Exercises/Exercise-4/README.md)
 - [Exercise 5: Docker Security with AppArmor](./Exercises/Exercise-5/README.md)
 - [Exercise 6: Delivery Monitoring with Prometheus and Grafana](./Exercises/Exercise-6/README.md)
+- [Exercise 7: CI and Jenkins Installation](./Exercises/Exercise-7/README.md)
 
 ## Features
 

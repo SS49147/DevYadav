@@ -1,0 +1,43 @@
+name: Exercise 7 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-7/**", ".github/workflows/exercise-7.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-7/**", ".github/workflows/exercise-7.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  installation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: Exercises/Exercise-7
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v7
+      - name: Start the official Jenkins LTS image
+        run: ./start.ps1
+      - name: Complete the setup wizard and verify
+        run: |
+          ./setup.ps1
+          ./verify.ps1
+      - name: Verify credentials and plugins persist across a restart
+        run: |
+          docker compose restart jenkins
+          if ($LASTEXITCODE -ne 0) { throw 'Jenkins restart failed.' }
+          ./verify.ps1 -Phase restarted
+      - name: Save installation reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: exercise-7-evidence
+          path: Exercises/Exercise-7/evidence/*.json
+          if-no-files-found: warn
+      - name: Stop only this lab
+        if: always()
+        run: docker compose down

@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-10-09T18:37:15.7822422Z",
+  "url": "http://127.0.0.1:18007/",
+  "jenkins_version": "2.580.1",
+  "running": true,
+  "image": "jenkins/jenkins:lts",
+  "image_id": "sha256:a660310e39ade10631f774bacd5219de767dfd08947ea5c32a739b5e5bb382c1",
+  "home_mount": [
+    {
+      "Type": "volume",
+      "Name": "exercise7_jenkins-home",
+      "Destination": "/var/jenkins_home"
+    }
+  ],
+  "initial_password_saved_privately": true,
+  "unlock_page_visible": true
+}
