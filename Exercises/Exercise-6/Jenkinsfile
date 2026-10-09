@@ -1,0 +1,67 @@
+pipeline {
+    agent any
+    options { disableConcurrentBuilds() }
+    parameters {
+        choice(name: 'DELIVERY_MODE', choices: ['normal', 'high_pending', 'high_pending_slow'], description: 'Delivery simulation scenario')
+    }
+    stages {
+        stage('Pre-check Docker') {
+            steps {
+                sh 'docker --version && docker info --format "{{.Name}} {{.ServerVersion}}"'
+            }
+        }
+        stage('Setup Workspace') {
+            steps {
+                sh '''
+                    cp /lab-source/Dockerfile /lab-source/.dockerignore /lab-source/requirements.txt /lab-source/delivery_metrics.py /lab-source/test_metrics.py .
+                    cp -R /lab-source/prometheus /lab-source/grafana .
+                    mkdir -p .secrets
+                    cp /lab-source/.secrets/grafana-admin .secrets/grafana-admin
+                '''
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                    docker build -t delivery_metrics:lab .
+                    docker run --rm delivery_metrics:lab python -m unittest -v
+                    docker build -t delivery_prometheus:lab prometheus
+                    docker run --rm --entrypoint promtool delivery_prometheus:lab check config /etc/prometheus/prometheus.yml
+                    docker build -t delivery_grafana:lab grafana
+                '''
+            }
+        }
+        stage('Run Application') {
+            steps {
+                sh '''
+                    for name in delivery_metrics prometheus grafana; do
+                        if docker container inspect "$name" >/dev/null 2>&1; then
+                            owner=$(docker inspect --format '{{index .Config.Labels "devops.lab.exercise"}}' "$name")
+                            test "$owner" = 6
+                            docker rm -f "$name"
+                        fi
+                    done
+                    if docker network inspect delivery_monitoring >/dev/null 2>&1; then
+                        owner=$(docker network inspect --format '{{index .Labels "devops.lab.exercise"}}' delivery_monitoring)
+                        test "$owner" = 6
+                    else
+                        docker network create --label devops.lab.exercise=6 delivery_monitoring
+                    fi
+                    docker run -d --name delivery_metrics --label devops.lab.exercise=6 --network delivery_monitoring -p 8000:8000 -e DELIVERY_MODE="$DELIVERY_MODE" delivery_metrics:lab
+                '''
+            }
+        }
+        stage('Run Prometheus & Grafana') {
+            steps {
+                sh '''
+                    docker run -d --name prometheus --label devops.lab.exercise=6 --network delivery_monitoring -p 9090:9090 delivery_prometheus:lab
+                    docker run -d --name grafana --label devops.lab.exercise=6 --network delivery_monitoring -p 3000:3000 \
+                      --mount type=bind,source="$WORKSPACE/.secrets/grafana-admin",target=/run/secrets/grafana-admin,readonly \
+                      -e GF_SECURITY_ADMIN_PASSWORD__FILE=/run/secrets/grafana-admin \
+                      -e GF_AUTH_ANONYMOUS_ENABLED=true -e GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer \
+                      -e GF_ANALYTICS_REPORTING_ENABLED=false delivery_grafana:lab
+                '''
+            }
+        }
+    }
+}

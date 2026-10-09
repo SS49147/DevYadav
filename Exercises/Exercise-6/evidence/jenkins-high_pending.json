@@ -1,0 +1,9 @@
+{
+  "checked_at_utc": "2026-10-09T18:25:17.0534470Z",
+  "mode": "high_pending",
+  "build_number": 3,
+  "result": "SUCCESS",
+  "building": false,
+  "duration_ms": 17891,
+  "job_url": "http://127.0.0.1:18006/job/DeliveryMonitoring/3/"
+}

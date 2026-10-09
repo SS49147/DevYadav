@@ -1,0 +1,49 @@
+name: Exercise 6 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-6/**", ".github/workflows/exercise-6.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-6/**", ".github/workflows/exercise-6.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  monitoring:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: Exercises/Exercise-6
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v7
+      - name: Start the isolated Jenkins and Docker lab
+        run: ./start.ps1
+      - name: Run and verify the normal scenario
+        run: |
+          ./run_pipeline.ps1 -Mode normal
+          ./verify.ps1 -Mode normal
+      - name: Run and verify the required high-pending scenario
+        run: |
+          ./run_pipeline.ps1 -Mode high_pending
+          ./verify.ps1 -Mode high_pending
+      - name: Verify both alerts with a controlled slow-delivery scenario
+        run: |
+          ./run_pipeline.ps1 -Mode high_pending_slow
+          ./verify.ps1 -Mode high_pending_slow
+      - name: Save measured reports and Jenkins output
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: exercise-6-evidence
+          path: |
+            Exercises/Exercise-6/evidence/jenkins-*.json
+            Exercises/Exercise-6/evidence/jenkins-*.txt
+            Exercises/Exercise-6/evidence/verification-*.json
+          if-no-files-found: warn
+      - name: Stop only the exercise's Compose project
+        if: always()
+        run: docker compose -f compose.yaml down

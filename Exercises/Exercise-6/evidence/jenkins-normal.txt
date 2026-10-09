@@ -1,0 +1,151 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Still waiting to schedule task
+Waiting for next available executor
+Running on Jenkins in /var/jenkins_home/workspace/DeliveryMonitoring
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Pre-check Docker)
+[Pipeline] sh
++ docker --version
+Docker version 29.8.2, build 7fc2dff
++ docker info --format {{.Name}} {{.ServerVersion}}
+506735fc7379 29.8.2
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Setup Workspace)
+[Pipeline] sh
++ cp /lab-source/Dockerfile /lab-source/.dockerignore /lab-source/requirements.txt /lab-source/delivery_metrics.py /lab-source/test_metrics.py .
++ cp -R /lab-source/prometheus /lab-source/grafana .
++ mkdir -p .secrets
++ cp /lab-source/.secrets/grafana-admin .secrets/grafana-admin
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Docker Image)
+[Pipeline] sh
++ docker build -t delivery_metrics:lab .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  8.704kB
+Step 1/7 : FROM python:3.11-slim
+ ---> e88e9763f943
+Step 2/7 : WORKDIR /app
+ ---> Using cache
+ ---> 825edff8d4a8
+Step 3/7 : COPY requirements.txt .
+ ---> Using cache
+ ---> 9f87748885bd
+Step 4/7 : RUN pip install --no-cache-dir -r requirements.txt
+ ---> Using cache
+ ---> abecfe26aec7
+Step 5/7 : COPY delivery_metrics.py test_metrics.py /app/
+ ---> Using cache
+ ---> cf3338b26359
+Step 6/7 : EXPOSE 8000
+ ---> Using cache
+ ---> 13f2b58c0a3f
+Step 7/7 : CMD ["python", "delivery_metrics.py"]
+ ---> Using cache
+ ---> 10835df98e36
+Successfully built 10835df98e36
+Successfully tagged delivery_metrics:lab
++ docker run --rm delivery_metrics:lab python -m unittest -v
+test_controlled_slow_scenario (test_metrics.DeliveryMetricsTests.test_controlled_slow_scenario) ... ok
+test_high_pending_range (test_metrics.DeliveryMetricsTests.test_high_pending_range) ... Total: 123; pending: 70; on the way: 11; time: 40.00s
+Total: 135; pending: 75; on the way: 10; time: 19.53s
+ok
+test_normal_values (test_metrics.DeliveryMetricsTests.test_normal_values) ... ok
+test_summary_observation (test_metrics.DeliveryMetricsTests.test_summary_observation) ... Total: 67; pending: 15; on the way: 12; time: 25.00s
+Total: 72; pending: 20; on the way: 15; time: 42.00s
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK
++ docker build -t delivery_prometheus:lab prometheus
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  4.608kB
+Step 1/2 : FROM prom/prometheus:v3.5.0
+ ---> 63805ebb8d2b
+Step 2/2 : COPY prometheus.yml alert_rules.yml /etc/prometheus/
+ ---> Using cache
+ ---> 9bdd50c054d6
+Successfully built 9bdd50c054d6
+Successfully tagged delivery_prometheus:lab
++ docker run --rm --entrypoint promtool delivery_prometheus:lab check config /etc/prometheus/prometheus.yml
+Checking /etc/prometheus/prometheus.yml
+  SUCCESS: 1 rule files found
+ SUCCESS: /etc/prometheus/prometheus.yml is valid prometheus config file syntax
+
+Checking /etc/prometheus/alert_rules.yml
+  SUCCESS: 2 rules found
+
++ docker build -t delivery_grafana:lab grafana
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  9.216kB
+Step 1/3 : FROM grafana/grafana:12.1.1
+ ---> a1701c218024
+Step 2/3 : COPY provisioning /etc/grafana/provisioning
+ ---> Using cache
+ ---> 2ba09eea2867
+Step 3/3 : COPY dashboards /var/lib/grafana/dashboards
+ ---> Using cache
+ ---> 4cf40412cdc4
+Successfully built 4cf40412cdc4
+Successfully tagged delivery_grafana:lab
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Application)
+[Pipeline] sh
++ docker container inspect delivery_metrics
++ docker inspect --format {{index .Config.Labels "devops.lab.exercise"}} delivery_metrics
++ owner=6
++ test 6 = 6
++ docker rm -f delivery_metrics
+delivery_metrics
++ docker container inspect prometheus
++ docker inspect --format {{index .Config.Labels "devops.lab.exercise"}} prometheus
++ owner=6
++ test 6 = 6
++ docker rm -f prometheus
+prometheus
++ docker container inspect grafana
++ docker inspect --format {{index .Config.Labels "devops.lab.exercise"}} grafana
++ owner=6
++ test 6 = 6
++ docker rm -f grafana
+grafana
++ docker network inspect delivery_monitoring
++ docker network inspect --format {{index .Labels "devops.lab.exercise"}} delivery_monitoring
++ owner=6
++ test 6 = 6
++ docker run -d --name delivery_metrics --label devops.lab.exercise=6 --network delivery_monitoring -p 8000:8000 -e DELIVERY_MODE=normal delivery_metrics:lab
+488f26e1450f25f7bd1d40668710c0849f1c74e45ca24256c7f024518cef6338
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Prometheus & Grafana)
+[Pipeline] sh
++ docker run -d --name prometheus --label devops.lab.exercise=6 --network delivery_monitoring -p 9090:9090 delivery_prometheus:lab
+95a28a1f37bc628204cd5b4a1c8c0619ce6ad3f3921296b3164ee7422a032726
++ docker run -d --name grafana --label devops.lab.exercise=6 --network delivery_monitoring -p 3000:3000 --mount type=bind,source=/var/jenkins_home/workspace/DeliveryMonitoring/.secrets/grafana-admin,target=/run/secrets/grafana-admin,readonly -e GF_SECURITY_ADMIN_PASSWORD__FILE=/run/secrets/grafana-admin -e GF_AUTH_ANONYMOUS_ENABLED=true -e GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer -e GF_ANALYTICS_REPORTING_ENABLED=false delivery_grafana:lab
+a11eaf5e8bc0ad155d666397c4f28e9a86b5765c5c67013387d4d2398f5ac7cc
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

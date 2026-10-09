@@ -1,0 +1,18 @@
+groups:
+  - name: delivery_alerts
+    rules:
+      - alert: HighPendingDeliveries
+        expr: pending_deliveries > 10
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: High pending deliveries
+          description: Pending deliveries have stayed above 10 for 15 seconds.
+      - alert: HighAverageDeliveryTime
+        expr: (average_delivery_time_sum / average_delivery_time_count) > 30
+        labels:
+          severity: critical
+        annotations:
+          summary: High average delivery time
+          description: The observed mean delivery time is above 30 seconds.

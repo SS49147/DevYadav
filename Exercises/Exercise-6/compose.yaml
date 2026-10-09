@@ -1,0 +1,64 @@
+name: exercise6
+services:
+  docker:
+    image: docker:29.8.2-dind
+    privileged: true
+    environment:
+      DOCKER_TLS_CERTDIR: /certs
+    volumes:
+      - docker-certs:/certs/client
+      - docker-data:/var/lib/docker
+      - jenkins-home:/var/jenkins_home
+    ports:
+      - "127.0.0.1:18000:8000"
+      - "127.0.0.1:13906:9090"
+      - "127.0.0.1:13006:3000"
+    networks:
+      lab:
+        aliases: [docker]
+    healthcheck:
+      test: ["CMD", "docker", "info"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    labels:
+      devops.lab.exercise: "6"
+  jenkins:
+    build: ./jenkins
+    environment:
+      DOCKER_HOST: tcp://docker:2376
+      DOCKER_CERT_PATH: /certs/client
+      DOCKER_TLS_VERIFY: "1"
+      JAVA_OPTS: -Djenkins.install.runSetupWizard=false -Xmx512m
+      JENKINS_ADMIN_PASSWORD_FILE: /run/secrets/jenkins-admin
+    secrets:
+      - jenkins-admin
+    volumes:
+      - docker-certs:/certs/client:ro
+      - jenkins-home:/var/jenkins_home
+      - ./:/lab-source:ro
+    ports:
+      - "127.0.0.1:18006:8080"
+    depends_on:
+      docker:
+        condition: service_healthy
+    networks: [lab]
+    labels:
+      devops.lab.exercise: "6"
+secrets:
+  jenkins-admin:
+    file: ./.secrets/jenkins-admin
+networks:
+  lab:
+    labels:
+      devops.lab.exercise: "6"
+volumes:
+  docker-certs:
+    labels:
+      devops.lab.exercise: "6"
+  docker-data:
+    labels:
+      devops.lab.exercise: "6"
+  jenkins-home:
+    labels:
+      devops.lab.exercise: "6"

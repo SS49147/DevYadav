@@ -1,0 +1,46 @@
+{
+  "uid": "delivery-monitoring",
+  "title": "Delivery Monitoring",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "5s",
+  "timezone": "browser",
+  "time": {"from": "now-15m", "to": "now"},
+  "panels": [
+    {
+      "id": 1, "type": "timeseries", "title": "Total Deliveries",
+      "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8},
+      "datasource": {"type": "prometheus", "uid": "delivery-prometheus"},
+      "targets": [{"refId": "A", "expr": "total_deliveries", "legendFormat": "Total"}],
+      "fieldConfig": {"defaults": {"unit": "short", "min": 0}, "overrides": []}
+    },
+    {
+      "id": 2, "type": "timeseries", "title": "Pending Deliveries",
+      "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8},
+      "datasource": {"type": "prometheus", "uid": "delivery-prometheus"},
+      "targets": [{"refId": "A", "expr": "pending_deliveries", "legendFormat": "Pending"}],
+      "fieldConfig": {"defaults": {"unit": "short", "min": 0, "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 10}]}}, "overrides": []}
+    },
+    {
+      "id": 3, "type": "timeseries", "title": "On-the-Way Deliveries",
+      "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8},
+      "datasource": {"type": "prometheus", "uid": "delivery-prometheus"},
+      "targets": [{"refId": "A", "expr": "on_the_way_deliveries", "legendFormat": "On the way"}],
+      "fieldConfig": {"defaults": {"unit": "short", "min": 0}, "overrides": []}
+    },
+    {
+      "id": 4, "type": "timeseries", "title": "Average Delivery Time",
+      "gridPos": {"x": 12, "y": 8, "w": 12, "h": 8},
+      "datasource": {"type": "prometheus", "uid": "delivery-prometheus"},
+      "targets": [{"refId": "A", "expr": "average_delivery_time_sum / average_delivery_time_count", "legendFormat": "Observed mean"}],
+      "fieldConfig": {"defaults": {"unit": "s", "min": 0}, "overrides": []}
+    },
+    {
+      "id": 5, "type": "table", "title": "Firing Alerts",
+      "gridPos": {"x": 0, "y": 16, "w": 24, "h": 6},
+      "datasource": {"type": "prometheus", "uid": "delivery-prometheus"},
+      "targets": [{"refId": "A", "expr": "ALERTS{alertstate=\"firing\"}", "instant": true, "format": "table"}],
+      "options": {"showHeader": true}
+    }
+  ]
+}

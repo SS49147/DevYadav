@@ -1,0 +1,389 @@
+{
+  "checked_at_utc": "2026-10-09T18:26:45.6524992Z",
+  "mode": "high_pending_slow",
+  "checks": [
+    {
+      "name": "Both Prometheus scrape targets are up",
+      "passed": true,
+      "details": [
+        {
+          "scrapeUrl": "http://delivery_metrics:8000/metrics",
+          "health": "up",
+          "lastError": ""
+        },
+        {
+          "scrapeUrl": "http://localhost:9090/metrics",
+          "health": "up",
+          "lastError": ""
+        }
+      ]
+    },
+    {
+      "name": "Grafana database is healthy",
+      "passed": true,
+      "details": {
+        "database": "ok",
+        "version": "12.1.1",
+        "commit": "df5de8219b41d1e639e003bf5f3a85913761d167"
+      }
+    },
+    {
+      "name": "Simulator metrics match the selected scenario",
+      "passed": true,
+      "details": {
+        "observed_mean_seconds": 40.03219680486841,
+        "observations": 18.0,
+        "total": 141.0,
+        "pending": 75.0,
+        "on_the_way": 18.0
+      }
+    },
+    {
+      "name": "Simulator continues producing observations",
+      "passed": true,
+      "details": {
+        "before": 18.0,
+        "after": 21.0
+      }
+    },
+    {
+      "name": "Dashboard contains all four required metric panels",
+      "passed": true,
+      "details": [
+        {
+          "title": "Total Deliveries",
+          "targets": [
+            {
+              "expr": "total_deliveries",
+              "legendFormat": "Total",
+              "refId": "A"
+            }
+          ]
+        },
+        {
+          "title": "Pending Deliveries",
+          "targets": [
+            {
+              "expr": "pending_deliveries",
+              "legendFormat": "Pending",
+              "refId": "A"
+            }
+          ]
+        },
+        {
+          "title": "On-the-Way Deliveries",
+          "targets": [
+            {
+              "expr": "on_the_way_deliveries",
+              "legendFormat": "On the way",
+              "refId": "A"
+            }
+          ]
+        },
+        {
+          "title": "Average Delivery Time",
+          "targets": [
+            {
+              "expr": "average_delivery_time_sum / average_delivery_time_count",
+              "legendFormat": "Observed mean",
+              "refId": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grafana can reach the Prometheus data source",
+      "passed": true,
+      "details": "Successfully queried the Prometheus API."
+    },
+    {
+      "name": "Prometheus has data for total_deliveries",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "__name__": "total_deliveries",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service"
+          },
+          "value": [
+            1791570399.373,
+            "119"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grafana can query total_deliveries",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "__name__": "total_deliveries",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service"
+          },
+          "value": [
+            1791570399.4,
+            "119"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prometheus has data for pending_deliveries",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "__name__": "pending_deliveries",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service"
+          },
+          "value": [
+            1791570399.409,
+            "67"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grafana can query pending_deliveries",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "__name__": "pending_deliveries",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service"
+          },
+          "value": [
+            1791570399.436,
+            "67"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prometheus has data for on_the_way_deliveries",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "__name__": "on_the_way_deliveries",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service"
+          },
+          "value": [
+            1791570399.444,
+            "16"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grafana can query on_the_way_deliveries",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "__name__": "on_the_way_deliveries",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service"
+          },
+          "value": [
+            1791570399.463,
+            "16"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prometheus has data for average_delivery_time_sum / average_delivery_time_count",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service"
+          },
+          "value": [
+            1791570399.474,
+            "39.79881250837958"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grafana can query average_delivery_time_sum / average_delivery_time_count",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service"
+          },
+          "value": [
+            1791570399.5,
+            "39.79881250837958"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Source alert rules and severities are loaded",
+      "passed": true,
+      "details": [
+        {
+          "state": "firing",
+          "name": "HighPendingDeliveries",
+          "query": "pending_deliveries > 10",
+          "duration": 15,
+          "keepFiringFor": 0,
+          "labels": {
+            "severity": "warning"
+          },
+          "annotations": {
+            "description": "Pending deliveries have stayed above 10 for 15 seconds.",
+            "summary": "High pending deliveries"
+          },
+          "alerts": [
+            {
+              "labels": {
+                "alertname": "HighPendingDeliveries",
+                "instance": "delivery_metrics:8000",
+                "job": "delivery_service",
+                "severity": "warning"
+              },
+              "annotations": {
+                "description": "Pending deliveries have stayed above 10 for 15 seconds.",
+                "summary": "High pending deliveries"
+              },
+              "state": "firing",
+              "activeAt": "2026-10-09T18:26:28.919052257Z",
+              "value": "6.7e+01"
+            }
+          ],
+          "health": "ok",
+          "evaluationTime": 0.000713597,
+          "lastEvaluation": "2026-10-09T18:26:43.921367839Z",
+          "type": "alerting"
+        },
+        {
+          "state": "firing",
+          "name": "HighAverageDeliveryTime",
+          "query": "(average_delivery_time_sum / average_delivery_time_count) > 30",
+          "duration": 0,
+          "keepFiringFor": 0,
+          "labels": {
+            "severity": "critical"
+          },
+          "annotations": {
+            "description": "The observed mean delivery time is above 30 seconds.",
+            "summary": "High average delivery time"
+          },
+          "alerts": [
+            {
+              "labels": {
+                "alertname": "HighAverageDeliveryTime",
+                "instance": "delivery_metrics:8000",
+                "job": "delivery_service",
+                "severity": "critical"
+              },
+              "annotations": {
+                "description": "The observed mean delivery time is above 30 seconds.",
+                "summary": "High average delivery time"
+              },
+              "state": "firing",
+              "activeAt": "2026-10-09T18:26:28.919052257Z",
+              "value": "4.008294605404745e+01"
+            }
+          ],
+          "health": "ok",
+          "evaluationTime": 0.000468841,
+          "lastEvaluation": "2026-10-09T18:26:43.922096986Z",
+          "type": "alerting"
+        }
+      ]
+    },
+    {
+      "name": "High pending deliveries alert is firing",
+      "passed": true,
+      "details": "firing"
+    },
+    {
+      "name": "High average delivery time alert is firing",
+      "passed": true,
+      "details": "firing"
+    },
+    {
+      "name": "Dashboard alert query is usable",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "__name__": "ALERTS",
+            "alertname": "HighAverageDeliveryTime",
+            "alertstate": "firing",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service",
+            "severity": "critical"
+          },
+          "value": [
+            1791570405.628,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ALERTS",
+            "alertname": "HighPendingDeliveries",
+            "alertstate": "firing",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service",
+            "severity": "warning"
+          },
+          "value": [
+            1791570405.628,
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Both firing alerts are visible through Grafana",
+      "passed": true,
+      "details": [
+        {
+          "metric": {
+            "__name__": "ALERTS",
+            "alertname": "HighAverageDeliveryTime",
+            "alertstate": "firing",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service",
+            "severity": "critical"
+          },
+          "value": [
+            1791570405.628,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ALERTS",
+            "alertname": "HighPendingDeliveries",
+            "alertstate": "firing",
+            "instance": "delivery_metrics:8000",
+            "job": "delivery_service",
+            "severity": "warning"
+          },
+          "value": [
+            1791570405.628,
+            "1"
+          ]
+        }
+      ]
+    }
+  ]
+}
