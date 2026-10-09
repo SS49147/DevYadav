@@ -66,6 +66,6 @@ The source declares a path profile for `/usr/bin/python3` but selects `my-apparm
 
 The parser rejected the source's `deny ... rmix` syntax: deny rules use plain `x`, not an execution transition such as `ix`. The corresponding rules use `rmx` here.
 
-The rules permit TCP stream sockets; they do not filter traffic specifically to port 5000. AppArmor adds confinement, not a complete production security policy. An inspection field alone proves configuration, so the tests also require enforce mode and observed permission denials. This follows Docker's [profile-loading and verification guidance](https://docs.docker.com/engine/security/apparmor/).
+The rules permit TCP stream sockets and IPv4 datagram sockets. Werkzeug creates a datagram socket to determine the interface address for its startup message; the stream-only source rule blocked startup. These rules do not filter traffic specifically to port 5000. AppArmor adds confinement, not a complete production security policy. An inspection field alone proves configuration, so the tests also require enforce mode and observed permission denials. This follows Docker's [profile-loading and verification guidance](https://docs.docker.com/engine/security/apparmor/).
 
 The Python 3.8 image and Flask development server are retained for the lab, not production use. Local app-test output and the Windows capability check are in `evidence/`; Linux enforcement results will be recorded after the workflow passes.
