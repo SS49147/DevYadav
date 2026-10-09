@@ -5,8 +5,8 @@ from lab_support import client_with_apparmor, remove_container, save_report, sta
 COMMANDS = {
     'read_etc_passwd': ['python', '-c', "print(len(open('/etc/passwd').read()))"],
     'write_var': ['python', '-c', "open('/var/lab-test', 'w').write('lab')"],
-    'execute_bash': ['/bin/bash', '-c', 'exit 0'],
-    'execute_cat': ['/usr/bin/cat', '/app/app.py'],
+    'execute_bash': ['python', '-c', "import subprocess; subprocess.run(['/bin/bash', '-c', 'exit 0'], check=True)"],
+    'execute_cat': ['python', '-c', "import subprocess; subprocess.run(['/usr/bin/cat', '/app/app.py'], check=True)"],
 }
 
 
@@ -34,6 +34,12 @@ def main():
 
         active = start_container(client, 'exercise5-restricted')
         http = wait_for_http(active)
+        direct_exec = {
+            'bash': execute(active, ['/bin/bash', '-c', 'exit 0']),
+            'cat_passwd': execute(active, ['/usr/bin/cat', '/etc/passwd']),
+        }
+        current = execute(active, ['python', '-c', "print(open('/proc/self/attr/current').read().strip())"])
+        assert current['exit_code'] == 0 and 'my-apparmor-profile (enforce)' in current['output']
         restricted = {name: execute(active, command) for name, command in COMMANDS.items()}
         for name, result in restricted.items():
             assert result.get('api_permission_denied') or (
@@ -44,6 +50,7 @@ def main():
         remove_container(active)
         active = None
         save_report('restricted-actions.json', {'control': control, 'restricted': restricted,
+                    'direct_docker_exec': direct_exec, 'process_profile': current['output'].strip(),
                     'allowed_app_write': allowed, 'http': http, 'containers_removed': True})
     finally:
         if active is not None:

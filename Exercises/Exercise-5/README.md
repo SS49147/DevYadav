@@ -40,7 +40,9 @@ Do not replace an existing profile of the same name without inspecting it first.
 
 `apply_apparmor.py` builds the image using the SDK, starts the container with `apparmor=my-apparmor-profile`, checks the HTTP response, Docker's `AppArmorProfile` field and `/proc/self/attr/current`, then stops and removes its container.
 
-`test_restricted_actions.py` first checks the same operations in an unconfined control container. It then requires the confined container to deny reading `/etc/passwd`, writing under `/var`, running `/bin/bash` and running `/usr/bin/cat`. Reading `/etc/passwd` is tested with Python directly so a denied `cat` execution cannot be mistaken for a denied file read. A write under `/app` must still succeed and Flask must remain reachable. Both containers are removed after the tests.
+`test_restricted_actions.py` first checks the same operations in an unconfined control container. It then requires the confined Python process to deny reading `/etc/passwd`, writing under `/var`, spawning `/bin/bash` and spawning `/usr/bin/cat`. Reading `/etc/passwd` is tested with Python directly so a denied `cat` execution cannot be mistaken for a denied file read. A write under `/app` must still succeed and Flask must remain reachable. Both containers are removed after the tests.
+
+Direct Docker exec attempts are recorded separately. On the tested runner, directly launching Bash through the Docker API returned exit code 0. The source's expected exit code 126 cannot be claimed for that operation. The spawning test checks execution initiated by an already-confined Python process; it does not claim to restrict an administrator controlling the Docker daemon.
 
 The scripts publish `127.0.0.1:15005` to container port 5000, avoiding the earlier assignment's host port. Reports are saved under `evidence/`; GitHub Actions also uploads the Linux reports as an artifact.
 
