@@ -1,0 +1,46 @@
+name: Exercise 5 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-5/**", ".github/workflows/exercise-5.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-5/**", ".github/workflows/exercise-5.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  apparmor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: Exercises/Exercise-5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install host dependencies and load the named profile
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y apparmor-utils
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements-host.txt
+          sudo apparmor_parser -r -W my-apparmor-profile
+          sudo grep '^my-apparmor-profile (enforce)$' /sys/kernel/security/apparmor/profiles
+      - name: Build and test Flask
+        run: |
+          docker build -t flask-apparmor:latest .
+          docker run --rm flask-apparmor:latest python -m unittest -v
+      - name: Apply and verify the profile through the Docker SDK
+        run: .venv/bin/python apply_apparmor.py
+      - name: Compare restricted actions with an unconfined control
+        run: .venv/bin/python test_restricted_actions.py
+      - name: Save measured reports
+        uses: actions/upload-artifact@v7
+        with:
+          name: exercise-5-evidence
+          path: Exercises/Exercise-5/evidence/*.json
+          if-no-files-found: error
+      - name: Unload only this lab profile
+        if: always()
+        run: sudo apparmor_parser -R my-apparmor-profile

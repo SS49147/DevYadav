@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-10-09T17:52:57.0702939Z",
+  "host": "Windows Docker Desktop",
+  "docker_engine": "29.8.2",
+  "security_options": [
+    "name=seccomp,profile=builtin",
+    "name=cgroupns"
+  ],
+  "apparmor_available": false,
+  "enforcement_tested_on_this_host": false
+}

@@ -1,0 +1,28 @@
+#include <tunables/global>
+
+profile my-apparmor-profile flags=(attach_disconnected,mediate_deleted) {
+    #include <abstractions/base>
+
+    network inet stream,
+    network inet6 stream,
+    /usr/local/bin/python{,3,3.8} rix,
+    /usr/local/lib/** mr,
+    /usr/lib/** mr,
+    /lib/** mr,
+    /lib64/** mr,
+    /app/ r,
+    /app/** rwk,
+    /proc/** r,
+    /dev/null rw,
+    /dev/urandom r,
+
+    deny /etc/** r,
+    deny /var/** rw,
+    deny /bin/** rmix,
+    deny /usr/bin/** rmix,
+    capability net_bind_service,
+    deny capability sys_admin,
+
+    signal (receive) peer=unconfined,
+    signal (send, receive) peer=my-apparmor-profile,
+}
