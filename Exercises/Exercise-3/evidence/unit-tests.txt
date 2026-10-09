@@ -1,0 +1,10 @@
+test_buy_with_generated_user (test_app.FlashSaleTests.test_buy_with_generated_user) ... ok
+test_buy_with_user (test_app.FlashSaleTests.test_buy_with_user) ... ok
+test_health (test_app.FlashSaleTests.test_health) ... ok
+test_home (test_app.FlashSaleTests.test_home) ... ok
+test_unknown_route (test_app.FlashSaleTests.test_unknown_route) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.080s
+
+OK

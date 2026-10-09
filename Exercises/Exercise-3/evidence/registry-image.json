@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-10-09T17:32:25.5789518Z",
+  "repository": "anas2694/flashsale",
+  "tag": "1.0",
+  "digest": "sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf",
+  "last_pushed": "2026-10-09T17:30:30.914297Z",
+  "images": [
+    {
+      "architecture": "amd64",
+      "os": "linux",
+      "digest": "sha256:f2d548f5c2d5f9e0130ed92b632be08a2f51551d675f3532464aaa1f25e12074"
+    }
+  ]
+}

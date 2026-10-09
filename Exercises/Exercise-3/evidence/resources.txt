@@ -1,0 +1,12 @@
+NAME                           DESIRED   CURRENT   READY   AGE   CONTAINERS            IMAGES                   SELECTOR
+replicaset.apps/flashsale-rs   5         5         5       86s   flashsale-container   anas2694/flashsale:1.0   app=flashsale
+
+NAME                     READY   STATUS    RESTARTS   AGE   IP            NODE               NOMINATED NODE   READINESS GATES
+pod/flashsale-rs-hnnph   1/1     Running   0          62s   10.244.0.8    devops-exercises   <none>           <none>
+pod/flashsale-rs-hvw88   1/1     Running   0          62s   10.244.0.9    devops-exercises   <none>           <none>
+pod/flashsale-rs-lrg5l   1/1     Running   0          52s   10.244.0.10   devops-exercises   <none>           <none>
+pod/flashsale-rs-n6bjh   1/1     Running   0          86s   10.244.0.7    devops-exercises   <none>           <none>
+pod/flashsale-rs-x8xpw   1/1     Running   0          86s   10.244.0.6    devops-exercises   <none>           <none>
+
+NAME                    TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+service/flashsale-svc   ClusterIP   10.110.14.32   <none>        80/TCP    86s   app=flashsale

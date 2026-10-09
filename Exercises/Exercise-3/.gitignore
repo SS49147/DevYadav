@@ -1,0 +1,4 @@
+__pycache__/
+.playwright-cli/
+*.log
+evidence/image-push.txt

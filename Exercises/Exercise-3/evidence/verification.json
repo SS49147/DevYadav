@@ -1,0 +1,136 @@
+{
+  "checked_at_utc": "2026-10-09T17:31:44.3124955Z",
+  "profile": "devops-exercises",
+  "namespace": "exercise3",
+  "node_count": 1,
+  "replicaset": "flashsale-rs",
+  "image": "anas2694/flashsale:1.0",
+  "initial_pods": [
+    {
+      "name": "flashsale-rs-77q8v",
+      "uid": "eae97428-6653-4293-8654-a3014a8d0dd5",
+      "ip": "10.244.0.5",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-n6bjh",
+      "uid": "4c3f3bba-5c66-4761-aff7-77d575537ee8",
+      "ip": "10.244.0.7",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-x8xpw",
+      "uid": "86be4ed6-ebca-4da3-9a50-6095291c62c9",
+      "ip": "10.244.0.6",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    }
+  ],
+  "scaled_pods": [
+    {
+      "name": "flashsale-rs-77q8v",
+      "uid": "eae97428-6653-4293-8654-a3014a8d0dd5",
+      "ip": "10.244.0.5",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-hnnph",
+      "uid": "30db92a4-2588-40e6-bff4-1be7a3918874",
+      "ip": "10.244.0.8",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-hvw88",
+      "uid": "595add3f-220d-4d35-963c-c0d119b20820",
+      "ip": "10.244.0.9",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-n6bjh",
+      "uid": "4c3f3bba-5c66-4761-aff7-77d575537ee8",
+      "ip": "10.244.0.7",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-x8xpw",
+      "uid": "86be4ed6-ebca-4da3-9a50-6095291c62c9",
+      "ip": "10.244.0.6",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    }
+  ],
+  "deleted_pod": "flashsale-rs-77q8v",
+  "deleted_uid": "eae97428-6653-4293-8654-a3014a8d0dd5",
+  "replacement_pod": "flashsale-rs-lrg5l",
+  "replacement_uid": "1ee15832-19bf-4dc9-9fdf-726dcaf3138c",
+  "recovered_pods": [
+    {
+      "name": "flashsale-rs-hnnph",
+      "uid": "30db92a4-2588-40e6-bff4-1be7a3918874",
+      "ip": "10.244.0.8",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-hvw88",
+      "uid": "595add3f-220d-4d35-963c-c0d119b20820",
+      "ip": "10.244.0.9",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-lrg5l",
+      "uid": "1ee15832-19bf-4dc9-9fdf-726dcaf3138c",
+      "ip": "10.244.0.10",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-n6bjh",
+      "uid": "4c3f3bba-5c66-4761-aff7-77d575537ee8",
+      "ip": "10.244.0.7",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    },
+    {
+      "name": "flashsale-rs-x8xpw",
+      "uid": "86be4ed6-ebca-4da3-9a50-6095291c62c9",
+      "ip": "10.244.0.6",
+      "node": "devops-exercises",
+      "image_id": "docker.io/anas2694/flashsale@sha256:dabbae6390989ce27dec32fcd09102dc574d53f0e35d2dc372efc58c2a9ca2bf"
+    }
+  ],
+  "service_type": "ClusterIP",
+  "ready_endpoints": [
+    "10.244.0.6",
+    "10.244.0.7",
+    "10.244.0.8",
+    "10.244.0.9",
+    "10.244.0.10"
+  ],
+  "http": {
+    "home": {
+      "message": "Welcome to Big Sale!",
+      "pod": "flashsale-rs-x8xpw",
+      "ts": 1791567103.56812
+    },
+    "health": {
+      "pod": "flashsale-rs-n6bjh",
+      "status": "healthy"
+    },
+    "buy_requests": 100,
+    "served_by_pod": {
+      "flashsale-rs-lrg5l": 22,
+      "flashsale-rs-n6bjh": 23,
+      "flashsale-rs-x8xpw": 22,
+      "flashsale-rs-hnnph": 17,
+      "flashsale-rs-hvw88": 16
+    }
+  }
+}

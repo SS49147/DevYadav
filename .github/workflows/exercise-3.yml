@@ -1,0 +1,43 @@
+name: Exercise 3 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-3/**", ".github/workflows/exercise-3.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-3/**", ".github/workflows/exercise-3.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  replicaset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build and test the image
+        run: |
+          docker build -t anas2694/flashsale:1.0 Exercises/Exercise-3
+          docker run --rm anas2694/flashsale:1.0 python -m unittest -v
+      - name: Install Minikube
+        run: |
+          release=https://github.com/kubernetes/minikube/releases/download/v1.39.0
+          curl --fail --location --retry 3 "$release/minikube-linux-amd64" --output "$RUNNER_TEMP/minikube"
+          expected_hash=$(curl --fail --location --retry 3 "$release/minikube-linux-amd64.sha256")
+          printf '%s  %s\n' "$expected_hash" "$RUNNER_TEMP/minikube" | sha256sum --check --status
+          chmod +x "$RUNNER_TEMP/minikube"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Start one node and deploy
+        run: |
+          minikube start --profile exercise-3-ci --nodes=1 --driver docker --cpus 2 --memory 2048 --keep-context --preload=false
+          minikube --profile exercise-3-ci image load anas2694/flashsale:1.0
+          minikube --profile exercise-3-ci kubectl -- --context exercise-3-ci apply -f Exercises/Exercise-3/flashsale-replicaset.yaml
+      - name: Verify scaling, replacement and service requests
+        shell: pwsh
+        run: ./Exercises/Exercise-3/verify.ps1 -ClusterProfile exercise-3-ci
+      - name: Show diagnostics on failure
+        if: failure()
+        run: |
+          minikube --profile exercise-3-ci kubectl -- --context exercise-3-ci -n exercise3 get rs,pods,services,endpointslices -o wide
+          minikube --profile exercise-3-ci kubectl -- --context exercise-3-ci -n exercise3 describe rs flashsale-rs
+          minikube --profile exercise-3-ci kubectl -- --context exercise-3-ci -n exercise3 logs -l app=flashsale --tail=20
