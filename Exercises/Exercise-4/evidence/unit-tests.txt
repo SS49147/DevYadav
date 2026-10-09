@@ -1,0 +1,8 @@
+test_about (test_app.AboutTests) ... ok
+test_about_is_get_only (test_app.AboutTests) ... ok
+test_missing_route (test_app.AboutTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.016s
+
+OK

@@ -1,0 +1,66 @@
+{
+  "Name": "my-bridge-net",
+  "Id": "5fb2f1bbb886de0e64d4ac0cbbb2a33629e2e813c6af1e163b34828a720d639b",
+  "Created": "2026-10-09T17:45:50.593520855Z",
+  "Scope": "local",
+  "Driver": "bridge",
+  "EnableIPv4": true,
+  "EnableIPv6": false,
+  "IPAM": {
+    "Driver": "default",
+    "Options": {},
+    "Config": [
+      {
+        "Subnet": "172.23.0.0/16",
+        "Gateway": "172.23.0.1"
+      }
+    ]
+  },
+  "Internal": false,
+  "Attachable": false,
+  "Ingress": false,
+  "ConfigFrom": {
+    "Network": ""
+  },
+  "ConfigOnly": false,
+  "Options": {
+    "com.docker.network.enable_ipv4": "true",
+    "com.docker.network.enable_ipv6": "false"
+  },
+  "Labels": {
+    "devops.lab.exercise": "4"
+  },
+  "Containers": {
+    "4e6213c59b7ce66972aa51ed04bd42d62ec10440575481b36d012b81d16d6b00": {
+      "Name": "exercise4-flask",
+      "EndpointID": "4fcec53b8335fe830cd7ff5aa507fbfccecf9bde37e12866a9dd5be38d9a66aa",
+      "MacAddress": "86:d8:ba:9a:8c:5d",
+      "IPv4Address": "172.23.0.4/16",
+      "IPv6Address": ""
+    },
+    "4ed811792708992d6ef1d4855d55073b6ddc3965669dd3677267c6ef1a62c581": {
+      "Name": "exercise4-redis",
+      "EndpointID": "bf2d36bb28c96b4523cb00b23d14ac21e5009838b9c1cd0e501dbdb4cc8cb05c",
+      "MacAddress": "c6:63:7a:7a:0a:e6",
+      "IPv4Address": "172.23.0.3/16",
+      "IPv6Address": ""
+    },
+    "c827bcef466b0843a4a84853fff102aa948b5061d21ef8bfd42402dbf48991b9": {
+      "Name": "exercise4-mysql",
+      "EndpointID": "0a981c6567d7aa58559e031e2685827ea2daee116e1fb225681c33f740457b76",
+      "MacAddress": "d2:19:43:a3:e9:57",
+      "IPv4Address": "172.23.0.2/16",
+      "IPv6Address": ""
+    }
+  },
+  "Status": {
+    "IPAM": {
+      "Subnets": {
+        "172.23.0.0/16": {
+          "IPsInUse": 6,
+          "DynamicIPsAvailable": 65530
+        }
+      }
+    }
+  }
+}

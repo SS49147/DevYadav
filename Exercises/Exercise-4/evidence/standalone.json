@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-09T17:45:52.7643557Z",
+  "http_status": 200,
+  "url": "http://127.0.0.1:15004/about",
+  "body": {
+    "description": "This is a simple REST API built with Flask.",
+    "name": "Simple REST API",
+    "version": "1.0"
+  }
+}

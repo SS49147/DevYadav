@@ -1,0 +1,54 @@
+{
+  "checked_at_utc": "2026-10-09T17:47:31.0462781Z",
+  "docker_engine": "29.8.2",
+  "network": "my-bridge-net",
+  "driver": "bridge",
+  "ipam": [
+    {
+      "Subnet": "172.23.0.0/16",
+      "Gateway": "172.23.0.1"
+    }
+  ],
+  "containers": [
+    "exercise4-flask",
+    "exercise4-redis",
+    "exercise4-mysql"
+  ],
+  "flask_port": 5001,
+  "host_port": 15004,
+  "host_bind_address": "127.0.0.1",
+  "mysql_and_redis_host_ports_published": false,
+  "connectivity": {
+    "mysql": {
+      "dns_address": "172.23.0.2",
+      "ping_output": "PING mysql (172.23.0.2) 56(84) bytes of data.\n64 bytes from exercise4-mysql.my-bridge-net (172.23.0.2): icmp_seq=1 ttl=64 time=1.19 ms\n64 bytes from exercise4-mysql.my-bridge-net (172.23.0.2): icmp_seq=2 ttl=64 time=0.093 ms\n64 bytes from exercise4-mysql.my-bridge-net (172.23.0.2): icmp_seq=3 ttl=64 time=0.122 ms\n\n--- mysql ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 2057ms\nrtt min/avg/max/mdev = 0.093/0.466/1.185/0.508 ms\n",
+      "tcp": {
+        "port": 3306,
+        "protocol": 10
+      }
+    },
+    "redis": {
+      "dns_address": "172.23.0.3",
+      "ping_output": "PING redis (172.23.0.3) 56(84) bytes of data.\n64 bytes from exercise4-redis.my-bridge-net (172.23.0.3): icmp_seq=1 ttl=64 time=46.1 ms\n64 bytes from exercise4-redis.my-bridge-net (172.23.0.3): icmp_seq=2 ttl=64 time=0.119 ms\n64 bytes from exercise4-redis.my-bridge-net (172.23.0.3): icmp_seq=3 ttl=64 time=0.150 ms\n\n--- redis ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 2015ms\nrtt min/avg/max/mdev = 0.119/15.445/46.066/21.652 ms\n",
+      "tcp": {
+        "port": 6379,
+        "response": "PONG"
+      }
+    }
+  },
+  "mysql_databases": [
+    "devopsdb",
+    "information_schema",
+    "mysql",
+    "performance_schema",
+    "sys"
+  ],
+  "redis_ping": "PONG",
+  "request_url": "http://127.0.0.1:15004/about",
+  "http_status": 200,
+  "response": {
+    "description": "This is a simple REST API built with Flask.",
+    "name": "Simple REST API",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,6 @@
+*
+!Dockerfile
+!requirements.txt
+!app.py
+!test_app.py
+!verify_network.py

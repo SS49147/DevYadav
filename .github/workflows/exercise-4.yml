@@ -1,0 +1,34 @@
+name: Exercise 4 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-4/**", ".github/workflows/exercise-4.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-4/**", ".github/workflows/exercise-4.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  networking:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: Exercises/Exercise-4
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build and test Flask
+        run: |
+          docker build -t flask-api:latest .
+          docker run --rm flask-api:latest python -m unittest -v
+      - name: Run three containers on the bridge network
+        shell: pwsh
+        run: ./start.ps1
+      - name: Verify API, DNS, ping, MySQL and Redis
+        shell: pwsh
+        run: ./verify.ps1
+      - name: Clean up only the lab resources
+        if: always()
+        shell: pwsh
+        run: ./cleanup.ps1
