@@ -20,7 +20,7 @@ The service's ready endpoint was `10.244.0.3:80`, matching the Nginx pod. Kubern
 
 ## HTTP and browser check
 
-`minikube service hello-k8s --namespace exercise1 --url` created the Windows tunnel at `http://127.0.0.1:65080/`. The request returned HTTP 200 with `Server: nginx/1.31.6` and the Nginx welcome page. The browser displayed the same page.
+`minikube service hello-k8s --namespace exercise1 --url` created the Windows tunnel at `http://127.0.0.1:63652/`. The request returned HTTP 200 with `Server: nginx/1.31.6` and the Nginx welcome page. The browser displayed the same page.
 
 `verify.ps1` passed all five checks: pod readiness, image and container port, NodePort configuration, ready service endpoint and HTTP response. The resolved image digest and measured values are stored in [verification.json](evidence/verification.json); the actual response is in [nginx-response.html](evidence/nginx-response.html).
 

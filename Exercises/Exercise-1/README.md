@@ -10,23 +10,23 @@ Install Minikube and start Docker Desktop with Linux containers. Run these comma
 
 ```powershell
 minikube start --profile devops-exercises --driver docker --cpus 2 --memory 2048 --keep-context --preload=false
-minikube --profile devops-exercises kubectl -- create namespace exercise1
-minikube --profile devops-exercises kubectl -- -n exercise1 run hello-k8s --image=nginx --port=80
-minikube --profile devops-exercises kubectl -- -n exercise1 wait --for=condition=Ready pod/hello-k8s --timeout=180s
-minikube --profile devops-exercises kubectl -- -n exercise1 get pods
-minikube --profile devops-exercises kubectl -- -n exercise1 expose pod hello-k8s --type=NodePort --port=80
+minikube --profile devops-exercises kubectl -- --context devops-exercises create namespace exercise1
+minikube --profile devops-exercises kubectl -- --context devops-exercises -n exercise1 run hello-k8s --image=nginx --port=80
+minikube --profile devops-exercises kubectl -- --context devops-exercises -n exercise1 wait --for=condition=Ready pod/hello-k8s --timeout=180s
+minikube --profile devops-exercises kubectl -- --context devops-exercises -n exercise1 get pods
+minikube --profile devops-exercises kubectl -- --context devops-exercises -n exercise1 expose pod hello-k8s --type=NodePort --port=80
 minikube --profile devops-exercises service hello-k8s --namespace exercise1 --url
 ```
 
 Open the URL printed by the last command in a browser. Keep that terminal open: on Windows with Docker, `minikube service` maintains the tunnel needed to reach the NodePort service. Press Ctrl+C when finished.
 
-The named profile keeps the exercises separate from the earlier assignments. `--keep-context` preserves the current Kubernetes context, and namespace `exercise1` isolates this pod and service. `minikube kubectl --` runs the kubectl version matching the cluster. With a compatible standalone kubectl, the equivalent commands are `kubectl --context devops-exercises -n exercise1 ...`.
+The named profile keeps the exercises separate from the earlier assignments. `--keep-context` preserves the current Kubernetes context, and namespace `exercise1` isolates this pod and service. `minikube kubectl --` runs the kubectl version matching the cluster; `--context devops-exercises` selects the intended cluster explicitly. With a compatible standalone kubectl, the equivalent commands are `kubectl --context devops-exercises -n exercise1 ...`.
 
 The imperative commands above demonstrate the steps in the source exercise. To recreate the same resources from this folder, use the included manifest instead:
 
 ```powershell
-minikube --profile devops-exercises kubectl -- apply -f hello-k8s.yaml
-minikube --profile devops-exercises kubectl -- -n exercise1 wait --for=condition=Ready pod/hello-k8s --timeout=180s
+minikube --profile devops-exercises kubectl -- --context devops-exercises apply -f hello-k8s.yaml
+minikube --profile devops-exercises kubectl -- --context devops-exercises -n exercise1 wait --for=condition=Ready pod/hello-k8s --timeout=180s
 ```
 
 ## Verify

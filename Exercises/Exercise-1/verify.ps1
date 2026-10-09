@@ -9,7 +9,7 @@ $ErrorActionPreference = 'Stop'
 
 function Read-KubernetesResource {
     param([string[]]$Arguments)
-    $resourceJson = & $Minikube --profile $ClusterProfile kubectl -- @Arguments
+    $resourceJson = & $Minikube --profile $ClusterProfile kubectl -- --context $ClusterProfile @Arguments
     if ($LASTEXITCODE -ne 0) { throw 'Kubernetes resource query failed.' }
     return ($resourceJson -join "`n" | ConvertFrom-Json)
 }

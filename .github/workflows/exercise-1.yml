@@ -31,8 +31,8 @@ jobs:
       - name: Start cluster and deploy Nginx
         run: |
           minikube start --profile exercise-1-ci --driver docker --cpus 2 --memory 2048 --keep-context --preload=false
-          minikube --profile exercise-1-ci kubectl -- apply -f Exercises/Exercise-1/hello-k8s.yaml
-          minikube --profile exercise-1-ci kubectl -- -n exercise1 wait --for=condition=Ready pod/hello-k8s --timeout=180s
+          minikube --profile exercise-1-ci kubectl -- --context exercise-1-ci apply -f Exercises/Exercise-1/hello-k8s.yaml
+          minikube --profile exercise-1-ci kubectl -- --context exercise-1-ci -n exercise1 wait --for=condition=Ready pod/hello-k8s --timeout=180s
       - name: Verify pod, service and welcome page
         shell: pwsh
         run: |
@@ -43,5 +43,5 @@ jobs:
       - name: Show diagnostics on failure
         if: failure()
         run: |
-          minikube --profile exercise-1-ci kubectl -- -n exercise1 get pods,services,endpointslices -o wide
-          minikube --profile exercise-1-ci kubectl -- -n exercise1 describe pod hello-k8s
+          minikube --profile exercise-1-ci kubectl -- --context exercise-1-ci -n exercise1 get pods,services,endpointslices -o wide
+          minikube --profile exercise-1-ci kubectl -- --context exercise-1-ci -n exercise1 describe pod hello-k8s
