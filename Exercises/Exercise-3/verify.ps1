@@ -41,6 +41,7 @@ function Snapshot-Pods {
     })
 }
 
+Invoke-Kube @('wait', '--for=condition=Ready', 'node', '--all', '--timeout=180s') | Out-Host
 $nodes = Read-Resource @('get', 'nodes', '-o', 'json')
 if (@($nodes.items).Count -ne 1 -or
     -not ($nodes.items[0].status.conditions | Where-Object { $_.type -eq 'Ready' -and $_.status -eq 'True' })) {
