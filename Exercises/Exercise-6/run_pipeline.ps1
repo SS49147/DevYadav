@@ -5,11 +5,11 @@ $baseUrl = 'http://127.0.0.1:18006'
 $password = [System.IO.File]::ReadAllText((Join-Path $PSScriptRoot '.secrets/jenkins-admin')).Trim()
 $credential = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes("admin:$password"))
 $headers = @{ Authorization = "Basic $credential" }
-$session = [Microsoft.PowerShell.Commands.WebRequestSession]::new()
+$session = $null
 $deadline = (Get-Date).AddMinutes(5)
 do {
     try {
-        $crumb = Invoke-RestMethod -Uri "$baseUrl/crumbIssuer/api/json" -Headers $headers -WebSession $session -TimeoutSec 5
+        $crumb = Invoke-RestMethod -Uri "$baseUrl/crumbIssuer/api/json" -Headers $headers -SessionVariable session -TimeoutSec 5
         break
     } catch { Start-Sleep -Seconds 2 }
 } while ((Get-Date) -lt $deadline)
