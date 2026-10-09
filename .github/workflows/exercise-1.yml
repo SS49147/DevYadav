@@ -1,0 +1,47 @@
+name: Exercise 1 CI
+
+on:
+  push:
+    paths:
+      - "Exercises/Exercise-1/**"
+      - ".github/workflows/exercise-1.yml"
+  pull_request:
+    paths:
+      - "Exercises/Exercise-1/**"
+      - ".github/workflows/exercise-1.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  nginx:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install Minikube
+        shell: bash
+        run: |
+          release=https://github.com/kubernetes/minikube/releases/download/v1.39.0
+          curl --fail --location --retry 3 "$release/minikube-linux-amd64" --output "$RUNNER_TEMP/minikube"
+          expected_hash=$(curl --fail --location --retry 3 "$release/minikube-linux-amd64.sha256")
+          printf '%s  %s\n' "$expected_hash" "$RUNNER_TEMP/minikube" | sha256sum --check --status
+          chmod +x "$RUNNER_TEMP/minikube"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Start cluster and deploy Nginx
+        run: |
+          minikube start --profile exercise-1-ci --driver docker --cpus 2 --memory 2048 --keep-context --preload=false
+          minikube --profile exercise-1-ci kubectl -- apply -f Exercises/Exercise-1/hello-k8s.yaml
+          minikube --profile exercise-1-ci kubectl -- -n exercise1 wait --for=condition=Ready pod/hello-k8s --timeout=180s
+      - name: Verify pod, service and welcome page
+        shell: pwsh
+        run: |
+          $serviceUrl = minikube --profile exercise-1-ci service hello-k8s --namespace exercise1 --url |
+            Where-Object { $_ -match '^http://' } | Select-Object -First 1
+          if (-not $serviceUrl) { throw 'Minikube did not return a service URL.' }
+          & ./Exercises/Exercise-1/verify.ps1 -ClusterProfile exercise-1-ci -ServiceUrl $serviceUrl
+      - name: Show diagnostics on failure
+        if: failure()
+        run: |
+          minikube --profile exercise-1-ci kubectl -- -n exercise1 get pods,services,endpointslices -o wide
+          minikube --profile exercise-1-ci kubectl -- -n exercise1 describe pod hello-k8s

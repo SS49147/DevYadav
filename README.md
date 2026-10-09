@@ -40,6 +40,10 @@ Assignment 3 deploys the supplied style-transfer image with Docker Compose, Prom
 
 Assignment 4 fine-tunes a pretrained BERT token classifier for course-name extraction and serves the saved model through FastAPI in Docker.
 
+## Exercises
+
+- [Exercise 1: Kubernetes Getting Started](./Exercises/Exercise-1/README.md)
+
 ## Features
 
 ### Inventory Management
