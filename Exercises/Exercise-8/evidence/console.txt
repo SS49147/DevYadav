@@ -1,0 +1,22 @@
+Started by user Lab Administrator
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/HelloWorld
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/HelloWorld/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Anas2694/DevOps-Lab.git # timeout=10
+Fetching upstream changes from https://github.com/Anas2694/DevOps-Lab.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/Anas2694/DevOps-Lab.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 011c78ac81d197cc64cce75c311dd47a478061fb (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 011c78ac81d197cc64cce75c311dd47a478061fb # timeout=10
+Commit message: "Add Exercise 8 Git-backed Jenkins Freestyle job"
+ > git rev-list --no-walk 011c78ac81d197cc64cce75c311dd47a478061fb # timeout=10
+[HelloWorld] $ /bin/sh -xe /tmp/jenkins7313811108225231072.sh
++ sh Exercises/Exercise-8/hello-world.sh
+Hello, Jenkins!
+Finished: SUCCESS

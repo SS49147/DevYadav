@@ -27,3 +27,5 @@ For manual configuration at http://127.0.0.1:18007:
 The console must show the expected message followed by `Finished: SUCCESS`. The verification also checks the job type, SCM configuration and actual shell invocation. The GitHub workflow starts a fresh Exercise 7 Jenkins instance and repeats this Freestyle build.
 
 Generated browser sessions are ignored under `.secrets/`. Jenkins credentials remain in Exercise 7's ignored folder; neither belongs in Git.
+
+See [RESULTS.md](RESULTS.md) for the measured build, console and screenshot.

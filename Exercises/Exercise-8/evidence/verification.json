@@ -1,0 +1,34 @@
+{
+  "checked_at_utc": "2026-10-10T12:14:48.6308656Z",
+  "job_url": "http://127.0.0.1:18007/job/HelloWorld/3/",
+  "build_number": 3,
+  "result": "SUCCESS",
+  "scm_revision": "011c78ac81d197cc64cce75c311dd47a478061fb",
+  "checks": [
+    {
+      "name": "Freestyle project",
+      "passed": true,
+      "details": "hudson.model.FreeStyleBuild"
+    },
+    {
+      "name": "Git SCM uses the lab repository and main branch",
+      "passed": true,
+      "details": "011c78ac81d197cc64cce75c311dd47a478061fb"
+    },
+    {
+      "name": "Execute shell runs the committed script",
+      "passed": true,
+      "details": "sh Exercises/Exercise-8/hello-world.sh"
+    },
+    {
+      "name": "Expected output appears in the real console",
+      "passed": true,
+      "details": "Hello, Jenkins!"
+    },
+    {
+      "name": "Build finished successfully",
+      "passed": true,
+      "details": "SUCCESS"
+    }
+  ]
+}
