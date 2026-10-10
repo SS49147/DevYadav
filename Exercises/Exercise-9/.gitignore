@@ -1,0 +1,5 @@
+.secrets/
+.playwright-cli/
+.venv/
+__pycache__/
+*.log

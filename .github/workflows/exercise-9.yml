@@ -1,0 +1,40 @@
+name: Exercise 9 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-9/**", ".github/workflows/exercise-9.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-9/**", ".github/workflows/exercise-9.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: Exercises/Exercise-9
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v7
+      - name: Start Jenkins with Python and Pipeline dependencies
+        run: ./start.ps1
+      - name: Execute and verify the Git-backed multi-stage pipeline
+        run: ./run_pipeline.ps1
+      - name: Save measured pipeline evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: exercise-9-evidence
+          path: |
+            Exercises/Exercise-9/evidence/console.txt
+            Exercises/Exercise-9/evidence/verification.json
+            Exercises/Exercise-9/evidence/http-response.json
+            Exercises/Exercise-9/evidence/server-cleanup.json
+          if-no-files-found: warn
+      - name: Stop only this exercise's Jenkins instance
+        if: always()
+        run: docker compose down

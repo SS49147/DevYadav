@@ -1,0 +1,19 @@
+name: exercise9
+services:
+  jenkins:
+    build: ./jenkins
+    environment:
+      JAVA_OPTS: -Djenkins.install.runSetupWizard=false -Xmx512m
+      JENKINS_ADMIN_PASSWORD_FILE: /run/secrets/jenkins-admin
+    secrets: [jenkins-admin]
+    ports: ["127.0.0.1:18009:8080"]
+    volumes: ["jenkins-home:/var/jenkins_home"]
+    labels:
+      devops.lab.exercise: "9"
+secrets:
+  jenkins-admin:
+    file: ./.secrets/jenkins-admin
+volumes:
+  jenkins-home:
+    labels:
+      devops.lab.exercise: "9"

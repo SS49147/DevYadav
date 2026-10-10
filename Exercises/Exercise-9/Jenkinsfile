@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+    options { disableConcurrentBuilds() }
+    stages {
+        stage('Build') {
+            steps {
+                dir('Exercises/Exercise-9') {
+                    sh 'python3 --version && python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt && .venv/bin/python -m pip check'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('Exercises/Exercise-9') { sh '.venv/bin/python -m unittest discover -s . -v' }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'mkdir -p "$WORKSPACE/python-app-deploy" && cp "$WORKSPACE/Exercises/Exercise-9/app.py" "$WORKSPACE/python-app-deploy/app.py" && cmp "$WORKSPACE/Exercises/Exercise-9/app.py" "$WORKSPACE/python-app-deploy/app.py"'
+            }
+        }
+        stage('Run Application') {
+            steps {
+                sh '''
+                    test ! -f "$WORKSPACE/python-app-deploy/app.pid"
+                    JENKINS_NODE_COOKIE="exercise9-$BUILD_TAG" nohup "$WORKSPACE/Exercises/Exercise-9/.venv/bin/python" "$WORKSPACE/python-app-deploy/app.py" > "$WORKSPACE/python-app-deploy/app.log" 2>&1 &
+                    echo $! > "$WORKSPACE/python-app-deploy/app.pid"
+                '''
+            }
+        }
+        stage('Test Application') {
+            steps {
+                dir('Exercises/Exercise-9') { sh '.venv/bin/python verify_http.py "$WORKSPACE/python-app-deploy"' }
+            }
+        }
+    }
+    post {
+        always {
+            script {
+                if (fileExists('Exercises/Exercise-9/stop_app.py')) {
+                    dir('Exercises/Exercise-9') { sh 'python3 stop_app.py "$WORKSPACE/python-app-deploy"' }
+                }
+            }
+            archiveArtifacts artifacts: 'Exercises/Exercise-9/evidence/http-response.json,Exercises/Exercise-9/evidence/server-cleanup.json,python-app-deploy/app.py,python-app-deploy/app.log', allowEmptyArchive: true
+        }
+    }
+}
