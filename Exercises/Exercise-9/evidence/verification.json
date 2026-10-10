@@ -1,0 +1,75 @@
+{
+  "checked_at_utc": "2026-10-10T12:22:54.2227500Z",
+  "build_number": 1,
+  "job_url": "http://127.0.0.1:18009/job/Python-MultiStage-Pipeline/1/",
+  "result": "SUCCESS",
+  "scm_revision": "8e3907911337458ae44914bd7e5ae91831f422f6",
+  "checks": [
+    {
+      "name": "Jenkinsfile obtained from Git SCM",
+      "passed": true,
+      "details": "8e3907911337458ae44914bd7e5ae91831f422f6"
+    },
+    {
+      "name": "All five required stages succeeded",
+      "passed": true,
+      "details": [
+        {
+          "name": "Build",
+          "status": "SUCCESS",
+          "durationMillis": 12365
+        },
+        {
+          "name": "Test",
+          "status": "SUCCESS",
+          "durationMillis": 784
+        },
+        {
+          "name": "Deploy",
+          "status": "SUCCESS",
+          "durationMillis": 416
+        },
+        {
+          "name": "Run Application",
+          "status": "SUCCESS",
+          "durationMillis": 423
+        },
+        {
+          "name": "Test Application",
+          "status": "SUCCESS",
+          "durationMillis": 558
+        }
+      ]
+    },
+    {
+      "name": "Dependencies installed and unit tests passed",
+      "passed": true,
+      "details": "Virtual environment, pip check and two unit tests"
+    },
+    {
+      "name": "Live deployed application returned the exact response",
+      "passed": true,
+      "details": {
+        "checked_at_utc": "2026-10-10T17:52:50.058082+05:30",
+        "url": "http://127.0.0.1:5000/",
+        "http_status": 200,
+        "body": "Hello, Jenkins Multi-Stage Pipeline!",
+        "process_id": 1148,
+        "deployment_path": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py",
+        "deployed_sha256": "82b354eb184c1acd202aa74e536f41edb0943fdcf6ad3211e8279d0353352834",
+        "source_matches_deployment": true,
+        "pid_runs_deployed_app": true
+      }
+    },
+    {
+      "name": "Only the owned application process was stopped",
+      "passed": true,
+      "details": {
+        "checked_at_utc": "2026-10-10T17:52:50.934415+05:30",
+        "process_id": 1148,
+        "application_stopped": true,
+        "pid_file_removed": true
+      }
+    }
+  ]
+}

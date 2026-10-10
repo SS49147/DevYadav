@@ -1,0 +1,156 @@
+Started by user admin
+Obtained Exercises/Exercise-9/Jenkinsfile from git https://github.com/Anas2694/DevOps-Lab.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/Python-MultiStage-Pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Anas2694/DevOps-Lab.git
+ > git init /var/jenkins_home/workspace/Python-MultiStage-Pipeline # timeout=10
+Fetching upstream changes from https://github.com/Anas2694/DevOps-Lab.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/Anas2694/DevOps-Lab.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Anas2694/DevOps-Lab.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 8e3907911337458ae44914bd7e5ae91831f422f6 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 8e3907911337458ae44914bd7e5ae91831f422f6 # timeout=10
+Commit message: "Add Exercise 9 Git-backed Flask multi-stage pipeline"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/Exercises/Exercise-9
+[Pipeline] {
+[Pipeline] sh
++ python3 --version
+Python 3.13.5
++ python3 -m venv .venv
++ .venv/bin/python -m pip install -r requirements.txt
+Collecting Flask==2.1.2 (from -r requirements.txt (line 1))
+  Downloading Flask-2.1.2-py3-none-any.whl.metadata (3.9 kB)
+Collecting Werkzeug==2.1.2 (from -r requirements.txt (line 2))
+  Downloading Werkzeug-2.1.2-py3-none-any.whl.metadata (4.4 kB)
+Collecting Jinja2>=3.0 (from Flask==2.1.2->-r requirements.txt (line 1))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.0 (from Flask==2.1.2->-r requirements.txt (line 1))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.0 (from Flask==2.1.2->-r requirements.txt (line 1))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting MarkupSafe>=2.0 (from Jinja2>=3.0->Flask==2.1.2->-r requirements.txt (line 1))
+  Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Downloading Flask-2.1.2-py3-none-any.whl (95 kB)
+Downloading Werkzeug-2.1.2-py3-none-any.whl (224 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (23 kB)
+Installing collected packages: Werkzeug, MarkupSafe, itsdangerous, click, Jinja2, Flask
+
+Successfully installed Flask-2.1.2 Jinja2-3.1.6 MarkupSafe-3.0.4 Werkzeug-2.1.2 click-8.5.0 itsdangerous-2.2.0
++ .venv/bin/python -m pip check
+No broken requirements found.
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/Exercises/Exercise-9
+[Pipeline] {
+[Pipeline] sh
++ .venv/bin/python -m unittest discover -s . -v
+test_home (test_app.TestApp.test_home) ... ok
+test_unknown_route (test_app.TestApp.test_unknown_route) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.019s
+
+OK
+Hello, Jenkins Multi-Stage Pipeline!
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] sh
++ mkdir -p /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy
++ cp /var/jenkins_home/workspace/Python-MultiStage-Pipeline/Exercises/Exercise-9/app.py /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py
++ cmp /var/jenkins_home/workspace/Python-MultiStage-Pipeline/Exercises/Exercise-9/app.py /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Application)
+[Pipeline] sh
++ test ! -f /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.pid
++ echo 1148
++ JENKINS_NODE_COOKIE=exercise9-jenkins-Python-MultiStage-Pipeline-1 nohup /var/jenkins_home/workspace/Python-MultiStage-Pipeline/Exercises/Exercise-9/.venv/bin/python /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test Application)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/Exercises/Exercise-9
+[Pipeline] {
+[Pipeline] sh
++ .venv/bin/python verify_http.py /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy
+{
+  "checked_at_utc": "2026-10-10T12:22:50.058082+00:00",
+  "url": "http://127.0.0.1:5000/",
+  "http_status": 200,
+  "body": "Hello, Jenkins Multi-Stage Pipeline!",
+  "process_id": 1148,
+  "deployment_path": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py",
+  "deployed_sha256": "82b354eb184c1acd202aa74e536f41edb0943fdcf6ad3211e8279d0353352834",
+  "source_matches_deployment": true,
+  "pid_runs_deployed_app": true
+}
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/Exercises/Exercise-9
+[Pipeline] {
+[Pipeline] sh
++ python3 stop_app.py /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy
+{
+  "checked_at_utc": "2026-10-10T12:22:50.934415+00:00",
+  "process_id": 1148,
+  "application_stopped": true,
+  "pid_file_removed": true
+}
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

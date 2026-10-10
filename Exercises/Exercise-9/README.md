@@ -38,3 +38,5 @@ The source's Test Application stage repeats a test-client unit test. Here it che
 The deployment directory follows the source Jenkinsfile's workspace path, not the conflicting `/tmp` path in its expected-output paragraph. This is a mock file-copy deployment, not deployment to an external server. Optional lint, Docker deployment and external notifications are not added.
 
 The runner saves real console output, five-stage results, HTTP proof and cleanup proof under `evidence/`. GitHub Actions repeats the pipeline on a fresh runner. Stop the local controller without deleting its volume using `docker compose down`.
+
+See [RESULTS.md](RESULTS.md) for the measured build and screenshots.
