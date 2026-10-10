@@ -1,0 +1,40 @@
+name: Exercise 8 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-8/**", ".github/workflows/exercise-8.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-8/**", ".github/workflows/exercise-8.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freestyle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: Exercises/Exercise-8
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v7
+      - name: Start and set up the Exercise 7 Jenkins prerequisite
+        run: |
+          ../Exercise-7/start.ps1
+          ../Exercise-7/setup.ps1
+      - name: Run the Git-backed Freestyle job and verify its output
+        run: ./run_job.ps1
+      - name: Save the measured build evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: exercise-8-evidence
+          path: |
+            Exercises/Exercise-8/evidence/console.txt
+            Exercises/Exercise-8/evidence/verification.json
+          if-no-files-found: warn
+      - name: Stop the dedicated Jenkins prerequisite
+        if: always()
+        run: docker compose -f ../Exercise-7/compose.yaml down

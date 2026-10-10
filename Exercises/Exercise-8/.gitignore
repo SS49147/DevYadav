@@ -1,0 +1,3 @@
+.secrets/
+.playwright-cli/
+*.log
