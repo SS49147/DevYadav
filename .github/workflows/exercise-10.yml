@@ -1,0 +1,47 @@
+name: Exercise 10 CI
+
+on:
+  push:
+    paths: ["Exercises/Exercise-10/**", ".github/workflows/exercise-10.yml"]
+  pull_request:
+    paths: ["Exercises/Exercise-10/**", ".github/workflows/exercise-10.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  multinode:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install verified Minikube binary
+        run: |
+          release=https://github.com/kubernetes/minikube/releases/download/v1.39.0
+          curl --fail --location --retry 3 "$release/minikube-linux-amd64" --output "$RUNNER_TEMP/minikube"
+          expected_hash=$(curl --fail --location --retry 3 "$release/minikube-linux-amd64.sha256")
+          printf '%s  %s\n' "$expected_hash" "$RUNNER_TEMP/minikube" | sha256sum --check --status
+          chmod +x "$RUNNER_TEMP/minikube"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Start three nodes, test images and deploy both applications
+        shell: pwsh
+        run: ./Exercises/Exercise-10/start.ps1
+      - name: Verify replica distribution, services and actual cart behavior
+        shell: pwsh
+        run: ./Exercises/Exercise-10/verify.ps1 -RequireEmptyCarts
+      - name: Show cluster diagnostics on failure
+        if: failure()
+        run: |
+          minikube --profile devops-multinode kubectl -- --context devops-multinode get nodes -o wide
+          minikube --profile devops-multinode kubectl -- --context devops-multinode -n default get deployments,replicasets,pods,services,endpointslices -o wide
+          minikube --profile devops-multinode kubectl -- --context devops-multinode -n kube-system get pods -o wide
+      - name: Save measured verification
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: exercise-10-evidence
+          path: |
+            Exercises/Exercise-10/evidence/verification.json
+            Exercises/Exercise-10/evidence/unit-*.json
+          if-no-files-found: warn

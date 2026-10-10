@@ -1,0 +1,6 @@
+{
+  "checked_at_utc": "2026-10-10T12:46:43.8658424Z",
+  "image": "shopping-cart:latest",
+  "exit_code": 0,
+  "output": "test_add_source_item (test_apps.CartTests) ... ok\ntest_empty_cart (test_apps.CartTests) ... ok\ntest_invalid_json_does_not_change_cart (test_apps.CartTests) ... ok\ntest_exact_product_list (test_apps.CatalogTests) ... ok\ntest_unknown_route (test_apps.CatalogTests) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.024s\n\nOK"
+}
