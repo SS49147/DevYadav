@@ -15,7 +15,7 @@ function Check ([string]$Name, [bool]$Passed, $Details) {
     if (-not $Passed) { throw "Verification failed: $Name" }
 }
 function Service-Url ([string]$Name) {
-    $binary = (Get-Command $Minikube -CommandType Application).Source
+    $binary = (Get-Command $Minikube -CommandType Application | Select-Object -First 1).Source
     $stdout = Join-Path $directory "$Name.stdout.log"
     $stderr = Join-Path $directory "$Name.stderr.log"
     $options = @{ FilePath = $binary; ArgumentList = @('--profile', $ClusterProfile, 'service', $Name, '--namespace', 'default', '--url'); RedirectStandardOutput = $stdout; RedirectStandardError = $stderr; PassThru = $true }
