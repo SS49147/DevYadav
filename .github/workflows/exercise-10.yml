@@ -30,6 +30,9 @@ jobs:
       - name: Verify replica distribution, services and actual cart behavior
         shell: pwsh
         run: ./Exercises/Exercise-10/verify.ps1 -RequireEmptyCarts
+      - name: Verify a cart update completes without a spare node
+        shell: pwsh
+        run: ./Exercises/Exercise-10/verify_rollout.ps1
       - name: Show cluster diagnostics on failure
         if: failure()
         run: |
@@ -44,4 +47,5 @@ jobs:
           path: |
             Exercises/Exercise-10/evidence/verification.json
             Exercises/Exercise-10/evidence/unit-*.json
+            Exercises/Exercise-10/evidence/rollout.json
           if-no-files-found: warn

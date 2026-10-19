@@ -7,6 +7,11 @@ metadata:
     devops.lab.exercise: "10"
 spec:
   replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: shopping-cart
