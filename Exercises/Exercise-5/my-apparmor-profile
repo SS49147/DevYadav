@@ -11,7 +11,7 @@ profile my-apparmor-profile flags=(attach_disconnected,mediate_deleted) {
     /usr/lib/** mr,
     /lib/** mr,
     /lib64/** mr,
-    deny /{usr/,}lib{,32,64}/**/libtinfo.so* mr,
+    audit deny /{usr/,}lib{,32,64}/**/libtinfo.so* mr,
     /app/ r,
     /app/** rwk,
     /proc/** r,

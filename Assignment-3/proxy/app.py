@@ -3,7 +3,7 @@ import socket
 import time
 
 import requests
-from flask import Flask, Response, jsonify, request
+from flask import Flask, Response, g, jsonify, request
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
 
 
@@ -22,11 +22,26 @@ LATENCY = Histogram(
     buckets=(0.1, 0.25, 0.5, 1, 2.5, 5, 10, 20, 40, 80, float("inf")),
 )
 
-for response_status in ("200", "400", "500"):
+for response_status in ("200", "400", "413", "500"):
     REQUESTS.labels(response_status).inc(0)
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024
+
+
+@app.before_request
+def start_request_timer():
+    if request.endpoint == "style_transfer" and request.method == "POST":
+        g.style_transfer_started = time.perf_counter()
+
+
+@app.after_request
+def record_request_metrics(response):
+    started = getattr(g, "style_transfer_started", None)
+    if started is not None:
+        REQUESTS.labels(str(response.status_code)).inc()
+        LATENCY.observe(time.perf_counter() - started)
+    return response
 
 
 @app.get("/health")
@@ -40,8 +55,6 @@ def health():
 
 @app.post("/styleTransfer")
 def style_transfer():
-    started = time.perf_counter()
-    status = 500
     try:
         image = request.files.get("image")
         if image is None or not image.filename:
@@ -63,9 +76,6 @@ def style_transfer():
         status = 500
         app.logger.warning("Style transfer upstream request failed: %s", error)
         return jsonify(error="style transfer service is unavailable"), status
-    finally:
-        REQUESTS.labels(str(status)).inc()
-        LATENCY.observe(time.perf_counter() - started)
 
 
 @app.get("/metrics")
@@ -75,7 +85,6 @@ def metrics():
 
 @app.errorhandler(413)
 def too_large(_error):
-    REQUESTS.labels("400").inc()
     return jsonify(error="image exceeds the 10 MB limit"), 413
 
 

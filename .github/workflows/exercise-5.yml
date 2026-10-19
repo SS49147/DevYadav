@@ -36,6 +36,10 @@ jobs:
         run: .venv/bin/python apply_apparmor.py
       - name: Compare restricted actions with an unconfined control
         run: .venv/bin/python test_restricted_actions.py
+      - name: Require kernel proof of the direct Bash startup denial
+        run: |
+          sudo dmesg --notime | grep -E 'apparmor="DENIED".*profile="my-apparmor-profile".*name="[^"]*libtinfo' > evidence/apparmor-denials.log
+          test -s evidence/apparmor-denials.log
       - name: Save measured reports
         uses: actions/upload-artifact@v7
         with:
@@ -43,6 +47,7 @@ jobs:
           path: |
             Exercises/Exercise-5/evidence/profile-application.json
             Exercises/Exercise-5/evidence/restricted-actions.json
+            Exercises/Exercise-5/evidence/apparmor-denials.log
           if-no-files-found: error
       - name: Unload only this lab profile
         if: always() && steps.profile.outcome == 'success'

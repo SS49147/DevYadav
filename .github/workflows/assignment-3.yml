@@ -8,10 +8,16 @@ on:
   pull_request:
     paths:
       - "Assignment-3/**"
+      - ".github/workflows/assignment-3.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
     defaults:
       run:
         working-directory: Assignment-3
@@ -24,3 +30,22 @@ jobs:
       - run: pytest -q
       - run: docker compose config --quiet
       - run: docker build -t visualcraft-metrics-proxy:test proxy
+      - name: Deploy the supplied AI image and monitoring after tests pass
+        run: docker compose up --build -d
+      - name: Verify actual JPEG transformation, metrics and automatic recovery
+        run: python verify_deployment.py --check-restart
+      - name: Show service logs on failure
+        if: failure()
+        run: docker compose logs --tail=80
+      - name: Save measured integration evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: assignment-3-evidence
+          path: |
+            Assignment-3/evidence/integration.json
+            Assignment-3/evidence/ci-styled-output.jpg
+          if-no-files-found: warn
+      - name: Stop only this assignment's deployment
+        if: always()
+        run: docker compose down

@@ -22,9 +22,13 @@ def execute(container, command):
 
 
 def require_denial(name, result):
+    bash_loader_denied = (
+        name in ('direct_bash', 'direct_bash_command') and result['exit_code'] == 127
+        and 'libtinfo.so' in result['output'] and 'cannot open shared object file' in result['output']
+    )
     assert result.get('api_permission_denied') or (
         result['exit_code'] != 0 and 'permission denied' in result['output'].lower()
-    ), (name, result)
+    ) or bash_loader_denied, (name, result)
 
 
 def main():
