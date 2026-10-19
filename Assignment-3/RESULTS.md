@@ -35,3 +35,11 @@ The sample JPEG was submitted to `/styleTransfer`. The API returned HTTP 200 and
 The API container's main process was stopped with `SIGTERM`. Docker restarted it automatically with `RestartCount=1`, and `/health` returned `healthy` after the restart.
 
 The input, output and Grafana dashboard are stored in the [evidence](evidence) folder.
+
+## Deployment and metrics recheck — 20 October 2026
+
+[GitHub Actions run 39306337179](https://github.com/Anas2694/DevOps-Lab/actions/runs/39306337179) passed all six proxy tests, deployed the complete Compose stack after the tests, and checked the real service. The supplied image returned a JPEG before and after an automatic API restart. Prometheus reported both required targets up, and Grafana reported its database healthy.
+
+The oversized-upload request returned HTTP 413 and incremented only the 413 counter, exactly once. The previous double increment under 400 and 500 is fixed. The Jenkins stages now enter the assignment subdirectory, and SCM polling is configured; the fresh deployment execution cited here used GitHub Actions.
+
+The exact status codes, JPEG hashes, counters and restart counts are in [integration.json](evidence/integration.json). The [generated JPEG](evidence/ci-styled-output.jpg) was downloaded from the successful workflow artifact.

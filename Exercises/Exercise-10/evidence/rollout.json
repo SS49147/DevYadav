@@ -1,0 +1,265 @@
+{
+  "checked_at_utc": "2026-10-19T18:58:27.8285470Z",
+  "profile": "devops-multinode",
+  "strategy": {
+    "rollingUpdate": {
+      "maxSurge": 0,
+      "maxUnavailable": 1
+    },
+    "type": "RollingUpdate"
+  },
+  "previous_uids": [
+    "1e3c7910-c917-421f-9644-08f6d272a1bd",
+    "16644cdd-d85e-485a-ba9d-39dbdef0ab3b",
+    "5cf14955-c769-4b62-8bc4-1ea452d1a5a0"
+  ],
+  "replacement_pods": [
+    {
+      "uid": "7fd895bc-cde7-4b85-9816-db7c916e1357",
+      "pod": "shopping-cart-6cd6b895bb-6j4fx",
+      "node": "devops-multinode",
+      "cart": []
+    },
+    {
+      "uid": "8ffbe88a-533c-46f9-8117-a39dfd0c6b4b",
+      "pod": "shopping-cart-6cd6b895bb-j9499",
+      "node": "devops-multinode-m03",
+      "cart": []
+    },
+    {
+      "uid": "e0b6f657-82bc-4ddb-b8a1-6d00c873ba27",
+      "pod": "shopping-cart-6cd6b895bb-lbgs5",
+      "node": "devops-multinode-m02",
+      "cart": []
+    }
+  ],
+  "availability_samples": [
+    {
+      "checked_at_utc": "2026-10-19T18:56:52.8176802Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:56:54.9768966Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:56:57.1188497Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:56:59.2609632Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:01.3979225Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:03.5343287Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:05.6764842Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:07.8188675Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:09.9600096Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:12.1531864Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:14.2948204Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:16.4320608Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:18.5761861Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:20.7142552Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:22.8857493Z",
+      "updated": 1,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:25.0279388Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:27.1685088Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:29.3072269Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:31.4435657Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:33.5827107Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:35.7222831Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:37.8611354Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:39.9957953Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:42.1304740Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:44.2674582Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:46.4046858Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:48.5404555Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:50.6777440Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:52.8150234Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:54.9789031Z",
+      "updated": 2,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:57.1311958Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:57:59.2724080Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:01.4077452Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:03.5430084Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:05.6853691Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:07.8177982Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:09.9560766Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:12.1000408Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:14.2383501Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:16.4886449Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:18.6224396Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:20.9051443Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:23.0873635Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:25.2357180Z",
+      "updated": 3,
+      "available": 2
+    },
+    {
+      "checked_at_utc": "2026-10-19T18:58:27.3725858Z",
+      "updated": 3,
+      "available": 3
+    }
+  ],
+  "passed": true,
+  "cart_data_lost_on_restart": true
+}

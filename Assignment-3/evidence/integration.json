@@ -1,0 +1,53 @@
+{
+  "checked_at_utc": "2026-10-19T18:55:35.084914+00:00",
+  "health": {
+    "status": "healthy",
+    "upstream": "reachable"
+  },
+  "style_transfer": {
+    "status": 200,
+    "bytes": 21957,
+    "sha256": "3eef993cabbe9da9bfefc302cd307646486e8506955a4a5e6ccee3d8dbcbf544"
+  },
+  "missing_image_status": 400,
+  "oversized_upload": {
+    "status": 413,
+    "counter_increments": {
+      "413": 1.0,
+      "400": 0.0,
+      "500": 0.0,
+      "200": 0.0
+    }
+  },
+  "request_counters": {
+    "200": 1.0,
+    "400": 1.0,
+    "413": 1.0,
+    "500": 0.0
+  },
+  "prometheus_targets": [
+    {
+      "job": "cadvisor",
+      "health": "up"
+    },
+    {
+      "job": "visualcraft-api",
+      "health": "up"
+    }
+  ],
+  "grafana_health": {
+    "database": "ok",
+    "version": "12.1.1",
+    "commit": "df5de8219b41d1e639e003bf5f3a85913761d167"
+  },
+  "restart": {
+    "before": 0,
+    "after": 1,
+    "style_transfer": {
+      "status": 200,
+      "bytes": 21957,
+      "sha256": "3eef993cabbe9da9bfefc302cd307646486e8506955a4a5e6ccee3d8dbcbf544"
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,4 @@
+audit: type=1400 audit(1792436076.878:261): apparmor="DENIED" operation="open" class="file" profile="my-apparmor-profile" name="/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4" pid=4935 comm="bash" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+audit: type=1400 audit(1792436076.878:262): apparmor="DENIED" operation="open" class="file" profile="my-apparmor-profile" name="/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4" pid=4935 comm="bash" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+audit: type=1400 audit(1792436076.898:263): apparmor="DENIED" operation="open" class="file" profile="my-apparmor-profile" name="/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4" pid=4954 comm="bash" requested_mask="r" denied_mask="r" fsuid=0 ouid=0
+audit: type=1400 audit(1792436076.898:264): apparmor="DENIED" operation="open" class="file" profile="my-apparmor-profile" name="/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4" pid=4954 comm="bash" requested_mask="r" denied_mask="r" fsuid=0 ouid=0

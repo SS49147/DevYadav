@@ -1,6 +1,6 @@
 # Exercise 5: Docker Security with AppArmor
 
-Implement [Sunag's AppArmor exercise](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/5-Docker-Security-AppArmor.md): containerize the Flask app, apply a profile through the Docker SDK for Python, and test denied file access and binary execution.
+Containerize the Flask app, apply an AppArmor profile through the Docker SDK for Python, and test denied file access and binary execution.
 
 ## Host requirement
 
@@ -42,7 +42,9 @@ Do not replace an existing profile of the same name without inspecting it first.
 
 `test_restricted_actions.py` first checks the same operations in an unconfined control container. It then requires the confined Python process to deny reading `/etc/passwd`, writing under `/var`, spawning `/bin/bash` and spawning `/usr/bin/cat`. Reading `/etc/passwd` is tested with Python directly so a denied `cat` execution cannot be mistaken for a denied file read. A write under `/app` must still succeed and Flask must remain reachable. Both containers are removed after the tests.
 
-Direct Docker exec attempts are recorded separately. On the tested runner, directly launching Bash through the Docker API returned exit code 0. The source's expected exit code 126 cannot be claimed for that operation. The spawning test checks execution initiated by an already-confined Python process; it does not claim to restrict an administrator controlling the Docker daemon.
+The test also requires direct Docker exec of `/bin/bash`, `/bin/bash -c 'exit 0'` and `cat /etc/passwd` to fail under the profile and succeed in the unconfined control. The profile explicitly denies Bash's `libtinfo` library in addition to the source's binary-execution restrictions. This prevents Bash startup even when the runtime applies the profile while launching that first executable. Python and Flask do not need this library.
+
+On the measured runner, direct Bash startup exits 127 because its dynamic loader cannot read `libtinfo.so.6`; the kernel audit log records the AppArmor denial. The source's example exit code 126 is not claimed. The workflow requires that kernel evidence, both direct-denial checks and the unconfined controls. Denial of a child process spawned by Python is still tested separately. This profile does not restrict an administrator who can change the Docker daemon's configuration or start an unconfined container.
 
 The scripts publish `127.0.0.1:15005` to container port 5000, avoiding the earlier assignment's host port. Reports are saved under `evidence/`; GitHub Actions also uploads the Linux reports as an artifact.
 

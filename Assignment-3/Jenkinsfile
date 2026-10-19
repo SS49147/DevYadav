@@ -7,10 +7,10 @@ pipeline {
         stage('Test') {
             steps {
                 dir('Assignment-3') {
-                sh 'python3 -m venv .venv'
-                sh '.venv/bin/pip install -r proxy/requirements.txt -r tests/requirements.txt'
-                sh '.venv/bin/pytest -q'
-                sh 'docker compose config --quiet'
+                    sh 'python3 -m venv .venv'
+                    sh '.venv/bin/pip install -r proxy/requirements.txt -r tests/requirements.txt'
+                    sh '.venv/bin/pytest -q'
+                    sh 'docker compose config --quiet'
                 }
             }
         }
@@ -18,8 +18,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 dir('Assignment-3') {
-                sh 'docker compose pull ai-service prometheus grafana cadvisor'
-                sh 'docker compose up --build -d'
+                    sh 'docker compose pull ai-service prometheus grafana cadvisor'
+                    sh 'docker compose up --build -d'
                 }
             }
         }

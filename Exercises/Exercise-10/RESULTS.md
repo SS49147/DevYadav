@@ -27,3 +27,9 @@ The Jenkins lab containers from Exercises 6, 7 and 9 were paused to free memory.
 - [Actual cart response in the browser](evidence/shopping-cart.png)
 
 The verification's temporary forwarding processes were stopped after the checks. Its recorded loopback URLs are historical test URLs; open fresh Service tunnels to access the apps again.
+
+## Rolling update recheck — 20 October 2026
+
+[GitHub Actions run 39306429288](https://github.com/Anas2694/DevOps-Lab/actions/runs/39306429288) repeated the initial deployment checks and then restarted the cart Deployment. All three original pod UIDs were replaced by new pods on three distinct nodes. At least two cart replicas remained available in every sample; the final sample had all three available.
+
+The rollout uses `maxSurge: 0` and `maxUnavailable: 1`, so it completes without needing a fourth node. All new carts were empty, matching the source application's in-memory state behavior. [rollout.json](evidence/rollout.json) contains the measured UIDs, node placement, strategy and availability samples.

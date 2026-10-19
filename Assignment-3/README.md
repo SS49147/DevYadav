@@ -79,10 +79,20 @@ Sending `SIGTERM` to the container's main process simulates an application proce
 
 Two pipeline configurations are included:
 
-- `.github/workflows/assignment-3.yml` runs proxy tests, validates Compose and builds the proxy image on pushes and pull requests.
+- `.github/workflows/assignment-3.yml` runs proxy tests, validates Compose, deploys the supplied image and monitoring, checks actual JPEG transformation and request counts, and verifies automatic restart on pushes and pull requests. The runner removes its test deployment afterward.
 - `Jenkinsfile` runs the same checks before pulling and deploying the complete Compose stack on the Jenkins machine.
 
 This keeps deployment after the test stage. If a test or configuration check fails, the deploy stage does not run.
+
+For Jenkins, use a Linux agent with Python 3, venv, Git, Docker and Compose installed. Create a Pipeline job using **Pipeline script from SCM**, repository `https://github.com/Anas2694/DevOps-Lab.git`, branch `*/main`, and script path `Assignment-3/Jenkinsfile`. Run the first build manually. Subsequent changes are detected by SCM polling every two minutes. Each stage enters `Assignment-3` inside the repository checkout before running its commands.
+
+To check an existing deployment from this folder:
+
+```powershell
+python verify_deployment.py
+```
+
+Use the Python environment containing `proxy/requirements.txt`. Add `--check-restart` to deliberately terminate and verify recovery of this assignment's API container. The report and generated JPEG are saved as `evidence/integration.json` and `evidence/ci-styled-output.jpg`. GitHub Actions uploads them as an artifact. HTTP 413 uploads are counted once under their actual status, alongside the source-required 200, 400 and 500 series.
 
 ## Local tests
 

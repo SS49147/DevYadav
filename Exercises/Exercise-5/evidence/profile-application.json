@@ -1,5 +1,5 @@
 {
-  "image_id": "sha256:0fcd464646951dc59fef1b2138112d89a3cfe6d3a53c306120d37f93bb0ea44a",
+  "image_id": "sha256:ed018dea8a6372ef3c27431d1efe6886286a481e53f56bea12a3d4822b4eed45",
   "security_options": [
     "apparmor=my-apparmor-profile"
   ],
@@ -11,5 +11,5 @@
     "body": "Hello, this is a secure Flask application running inside a Docker container!"
   },
   "container_removed": true,
-  "checked_at_utc": "2026-10-09T18:01:31.359670+00:00"
+  "checked_at_utc": "2026-10-19T18:54:24.263061+00:00"
 }

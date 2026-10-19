@@ -1,6 +1,6 @@
 # Exercise 10: Multi-Node Kubernetes Applications
 
-Implement [Sunag's multi-node exercise](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/10-Minikube-Multi-Node-Multi-App-Minikube-Deployment.md): run a three-node Minikube cluster, deploy the Product Catalog with two replicas and Shopping Cart with three, distribute replicas across nodes and test both NodePort Services.
+Run a three-node Minikube cluster, deploy the Product Catalog with two replicas and Shopping Cart with three, distribute replicas across nodes and test both NodePort Services.
 
 ## Start and verify
 
@@ -54,8 +54,10 @@ Each cart is a separate in-memory Python list. Three replicas provide multiple r
 
 Strict anti-affinity also requires three healthy nodes for all three cart replicas. If one node is unavailable, its replacement cannot run alongside another cart on a surviving node. The remaining replicas can serve requests, but this lab does not claim fault-tolerant cart data or simulate a node failure.
 
-Changing a local `latest` image does not automatically restart existing pods. This exercise verifies the fresh deployment; plan any later rollout and its in-memory data loss explicitly.
+Changing a local `latest` image does not automatically restart existing pods. The cart Deployment uses `maxSurge: 0` and `maxUnavailable: 1` so an update can replace one pod at a time on the three occupied nodes. The default strategy would wait for a fourth cart pod that required anti-affinity cannot schedule.
 
-The GitHub workflow repeats image tests, three-node deployment, distribution checks and actual HTTP requests on a fresh runner. Generated measurements are saved under `evidence/verification.json`.
+To test replacement after the initial verification, run `./verify_rollout.ps1`. It deliberately restarts all three cart pods, checks their new UIDs and placement, and records availability samples in `evidence/rollout.json`. This discards the source application's in-memory carts; use it only for the lab demonstration. At least two cart replicas must remain available in every sample, and all three new carts must be empty at completion.
+
+The GitHub workflow repeats image tests, three-node deployment, distribution checks, actual HTTP requests and the rolling replacement on a fresh runner. Generated measurements are saved under `evidence/verification.json` and `evidence/rollout.json`.
 
 Measured results and the startup issue actually encountered are in [RESULTS.md](RESULTS.md).
