@@ -1,6 +1,6 @@
 # Exercise 6: Delivery Monitoring with Prometheus and Grafana
 
-Implement [Sunag's monitoring exercise](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/6-Grafana-Realtime-Monitoring-of-Quick-Commerce-App.md): simulate deliveries, collect four metrics, show them in Grafana, define alert rules, and deploy the services through Jenkins.
+Simulate deliveries, collect four metrics, show them in Grafana, define alert rules, and deploy the services through Jenkins.
 
 Measured build results, checks and screenshots are in [RESULTS.md](RESULTS.md).
 

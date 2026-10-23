@@ -2,8 +2,6 @@
 
 Run the `nginx` image as a Kubernetes pod, expose it through a NodePort service and open the Nginx welcome page.
 
-Reference: [SunagP's Exercise 1](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/1-Kubernetes-Getting-Started.md).
-
 ## Setup and execution
 
 Install Minikube and start Docker Desktop with Linux containers. Run these commands in PowerShell:

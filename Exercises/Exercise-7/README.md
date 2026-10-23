@@ -1,6 +1,6 @@
 # Exercise 7: CI and Jenkins Installation
 
-Follow [Sunag's Jenkins installation exercise](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/7-Jenkins-CI-Automation.md): run the official Jenkins LTS image, unlock the new instance and complete its setup.
+Run the official Jenkins LTS image, unlock the new instance and complete its setup.
 
 ## CI concepts
 

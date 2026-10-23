@@ -1,6 +1,6 @@
 # Exercise 2: Flask on Minikube
 
-Deploy the Flask app from [Sunag's Exercise 2](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/2-Minikube-Kubectl-Flask.md), first without a Service, then expose it through a NodePort Service.
+Deploy the Flask app, first without a Service, then expose it through a NodePort Service.
 
 The app returns `Hello from Flask on Kubernetes!` on `/` and listens on container port `15000`. The Deployment has one replica and uses `flask-app:latest` with `imagePullPolicy: Never`.
 

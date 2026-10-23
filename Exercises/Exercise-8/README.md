@@ -1,6 +1,6 @@
 # Exercise 8: Hello World Jenkins Job
 
-Follow [Sunag's Hello World exercise](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/8-Jenkins-Hello-World-Job.md): commit a shell script, configure a Freestyle job with Git SCM, run it and inspect the output.
+Commit a shell script, configure a Jenkins Freestyle job with Git SCM, run it and inspect the output.
 
 The script retains the source's `Hello, Jenkins!` message. It stays in this repository instead of creating `devops-sample-code`, as selected for this lab. Jenkins checks out `https://github.com/Anas2694/DevOps-Lab.git`, branch `main`, and runs the script's folder path. Existing authenticated Git tooling handles pushes; public Jenkins checkout does not require a new personal access token.
 

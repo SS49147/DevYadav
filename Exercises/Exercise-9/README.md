@@ -1,6 +1,6 @@
 # Exercise 9: Jenkins Multi-Stage Flask Pipeline
 
-Implement [Sunag's Python pipeline exercise](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/9-Jenkins-Multi-Stage-Pipeline.md): build dependencies, test Flask, copy it to a mock deployment directory, start it and test the application.
+Build dependencies, test Flask, copy it to a mock deployment directory, start it and test the application through a Jenkins pipeline.
 
 The application's `/` response is exactly `Hello, Jenkins Multi-Stage Pipeline!`. Flask remains pinned to the source's 2.1.2 version, with compatible Werkzeug 2.1.2. This is a teaching example using older dependencies and Flask's development server, not a production deployment.
 

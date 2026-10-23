@@ -1,6 +1,6 @@
 # Exercise 4: Docker Networking
 
-Run Flask, MySQL and Redis on a custom bridge network, following [Sunag's Exercise 4](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/4-Docker-Networking.md) and its [linked practical guide](https://docs.google.com/document/d/1ue5G-sj02E4G9NW5T5ObmsbdMl4LihUS/edit).
+Run Flask, MySQL and Redis on a custom bridge network, following the lab exercise and its [practical guide](https://docs.google.com/document/d/1ue5G-sj02E4G9NW5T5ObmsbdMl4LihUS/edit).
 
 The Flask app serves `/about` on container port 5001. The lab checks name resolution, ping, MySQL and Redis connectivity; the `/about` route itself does not query either server.
 

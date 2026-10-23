@@ -1,6 +1,6 @@
 # Exercise 3: Scaling Flask with a ReplicaSet
 
-Implement [Sunag's ReplicaSet exercise](https://github.com/SunagP/DevOps-Lab/blob/main/Exercises/3-Minikube-Scaling-Flask-App-with-Replicasets.md): run three Flash Sale pods on one node, scale to five, delete one pod and check that Kubernetes replaces it.
+Run three Flash Sale pods on one node, scale to five, delete one pod and check that Kubernetes replaces it.
 
 The Flask app has `/`, `/buy` and `/health` routes. `/buy?user=123` returns a simulated purchase, including the pod that handled it. It does not store orders or process payments.
 

@@ -4,7 +4,7 @@
 
 Fine-tune a pretrained language model to identify course names in text, then deploy the trained model through FastAPI in Docker.
 
-Reference: [SunagP's course-name extraction exercise](https://github.com/SunagP/DevOps-Lab/blob/main/Assignments/Docker-LLM-FineTune-Deploy-as-Docker.md). The source lists this as an unnumbered exercise after the three assignment PDFs. It is stored here as Assignment 4 for repository organization.
+The lab manual lists course-name extraction as an unnumbered exercise after the three assignment briefs. It is stored here as Assignment 4 for repository organization.
 
 ## Dataset and model
 
@@ -18,7 +18,7 @@ The dataset is a synthetic lab catalogue, not an official college course list. I
 
 Each course name is recorded as a character span. Tokenization converts these spans into `B-COURSE`, `I-COURSE` and `O` labels. Special tokens receive `-100` so they are excluded from the training loss. Predictions are joined using tokenizer offsets to preserve the spelling in the original text.
 
-The model is `dbmdz/bert-large-cased-finetuned-conll03-english`, the BERT-large checkpoint named in SunagP's exercise. Its original entity-classification head is replaced with the three course labels before fine-tuning. The base checkpoint revision is pinned in `train.py`.
+The model is `dbmdz/bert-large-cased-finetuned-conll03-english`, the BERT-large checkpoint specified for this exercise. Its original entity-classification head is replaced with the three course labels before fine-tuning. The base checkpoint revision is pinned in `train.py`.
 
 ## Train locally
 
