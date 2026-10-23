@@ -33,6 +33,7 @@ jobs:
           minikube start --profile exercise-1-ci --driver docker --cpus 2 --memory 2048 --keep-context --preload=false
           minikube --profile exercise-1-ci kubectl -- --context exercise-1-ci get namespace exercise1 || minikube --profile exercise-1-ci kubectl -- --context exercise-1-ci create namespace exercise1
           minikube --profile exercise-1-ci kubectl -- --context exercise-1-ci -n exercise1 apply -f Exercises/Exercise-1/hello-k8s.yaml
+          sleep 5
           minikube --profile exercise-1-ci kubectl -- --context exercise-1-ci -n exercise1 wait --for=condition=Ready pods --all --timeout=180s
       - name: Verify pod, service and welcome page
         shell: pwsh
